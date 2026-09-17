@@ -1,6 +1,6 @@
 import express from "express";
 import { upload } from "../middleware/upload.js";
-import { uploadFileToStorage, isS3Configured } from "../config/s3.js";
+import { uploadFileToStorage, listFilesFromStorage, isS3Configured } from "../config/s3.js";
 
 const router = express.Router();
 
@@ -92,6 +92,25 @@ router.post("/multiple", upload.array("images", 10), async (req, res, next) => {
       urls: urls,
       storageType: isS3Configured() ? "s3" : "local",
       count: urls.length,
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+/**
+ * @route   GET /api/upload/images
+ * @desc    List uploaded images from storage (S3 or local uploads folder)
+ */
+router.get("/images", async (req, res, next) => {
+  try {
+    const folder = req.query.folder || "";
+    const images = await listFilesFromStorage(folder);
+    res.json({
+      success: true,
+      count: images.length,
+      images,
+      storageType: isS3Configured() ? "s3" : "local",
     });
   } catch (error) {
     next(error);

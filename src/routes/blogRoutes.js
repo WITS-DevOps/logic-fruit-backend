@@ -35,10 +35,19 @@ router.get("/", async (req, res, next) => {
 router.get("/:slug", async (req, res, next) => {
   try {
     const { slug } = req.params;
+    const { preview } = req.query;
 
     const blog = await dynamoService.getBySlugOrId("blog", slug);
 
     if (!blog) {
+      return res.status(404).json({
+        success: false,
+        message: "Blog post not found",
+      });
+    }
+
+    // Protect draft blogs from public viewing unless preview mode is active
+    if (blog.status === "draft" && preview !== "true") {
       return res.status(404).json({
         success: false,
         message: "Blog post not found",
