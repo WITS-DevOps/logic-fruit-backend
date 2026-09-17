@@ -72,6 +72,7 @@ router.post("/", async (req, res, next) => {
       videodesc,
       videourl,
       datasheetUrl,
+      directDownload,
       status,
     } = req.body;
 
@@ -110,6 +111,7 @@ router.post("/", async (req, res, next) => {
       videodesc: videodesc || "",
       videourl: videourl || "",
       datasheetUrl: datasheetUrl || "",
+      directDownload: directDownload === true || directDownload === "true",
       status: status || "published",
     });
 
