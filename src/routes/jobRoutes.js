@@ -101,9 +101,9 @@ router.post("/", async (req, res, next) => {
     const newJob = await dynamoService.create("job", {
       title,
       slug: generatedSlug,
-      department: department || "Executive & Leadership",
-      experience: experience || "5-9 Years",
-      location: location || "Gurugram",
+      department: department || "",
+      experience: experience || "",
+      location: location || "",
       workSchedule: workSchedule || "",
       workMode: workMode || "On-site / Flexible",
       type: type || "Full-Time",

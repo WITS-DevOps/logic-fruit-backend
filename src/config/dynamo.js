@@ -14,12 +14,19 @@ export function isDynamoDBConfigured() {
 }
 
 let docClient = null;
+let lastKey = null;
+let lastToken = null;
 
 /**
- * Get or create the DynamoDB Document Client
+ * Get or create the DynamoDB Document Client (refreshes automatically if .env keys change)
  */
 export function getDocClient() {
-  if (!docClient && isDynamoDBConfigured()) {
+  if (!isDynamoDBConfigured()) return null;
+
+  const currentKey = process.env.AWS_ACCESS_KEY_ID;
+  const currentToken = process.env.AWS_SESSION_TOKEN;
+
+  if (!docClient || currentKey !== lastKey || currentToken !== lastToken) {
     const credentials = {
       accessKeyId: process.env.AWS_ACCESS_KEY_ID,
       secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
@@ -39,6 +46,10 @@ export function getDocClient() {
         removeUndefinedValues: true,
       },
     });
+
+    lastKey = currentKey;
+    lastToken = currentToken;
   }
+
   return docClient;
 }

@@ -1,12 +1,17 @@
 import express from "express";
 import { upload } from "../middleware/upload.js";
 import { uploadFileToStorage, listFilesFromStorage, isS3Configured } from "../config/s3.js";
+import { isLocalStorageActive } from "../config/storageMode.js";
 
 const router = express.Router();
 
+function getStorageType() {
+  return isLocalStorageActive() ? "local" : (isS3Configured() ? "s3" : "not_configured");
+}
+
 /**
  * @route   POST /api/upload/image
- * @desc    Upload a single image (to S3 or local uploads fallback)
+ * @desc    Upload a single image (to S3 or local uploads)
  */
 router.post("/image", upload.single("image"), async (req, res, next) => {
   try {
@@ -24,7 +29,7 @@ router.post("/image", upload.single("image"), async (req, res, next) => {
       success: true,
       message: "Image uploaded successfully",
       url: fileUrl,
-      storageType: isS3Configured() ? "s3" : "local",
+      storageType: getStorageType(),
       filename: req.file.originalname,
       size: req.file.size,
     });
@@ -60,7 +65,7 @@ router.post("/pdf", upload.single("pdf"), async (req, res, next) => {
       success: true,
       message: "PDF uploaded successfully",
       url: fileUrl,
-      storageType: isS3Configured() ? "s3" : "local",
+      storageType: getStorageType(),
       filename: req.file.originalname,
       size: req.file.size,
     });
@@ -90,7 +95,7 @@ router.post("/multiple", upload.array("images", 10), async (req, res, next) => {
       success: true,
       message: "Files uploaded successfully",
       urls: urls,
-      storageType: isS3Configured() ? "s3" : "local",
+      storageType: getStorageType(),
       count: urls.length,
     });
   } catch (error) {
@@ -110,7 +115,7 @@ router.get("/images", async (req, res, next) => {
       success: true,
       count: images.length,
       images,
-      storageType: isS3Configured() ? "s3" : "local",
+      storageType: getStorageType(),
     });
   } catch (error) {
     next(error);

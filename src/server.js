@@ -6,6 +6,7 @@ import { fileURLToPath } from "url";
 
 import { connectDB } from "./config/db.js";
 import { isS3Configured } from "./config/s3.js";
+import { isLocalStorageActive } from "./config/storageMode.js";
 import { errorHandler } from "./middleware/errorHandler.js";
 
 import blogRoutes from "./routes/blogRoutes.js";
@@ -37,16 +38,22 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Serve local uploads folder statically (fallback when AWS S3 is not yet configured)
+// Serve local uploads folder statically
 app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
 
 // System Health Check Endpoint
 app.get("/api/health", (req, res) => {
+  const isLocal = isLocalStorageActive();
   res.json({
     status: "ok",
     message: "Logic Fruit Backend API is running smoothly",
-    database: `AWS DynamoDB (${process.env.DYNAMODB_TABLE_NAME || "logicfruit_cms"})`,
-    storage: isS3Configured() ? `AWS S3 (${process.env.AWS_S3_BUCKET_NAME})` : "Local Storage (/uploads)",
+    mode: isLocal ? "local" : "aws",
+    database: isLocal
+      ? "Local File Storage (backend/data/local_db.json)"
+      : `AWS DynamoDB (${process.env.DYNAMODB_TABLE_NAME || "logicfruit_cms"})`,
+    storage: isLocal
+      ? "Local Storage (/uploads)"
+      : (isS3Configured() ? `AWS S3 (${process.env.AWS_S3_BUCKET_NAME})` : "AWS S3 (Not configured)"),
     timestamp: new Date().toISOString(),
   });
 });

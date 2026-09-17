@@ -109,7 +109,7 @@ router.post("/", async (req, res, next) => {
       authorRole: authorRole || "",
       img: img || "",
       pdfUrl: pdfUrl || "",
-      hasLivePdf: Boolean(pdfUrl || hasLivePdf),
+      hasLivePdf: hasLivePdf !== undefined ? Boolean(hasLivePdf) : Boolean(pdfUrl),
       overview: Array.isArray(overview) ? overview : overview ? [overview] : [],
       whatYouLearn: Array.isArray(whatYouLearn) ? whatYouLearn : whatYouLearn ? [whatYouLearn] : [],
       keyHighlights: Array.isArray(keyHighlights) ? keyHighlights : keyHighlights ? [keyHighlights] : [],
@@ -141,8 +141,8 @@ router.put("/:id", async (req, res, next) => {
       updates.slug = slugify(updates.slug, { lower: true, strict: true });
     }
 
-    if (updates.pdfUrl) {
-      updates.hasLivePdf = true;
+    if (updates.hasLivePdf !== undefined) {
+      updates.hasLivePdf = Boolean(updates.hasLivePdf);
     }
 
     const updatedWhitepaper = await dynamoService.update(id, updates);

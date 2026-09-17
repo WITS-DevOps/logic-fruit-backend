@@ -16,17 +16,17 @@ const jobSchema = new mongoose.Schema(
     },
     department: {
       type: String,
-      default: "Executive & Leadership",
+      default: "",
       trim: true,
     },
     experience: {
       type: String,
-      default: "5-9 Years",
+      default: "",
       trim: true,
     },
     location: {
       type: String,
-      default: "Gurugram",
+      default: "",
       trim: true,
     },
     workSchedule: {

@@ -1,10 +1,18 @@
 import { DescribeTableCommand } from "@aws-sdk/client-dynamodb";
 import { getDocClient, TABLE_NAME, isDynamoDBConfigured } from "./dynamo.js";
+import { isLocalStorageActive } from "./storageMode.js";
 
 /**
- * Check and verify AWS DynamoDB database connection
+ * Check and verify database connection
  */
 export async function connectDB() {
+  if (isLocalStorageActive()) {
+    console.log("📁 Local Storage Mode ACTIVE:");
+    console.log("   - CMS Data: backend/data/local_db.json");
+    console.log("   - Uploads:  backend/uploads/");
+    return;
+  }
+
   if (!isDynamoDBConfigured()) {
     console.log("⚠️  AWS DynamoDB credentials not configured. Please check your .env file.");
     return;
@@ -19,3 +27,4 @@ export async function connectDB() {
     console.error(`❌ AWS DynamoDB Connection Error: ${error.message}`);
   }
 }
+

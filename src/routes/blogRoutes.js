@@ -29,6 +29,81 @@ router.get("/", async (req, res, next) => {
 });
 
 /**
+ * @route   GET /api/blogs/categories
+ * @desc    Get all custom blog categories stored in DB
+ */
+router.get("/categories", async (req, res, next) => {
+  try {
+    let customCategories = [];
+    try {
+      customCategories = await dynamoService.getAll("category");
+    } catch (e) {
+      console.warn("Could not query categories from DB:", e.message);
+    }
+
+    res.json({
+      success: true,
+      data: customCategories || [],
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+/**
+ * @route   POST /api/blogs/categories
+ * @desc    Create and store a new blog category in DB
+ */
+router.post("/categories", async (req, res, next) => {
+  try {
+    const { label, value } = req.body;
+    if (!label || !label.trim()) {
+      return res.status(400).json({
+        success: false,
+        message: "Please provide a category name",
+      });
+    }
+
+    const trimmedLabel = label.trim();
+    const slug = value
+      ? slugify(value, { lower: true, strict: true })
+      : slugify(trimmedLabel, { lower: true, strict: true });
+
+    let existing = [];
+    try {
+      existing = await dynamoService.getAll("category");
+    } catch (e) {
+      console.warn("Could not check existing categories:", e.message);
+    }
+
+    const duplicate = existing.find(
+      (c) => c.value === slug || (c.label && c.label.toLowerCase() === trimmedLabel.toLowerCase())
+    );
+
+    if (duplicate) {
+      return res.json({
+        success: true,
+        message: "Category already exists",
+        data: duplicate,
+      });
+    }
+
+    const newCategory = await dynamoService.create("category", {
+      label: trimmedLabel,
+      value: slug,
+    });
+
+    res.status(201).json({
+      success: true,
+      message: "Category added successfully to database",
+      data: newCategory,
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+/**
  * @route   GET /api/blogs/:slug
  * @desc    Get a single blog by slug or ID
  */

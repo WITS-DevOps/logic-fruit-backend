@@ -68,6 +68,7 @@ router.post("/", async (req, res, next) => {
       featureList,
       heroImage,
       galleryImages,
+      blockDiagrams,
       videodesc,
       videourl,
       datasheetUrl,
@@ -96,7 +97,7 @@ router.post("/", async (req, res, next) => {
     const newProduct = await dynamoService.create("product", {
       title,
       slug: generatedSlug,
-      type: type || "System /Board",
+      type: type || "Hardware System",
       feature: feature || "",
       featureList: Array.isArray(featureList)
         ? featureList
@@ -105,6 +106,7 @@ router.post("/", async (req, res, next) => {
         : [],
       heroImage: heroImage || "",
       galleryImages: Array.isArray(galleryImages) ? galleryImages : [],
+      blockDiagrams: Array.isArray(blockDiagrams) ? blockDiagrams : [],
       videodesc: videodesc || "",
       videourl: videourl || "",
       datasheetUrl: datasheetUrl || "",
