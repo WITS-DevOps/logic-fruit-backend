@@ -13,6 +13,7 @@ import newsRoutes from "./routes/newsRoutes.js";
 import whitepaperRoutes from "./routes/whitepaperRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
 import uploadRoutes from "./routes/uploadRoutes.js";
+import jobRoutes from "./routes/jobRoutes.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -44,7 +45,8 @@ app.get("/api/health", (req, res) => {
   res.json({
     status: "ok",
     message: "Logic Fruit Backend API is running smoothly",
-    storage: isS3Configured() ? "AWS S3" : "Local Storage (/uploads)",
+    database: `AWS DynamoDB (${process.env.DYNAMODB_TABLE_NAME || "logicfruit_cms"})`,
+    storage: isS3Configured() ? `AWS S3 (${process.env.AWS_S3_BUCKET_NAME})` : "Local Storage (/uploads)",
     timestamp: new Date().toISOString(),
   });
 });
@@ -55,6 +57,7 @@ app.use("/api/blogs", blogRoutes);
 app.use("/api/news", newsRoutes);
 app.use("/api/whitepapers", whitepaperRoutes);
 app.use("/api/products", productRoutes);
+app.use("/api/jobs", jobRoutes);
 
 // 404 Handler
 app.use((req, res) => {
