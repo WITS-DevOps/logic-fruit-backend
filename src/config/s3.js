@@ -19,12 +19,17 @@ export function isS3Configured() {
 let s3Client = null;
 
 if (isS3Configured()) {
+  const credentials = {
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+  };
+  if (process.env.AWS_SESSION_TOKEN) {
+    credentials.sessionToken = process.env.AWS_SESSION_TOKEN;
+  }
+
   s3Client = new S3Client({
     region: process.env.AWS_REGION || "ap-south-1",
-    credentials: {
-      accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-      secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-    },
+    credentials,
   });
   console.log("☁️  AWS S3 Client initialized");
 } else {

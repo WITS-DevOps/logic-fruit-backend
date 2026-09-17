@@ -1,6 +1,6 @@
 import express from "express";
 import slugify from "slugify";
-import { Whitepaper } from "../models/Whitepaper.js";
+import { dynamoService } from "../services/dynamoService.js";
 
 const router = express.Router();
 
@@ -11,15 +11,11 @@ const router = express.Router();
 router.get("/", async (req, res, next) => {
   try {
     const { status } = req.query;
-    const filter = {};
+    const filter = {
+      status: status || "published",
+    };
 
-    if (status) {
-      filter.status = status;
-    } else {
-      filter.status = "published";
-    }
-
-    const whitepapers = await Whitepaper.find(filter).sort({ createdAt: -1 });
+    const whitepapers = await dynamoService.getAll("whitepaper", filter);
 
     res.json({
       success: true,
@@ -39,11 +35,7 @@ router.get("/:slug", async (req, res, next) => {
   try {
     const { slug } = req.params;
 
-    let whitepaper = await Whitepaper.findOne({ slug: slug.toLowerCase() });
-
-    if (!whitepaper && slug.match(/^[0-9a-fA-F]{24}$/)) {
-      whitepaper = await Whitepaper.findById(slug);
-    }
+    const whitepaper = await dynamoService.getBySlugOrId("whitepaper", slug);
 
     if (!whitepaper) {
       return res.status(404).json({
@@ -94,19 +86,25 @@ router.post("/", async (req, res, next) => {
       ? slugify(slug, { lower: true, strict: true })
       : slugify(title, { lower: true, strict: true });
 
-    const existing = await Whitepaper.findOne({ slug: generatedSlug });
-    if (existing) {
+    const exists = await dynamoService.slugExists(generatedSlug);
+    if (exists) {
       return res.status(400).json({
         success: false,
         message: `A whitepaper with slug '${generatedSlug}' already exists. Please choose a different title or slug.`,
       });
     }
 
-    const newWhitepaper = await Whitepaper.create({
+    const newWhitepaper = await dynamoService.create("whitepaper", {
       title,
       slug: generatedSlug,
       tag: tag || "Whitepaper",
-      date: date || undefined,
+      date:
+        date ||
+        new Date().toLocaleDateString("en-US", {
+          month: "long",
+          day: "numeric",
+          year: "numeric",
+        }),
       author: author || "",
       authorRole: authorRole || "",
       img: img || "",
@@ -135,21 +133,19 @@ router.post("/", async (req, res, next) => {
 router.put("/:id", async (req, res, next) => {
   try {
     const { id } = req.params;
+    const updates = { ...req.body };
 
-    if (req.body.title && !req.body.slug) {
-      req.body.slug = slugify(req.body.title, { lower: true, strict: true });
-    } else if (req.body.slug) {
-      req.body.slug = slugify(req.body.slug, { lower: true, strict: true });
+    if (updates.title && !updates.slug) {
+      updates.slug = slugify(updates.title, { lower: true, strict: true });
+    } else if (updates.slug) {
+      updates.slug = slugify(updates.slug, { lower: true, strict: true });
     }
 
-    if (req.body.pdfUrl) {
-      req.body.hasLivePdf = true;
+    if (updates.pdfUrl) {
+      updates.hasLivePdf = true;
     }
 
-    const updatedWhitepaper = await Whitepaper.findByIdAndUpdate(id, req.body, {
-      new: true,
-      runValidators: true,
-    });
+    const updatedWhitepaper = await dynamoService.update(id, updates);
 
     if (!updatedWhitepaper) {
       return res.status(404).json({
@@ -176,9 +172,9 @@ router.delete("/:id", async (req, res, next) => {
   try {
     const { id } = req.params;
 
-    const deletedWhitepaper = await Whitepaper.findByIdAndDelete(id);
+    const result = await dynamoService.delete(id);
 
-    if (!deletedWhitepaper) {
+    if (!result) {
       return res.status(404).json({
         success: false,
         message: "Whitepaper not found to delete",

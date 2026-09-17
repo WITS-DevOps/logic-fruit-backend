@@ -1,6 +1,6 @@
 import express from "express";
 import slugify from "slugify";
-import { Blog } from "../models/Blog.js";
+import { dynamoService } from "../services/dynamoService.js";
 
 const router = express.Router();
 
@@ -11,20 +11,12 @@ const router = express.Router();
 router.get("/", async (req, res, next) => {
   try {
     const { category, status } = req.query;
-    const filter = {};
+    const filter = {
+      category,
+      status: status || "published",
+    };
 
-    if (category && category !== "all") {
-      filter.category = category;
-    }
-
-    if (status) {
-      filter.status = status;
-    } else {
-      // By default, return published blogs for frontend consumers
-      filter.status = "published";
-    }
-
-    const blogs = await Blog.find(filter).sort({ createdAt: -1 });
+    const blogs = await dynamoService.getAll("blog", filter);
 
     res.json({
       success: true,
@@ -44,12 +36,7 @@ router.get("/:slug", async (req, res, next) => {
   try {
     const { slug } = req.params;
 
-    // Search by slug first, or by MongoDB _id if it's a valid ID
-    let blog = await Blog.findOne({ slug: slug.toLowerCase() });
-
-    if (!blog && slug.match(/^[0-9a-fA-F]{24}$/)) {
-      blog = await Blog.findById(slug);
-    }
+    const blog = await dynamoService.getBySlugOrId("blog", slug);
 
     if (!blog) {
       return res.status(404).json({
@@ -73,7 +60,20 @@ router.get("/:slug", async (req, res, next) => {
  */
 router.post("/", async (req, res, next) => {
   try {
-    const { title, slug, category, tag, author, authorRole, readTime, date, heroImage, excerpt, contentMarkdown, status } = req.body;
+    const {
+      title,
+      slug,
+      category,
+      tag,
+      author,
+      authorRole,
+      readTime,
+      date,
+      heroImage,
+      excerpt,
+      contentMarkdown,
+      status,
+    } = req.body;
 
     if (!title) {
       return res.status(400).json({
@@ -82,21 +82,19 @@ router.post("/", async (req, res, next) => {
       });
     }
 
-    // Auto-generate slug if not provided
     const generatedSlug = slug
       ? slugify(slug, { lower: true, strict: true })
       : slugify(title, { lower: true, strict: true });
 
-    // Check if slug already exists
-    const existing = await Blog.findOne({ slug: generatedSlug });
-    if (existing) {
+    const exists = await dynamoService.slugExists(generatedSlug);
+    if (exists) {
       return res.status(400).json({
         success: false,
         message: `A blog with slug '${generatedSlug}' already exists. Please choose a different title or slug.`,
       });
     }
 
-    const newBlog = await Blog.create({
+    const newBlog = await dynamoService.create("blog", {
       title,
       slug: generatedSlug,
       category: category || "all",
@@ -104,7 +102,13 @@ router.post("/", async (req, res, next) => {
       author: author || "Logic Fruit Team",
       authorRole: authorRole || "",
       readTime: readTime || "5 min read",
-      date: date || undefined,
+      date:
+        date ||
+        new Date().toLocaleDateString("en-US", {
+          month: "long",
+          day: "numeric",
+          year: "numeric",
+        }),
       heroImage: heroImage || "",
       excerpt: excerpt || "",
       contentMarkdown: contentMarkdown || "",
@@ -128,17 +132,15 @@ router.post("/", async (req, res, next) => {
 router.put("/:id", async (req, res, next) => {
   try {
     const { id } = req.params;
+    const updates = { ...req.body };
 
-    if (req.body.title && !req.body.slug) {
-      req.body.slug = slugify(req.body.title, { lower: true, strict: true });
-    } else if (req.body.slug) {
-      req.body.slug = slugify(req.body.slug, { lower: true, strict: true });
+    if (updates.title && !updates.slug) {
+      updates.slug = slugify(updates.title, { lower: true, strict: true });
+    } else if (updates.slug) {
+      updates.slug = slugify(updates.slug, { lower: true, strict: true });
     }
 
-    const updatedBlog = await Blog.findByIdAndUpdate(id, req.body, {
-      new: true,
-      runValidators: true,
-    });
+    const updatedBlog = await dynamoService.update(id, updates);
 
     if (!updatedBlog) {
       return res.status(404).json({
@@ -165,9 +167,9 @@ router.delete("/:id", async (req, res, next) => {
   try {
     const { id } = req.params;
 
-    const deletedBlog = await Blog.findByIdAndDelete(id);
+    const result = await dynamoService.delete(id);
 
-    if (!deletedBlog) {
+    if (!result) {
       return res.status(404).json({
         success: false,
         message: "Blog not found to delete",

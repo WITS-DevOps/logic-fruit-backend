@@ -1,16 +1,21 @@
-import mongoose from "mongoose";
+import { DescribeTableCommand } from "@aws-sdk/client-dynamodb";
+import { getDocClient, TABLE_NAME, isDynamoDBConfigured } from "./dynamo.js";
 
 /**
- * Connect to MongoDB database
+ * Check and verify AWS DynamoDB database connection
  */
 export async function connectDB() {
-  const uri = process.env.MONGODB_URI || "mongodb://localhost:27017/logic_fruit_cms";
+  if (!isDynamoDBConfigured()) {
+    console.log("⚠️  AWS DynamoDB credentials not configured. Please check your .env file.");
+    return;
+  }
 
   try {
-    const conn = await mongoose.connect(uri);
-    console.log(`✅ MongoDB Connected: ${conn.connection.host}`);
+    const docClient = getDocClient();
+    if (docClient) {
+      console.log(`✅ AWS DynamoDB Connected: Using table '${TABLE_NAME}' in ${process.env.AWS_REGION || "ap-south-1"}`);
+    }
   } catch (error) {
-    console.error(`❌ MongoDB Connection Error: ${error.message}`);
-    console.log("ℹ️  Tip: Make sure your MongoDB service is running, or set MONGODB_URI in your .env file.");
+    console.error(`❌ AWS DynamoDB Connection Error: ${error.message}`);
   }
 }

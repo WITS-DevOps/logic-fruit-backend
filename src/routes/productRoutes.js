@@ -1,6 +1,6 @@
 import express from "express";
 import slugify from "slugify";
-import { Product } from "../models/Product.js";
+import { dynamoService } from "../services/dynamoService.js";
 
 const router = express.Router();
 
@@ -11,19 +11,12 @@ const router = express.Router();
 router.get("/", async (req, res, next) => {
   try {
     const { type, status } = req.query;
-    const filter = {};
+    const filter = {
+      type,
+      status: status || "published",
+    };
 
-    if (type && type !== "all") {
-      filter.type = type;
-    }
-
-    if (status) {
-      filter.status = status;
-    } else {
-      filter.status = "published";
-    }
-
-    const products = await Product.find(filter).sort({ createdAt: -1 });
+    const products = await dynamoService.getAll("product", filter);
 
     res.json({
       success: true,
@@ -43,11 +36,7 @@ router.get("/:slug", async (req, res, next) => {
   try {
     const { slug } = req.params;
 
-    let product = await Product.findOne({ slug: slug.toLowerCase() });
-
-    if (!product && slug.match(/^[0-9a-fA-F]{24}$/)) {
-      product = await Product.findById(slug);
-    }
+    const product = await dynamoService.getBySlugOrId("product", slug);
 
     if (!product) {
       return res.status(404).json({
@@ -96,15 +85,15 @@ router.post("/", async (req, res, next) => {
       ? slugify(slug, { lower: true, strict: true })
       : slugify(title, { lower: true, strict: true });
 
-    const existing = await Product.findOne({ slug: generatedSlug });
-    if (existing) {
+    const exists = await dynamoService.slugExists(generatedSlug);
+    if (exists) {
       return res.status(400).json({
         success: false,
         message: `A product with slug '${generatedSlug}' already exists. Please choose a different title or slug.`,
       });
     }
 
-    const newProduct = await Product.create({
+    const newProduct = await dynamoService.create("product", {
       title,
       slug: generatedSlug,
       type: type || "System /Board",
@@ -139,17 +128,15 @@ router.post("/", async (req, res, next) => {
 router.put("/:id", async (req, res, next) => {
   try {
     const { id } = req.params;
+    const updates = { ...req.body };
 
-    if (req.body.title && !req.body.slug) {
-      req.body.slug = slugify(req.body.title, { lower: true, strict: true });
-    } else if (req.body.slug) {
-      req.body.slug = slugify(req.body.slug, { lower: true, strict: true });
+    if (updates.title && !updates.slug) {
+      updates.slug = slugify(updates.title, { lower: true, strict: true });
+    } else if (updates.slug) {
+      updates.slug = slugify(updates.slug, { lower: true, strict: true });
     }
 
-    const updatedProduct = await Product.findByIdAndUpdate(id, req.body, {
-      new: true,
-      runValidators: true,
-    });
+    const updatedProduct = await dynamoService.update(id, updates);
 
     if (!updatedProduct) {
       return res.status(404).json({
@@ -176,9 +163,9 @@ router.delete("/:id", async (req, res, next) => {
   try {
     const { id } = req.params;
 
-    const deletedProduct = await Product.findByIdAndDelete(id);
+    const result = await dynamoService.delete(id);
 
-    if (!deletedProduct) {
+    if (!result) {
       return res.status(404).json({
         success: false,
         message: "Product not found to delete",
