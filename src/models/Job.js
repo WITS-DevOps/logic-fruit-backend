@@ -58,6 +58,15 @@ const jobSchema = new mongoose.Schema(
       default: "",
       trim: true,
     },
+    heroImage: {
+      type: String,
+      default: "",
+      trim: true,
+    },
+    images: {
+      type: [String],
+      default: [],
+    },
     description: {
       type: String,
       default: "",
@@ -69,16 +78,16 @@ const jobSchema = new mongoose.Schema(
       trim: true,
     },
     responsibilities: {
-      type: [String],
-      default: [],
+      type: mongoose.Schema.Types.Mixed,
+      default: "",
     },
     skills: {
       type: [String],
       default: [],
     },
     qualifications: {
-      type: [String],
-      default: [],
+      type: mongoose.Schema.Types.Mixed,
+      default: "",
     },
     status: {
       type: String,
