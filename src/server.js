@@ -15,6 +15,7 @@ import whitepaperRoutes from "./routes/whitepaperRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
 import uploadRoutes from "./routes/uploadRoutes.js";
 import jobRoutes from "./routes/jobRoutes.js";
+import inquiryRoutes from "./routes/inquiryRoutes.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -65,6 +66,7 @@ app.use("/api/news", newsRoutes);
 app.use("/api/whitepapers", whitepaperRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/jobs", jobRoutes);
+app.use("/api/inquiries", inquiryRoutes);
 
 // 404 Handler
 app.use((req, res) => {

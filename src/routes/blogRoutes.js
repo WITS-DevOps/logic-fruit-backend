@@ -210,12 +210,40 @@ router.post("/", async (req, res, next) => {
 });
 
 /**
+ * @route   PUT /api/blogs/reorder
+ * @desc    Reorder blogs
+ */
+router.put("/reorder", async (req, res, next) => {
+  try {
+    const { orderedIds } = req.body;
+    await dynamoService.reorder("blog", orderedIds);
+    res.json({
+      success: true,
+      message: "Blogs reordered successfully",
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+/**
  * @route   PUT /api/blogs/:id
  * @desc    Update a blog post
  */
 router.put("/:id", async (req, res, next) => {
   try {
     const { id } = req.params;
+
+    // Defensive safeguard if request matches /:id instead of /reorder
+    if (id === "reorder") {
+      const { orderedIds } = req.body;
+      await dynamoService.reorder("blog", orderedIds);
+      return res.json({
+        success: true,
+        message: "Blogs reordered successfully",
+      });
+    }
+
     const updates = { ...req.body };
 
     if (updates.title && !updates.slug) {

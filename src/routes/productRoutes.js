@@ -126,6 +126,23 @@ router.post("/", async (req, res, next) => {
 });
 
 /**
+ * @route   PUT /api/products/reorder
+ * @desc    Reorder products
+ */
+router.put("/reorder", async (req, res, next) => {
+  try {
+    const { orderedIds } = req.body;
+    await dynamoService.reorder("product", orderedIds);
+    res.json({
+      success: true,
+      message: "Products reordered successfully",
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+/**
  * @route   PUT /api/products/:id
  * @desc    Update a product
  */
@@ -133,6 +150,21 @@ router.put("/:id", async (req, res, next) => {
   try {
     const { id } = req.params;
     const updates = { ...req.body };
+
+    // If making this product the Product of the Month, clear any other products
+    if (updates.isProductOfTheMonth === true) {
+      try {
+        const allProducts = await dynamoService.getAll("product");
+        for (const prod of allProducts) {
+          const pId = prod.id || prod._id;
+          if (pId !== id && (prod.isProductOfTheMonth || prod.productOfTheMonth)) {
+            await dynamoService.update(pId, { isProductOfTheMonth: false });
+          }
+        }
+      } catch (e) {
+        console.warn("Error unsetting other products of the month:", e.message);
+      }
+    }
 
     if (updates.title && !updates.slug) {
       updates.slug = slugify(updates.title, { lower: true, strict: true });

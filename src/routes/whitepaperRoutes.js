@@ -127,6 +127,23 @@ router.post("/", async (req, res, next) => {
 });
 
 /**
+ * @route   PUT /api/whitepapers/reorder
+ * @desc    Reorder whitepapers
+ */
+router.put("/reorder", async (req, res, next) => {
+  try {
+    const { orderedIds } = req.body;
+    await dynamoService.reorder("whitepaper", orderedIds);
+    res.json({
+      success: true,
+      message: "Whitepapers reordered successfully",
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+/**
  * @route   PUT /api/whitepapers/:id
  * @desc    Update a whitepaper
  */

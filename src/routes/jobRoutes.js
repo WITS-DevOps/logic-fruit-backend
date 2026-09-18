@@ -134,6 +134,23 @@ router.post("/", async (req, res, next) => {
 });
 
 /**
+ * @route   PUT /api/jobs/reorder
+ * @desc    Reorder job openings
+ */
+router.put("/reorder", async (req, res, next) => {
+  try {
+    const { orderedIds } = req.body;
+    await dynamoService.reorder("job", orderedIds);
+    res.json({
+      success: true,
+      message: "Jobs reordered successfully",
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+/**
  * @route   PUT /api/jobs/:id
  * @desc    Update a job opening
  */

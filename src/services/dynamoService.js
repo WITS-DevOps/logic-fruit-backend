@@ -47,7 +47,7 @@ export const dynamoService = {
       expressionAttributeValues[":department"] = filters.department;
     }
 
-    if (filters.type && filters.type !== "all" && entityType === "product") {
+    if (filters.type && filters.type !== "all") {
       filterExpressions.push("#prodType = :prodType");
       expressionAttributeNames["#prodType"] = "type";
       expressionAttributeValues[":prodType"] = filters.type;
@@ -67,13 +67,23 @@ export const dynamoService = {
     }
 
     const response = await docClient.send(new QueryCommand(queryParams));
-    return response.Items || [];
+    const items = response.Items || [];
+    items.sort((a, b) => {
+      const aOrder = typeof a.order === "number" ? a.order : Infinity;
+      const bOrder = typeof b.order === "number" ? b.order : Infinity;
+      if (aOrder !== bOrder) {
+        return aOrder - bOrder;
+      }
+      return new Date(b.createdAt || 0) - new Date(a.createdAt || 0);
+    });
+    return items;
   },
 
   /**
    * Get a single item by its ID
    */
   async getById(id) {
+    if (!id) return null;
     if (isLocalStorageActive()) {
       return localDataService.getById(id);
     }
@@ -81,14 +91,21 @@ export const dynamoService = {
     const docClient = getDocClient();
     if (!docClient) throw new Error("AWS DynamoDB is not configured");
 
-    const response = await docClient.send(
-      new GetCommand({
-        TableName: TABLE_NAME,
-        Key: { id },
-      })
-    );
+    try {
+      const response = await docClient.send(
+        new GetCommand({
+          TableName: TABLE_NAME,
+          Key: { id },
+        })
+      );
 
-    return response.Item || null;
+      if (response.Item) return response.Item;
+    } catch (e) {
+      // Continue to fallback
+    }
+
+    // Fallback: If not found by primary key 'id', query by slug
+    return this.getBySlug(id);
   },
 
   /**
@@ -189,6 +206,7 @@ export const dynamoService = {
    * Update an existing item by ID
    */
   async update(id, updates) {
+    if (!id) return null;
     if (isLocalStorageActive()) {
       return localDataService.update(id, updates);
     }
@@ -196,16 +214,21 @@ export const dynamoService = {
     const docClient = getDocClient();
     if (!docClient) throw new Error("AWS DynamoDB is not configured");
 
-    const existing = await this.getById(id);
+    let existing = await this.getById(id);
+    if (!existing) {
+      existing = await this.getBySlug(id);
+    }
     if (!existing) {
       return null;
     }
 
+    const realId = existing.id || id;
+
     const updatedItem = {
       ...existing,
       ...updates,
-      id,
-      _id: id,
+      id: realId,
+      _id: realId,
       entityType: existing.entityType,
       updatedAt: new Date().toISOString(),
     };
@@ -221,9 +244,29 @@ export const dynamoService = {
   },
 
   /**
+   * Reorder items for an entity by updating order indexes
+   */
+  async reorder(entityType, orderedIds) {
+    if (isLocalStorageActive()) {
+      return localDataService.reorder(entityType, orderedIds);
+    }
+    if (!Array.isArray(orderedIds)) return false;
+    for (let i = 0; i < orderedIds.length; i++) {
+      const id = orderedIds[i];
+      try {
+        await this.update(id, { order: i });
+      } catch (e) {
+        console.warn(`Could not update order for item ${id}:`, e.message);
+      }
+    }
+    return true;
+  },
+
+  /**
    * Delete an item by ID
    */
   async delete(id) {
+    if (!id) return null;
     if (isLocalStorageActive()) {
       return localDataService.delete(id);
     }
@@ -231,19 +274,24 @@ export const dynamoService = {
     const docClient = getDocClient();
     if (!docClient) throw new Error("AWS DynamoDB is not configured");
 
-    const existing = await this.getById(id);
+    let existing = await this.getById(id);
+    if (!existing) {
+      existing = await this.getBySlug(id);
+    }
     if (!existing) {
       return null;
     }
 
+    const realId = existing.id || id;
+
     await docClient.send(
       new DeleteCommand({
         TableName: TABLE_NAME,
-        Key: { id },
+        Key: { id: realId },
       })
     );
 
-    return { id };
+    return { id: realId };
   },
 };
 

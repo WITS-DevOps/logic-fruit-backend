@@ -71,22 +71,38 @@ export const localDataService = {
       items = items.filter((item) => item.department === filters.department);
     }
 
-    if (filters.type && filters.type !== "all" && entityType === "product") {
+    if (filters.type && filters.type !== "all") {
       items = items.filter((item) => item.type === filters.type);
     }
 
-    // Sort descending by createdAt (newest first)
-    items.sort((a, b) => new Date(b.createdAt || 0) - new Date(a.createdAt || 0));
+    // Sort items: items with custom numeric order first, then newest by createdAt
+    items.sort((a, b) => {
+      const aOrder = typeof a.order === "number" ? a.order : Infinity;
+      const bOrder = typeof b.order === "number" ? b.order : Infinity;
+      if (aOrder !== bOrder) {
+        return aOrder - bOrder;
+      }
+      return new Date(b.createdAt || 0) - new Date(a.createdAt || 0);
+    });
 
     return items;
   },
 
   /**
-   * Get a single item by its ID
+   * Get a single item by its ID or slug
    */
   async getById(id) {
+    if (!id) return null;
     const all = await readAllItems();
-    return all.find((item) => item.id === id || item._id === id) || null;
+    const cleanId = String(id).toLowerCase();
+    return (
+      all.find(
+        (item) =>
+          String(item.id || "").toLowerCase() === cleanId ||
+          String(item._id || "").toLowerCase() === cleanId ||
+          String(item.slug || "").toLowerCase() === cleanId
+      ) || null
+    );
   },
 
   /**
@@ -105,15 +121,15 @@ export const localDataService = {
   async getBySlugOrId(entityType, slugOrId) {
     if (!slugOrId) return null;
     const all = await readAllItems();
-    const cleanTarget = slugOrId.toLowerCase();
+    const cleanTarget = String(slugOrId).toLowerCase();
 
     return (
       all.find(
         (item) =>
           item.entityType === entityType &&
           ((item.slug || "").toLowerCase() === cleanTarget ||
-            item.id === slugOrId ||
-            item._id === slugOrId)
+            String(item.id || "").toLowerCase() === cleanTarget ||
+            String(item._id || "").toLowerCase() === cleanTarget)
       ) || null
     );
   },
@@ -150,17 +166,34 @@ export const localDataService = {
   },
 
   /**
-   * Update an existing item by ID
+   * Update an existing item by ID or slug
    */
   async update(id, updates) {
+    if (!id) return null;
     const all = await readAllItems();
-    const index = all.findIndex((item) => item.id === id || item._id === id);
+    const cleanId = String(id).toLowerCase();
+    const index = all.findIndex(
+      (item) =>
+        String(item.id || "").toLowerCase() === cleanId ||
+        String(item._id || "").toLowerCase() === cleanId ||
+        String(item.slug || "").toLowerCase() === cleanId
+    );
 
     if (index === -1) {
       return null;
     }
 
     const existing = all[index];
+
+    // If marking a product as Product of the Month, clear it from all other products
+    if (existing.entityType === "product" && updates.isProductOfTheMonth === true) {
+      for (const item of all) {
+        if (item.entityType === "product" && item.id !== existing.id && item._id !== existing._id) {
+          item.isProductOfTheMonth = false;
+        }
+      }
+    }
+
     const updatedItem = {
       ...existing,
       ...updates,
@@ -177,19 +210,73 @@ export const localDataService = {
   },
 
   /**
-   * Delete an item by ID
+   * Reorder items for an entity by updating order indexes
+   * Handles ID, _id, or slug mapping robustly
+   */
+  async reorder(entityType, orderedIds) {
+    if (!Array.isArray(orderedIds)) return false;
+    const all = await readAllItems();
+
+    // Map each target ID/slug to its 0-indexed position
+    const idMap = new Map();
+    orderedIds.forEach((id, index) => {
+      if (id !== undefined && id !== null) {
+        idMap.set(String(id).toLowerCase(), index);
+      }
+    });
+
+    let modified = false;
+
+    for (const item of all) {
+      if (entityType && item.entityType !== entityType) continue;
+
+      const keyId = item.id ? String(item.id).toLowerCase() : null;
+      const keyUnderscoreId = item._id ? String(item._id).toLowerCase() : null;
+      const keySlug = item.slug ? String(item.slug).toLowerCase() : null;
+
+      let targetIndex = undefined;
+      if (keyId && idMap.has(keyId)) {
+        targetIndex = idMap.get(keyId);
+      } else if (keyUnderscoreId && idMap.has(keyUnderscoreId)) {
+        targetIndex = idMap.get(keyUnderscoreId);
+      } else if (keySlug && idMap.has(keySlug)) {
+        targetIndex = idMap.get(keySlug);
+      }
+
+      if (targetIndex !== undefined) {
+        item.order = targetIndex;
+        item.updatedAt = new Date().toISOString();
+        modified = true;
+      }
+    }
+
+    if (modified) {
+      await writeAllItems(all);
+    }
+    return true;
+  },
+
+  /**
+   * Delete an item by ID or slug
    */
   async delete(id) {
+    if (!id) return null;
     const all = await readAllItems();
-    const index = all.findIndex((item) => item.id === id || item._id === id);
+    const cleanId = String(id).toLowerCase();
+    const index = all.findIndex(
+      (item) =>
+        String(item.id || "").toLowerCase() === cleanId ||
+        String(item._id || "").toLowerCase() === cleanId ||
+        String(item.slug || "").toLowerCase() === cleanId
+    );
 
     if (index === -1) {
       return null;
     }
 
-    all.splice(index, 1);
+    const [deleted] = all.splice(index, 1);
     await writeAllItems(all);
 
-    return { id };
+    return deleted || { id };
   },
 };
