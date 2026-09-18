@@ -149,6 +149,17 @@ router.put("/reorder", async (req, res, next) => {
 router.put("/:id", async (req, res, next) => {
   try {
     const { id } = req.params;
+
+    // Defensive safeguard if request matches /:id instead of /reorder
+    if (id === "reorder") {
+      const { orderedIds } = req.body;
+      await dynamoService.reorder("product", orderedIds);
+      return res.json({
+        success: true,
+        message: "Products reordered successfully",
+      });
+    }
+
     const updates = { ...req.body };
 
     // If making this product the Product of the Month, clear any other products

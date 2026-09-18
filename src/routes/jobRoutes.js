@@ -157,6 +157,17 @@ router.put("/reorder", async (req, res, next) => {
 router.put("/:id", async (req, res, next) => {
   try {
     const { id } = req.params;
+
+    // Defensive safeguard if request matches /:id instead of /reorder
+    if (id === "reorder") {
+      const { orderedIds } = req.body;
+      await dynamoService.reorder("job", orderedIds);
+      return res.json({
+        success: true,
+        message: "Jobs reordered successfully",
+      });
+    }
+
     const updates = { ...req.body };
 
     if (updates.title && !updates.slug) {
