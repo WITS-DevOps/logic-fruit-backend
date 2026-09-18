@@ -16,6 +16,7 @@ import productRoutes from "./routes/productRoutes.js";
 import uploadRoutes from "./routes/uploadRoutes.js";
 import jobRoutes from "./routes/jobRoutes.js";
 import inquiryRoutes from "./routes/inquiryRoutes.js";
+import { generateDynamicSitemapXml } from "./services/sitemapService.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -67,6 +68,18 @@ app.use("/api/whitepapers", whitepaperRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/jobs", jobRoutes);
 app.use("/api/inquiries", inquiryRoutes);
+
+// Dynamic Sitemap Endpoint (used by Vite frontend & Googlebot)
+app.get("/api/sitemap.xml", async (req, res) => {
+  try {
+    const xml = await generateDynamicSitemapXml();
+    res.setHeader("Content-Type", "application/xml; charset=utf-8");
+    res.setHeader("Cache-Control", "public, max-age=3600");
+    res.send(xml);
+  } catch (err) {
+    res.status(500).json({ success: false, message: "Could not generate sitemap", error: err.message });
+  }
+});
 
 // 404 Handler
 app.use((req, res) => {

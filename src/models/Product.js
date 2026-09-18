@@ -52,6 +52,35 @@ const productSchema = new mongoose.Schema(
       enum: ["draft", "published"],
       default: "published",
     },
+    metaTitle: {
+      type: String,
+      default: "",
+      trim: true,
+    },
+    metaDescription: {
+      type: String,
+      default: "",
+      trim: true,
+    },
+    metaKeywords: {
+      type: String,
+      default: "",
+      trim: true,
+    },
+    canonicalUrl: {
+      type: String,
+      default: "",
+      trim: true,
+    },
+    ogImage: {
+      type: String,
+      default: "",
+      trim: true,
+    },
+    noIndex: {
+      type: Boolean,
+      default: false,
+    },
   },
   {
     timestamps: true,
