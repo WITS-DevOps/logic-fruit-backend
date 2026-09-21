@@ -6,7 +6,7 @@ import { isLocalStorageActive } from "./storageMode.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const UPLOADS_ROOT = path.join(__dirname, "../../uploads");
+export const UPLOADS_ROOT = path.join(__dirname, "../../uploads");
 
 // Check if AWS S3 credentials are configured in .env
 export function isS3Configured() {
@@ -130,7 +130,9 @@ export async function uploadFileToStorage(file, folder = "uploads") {
 
   await client.send(new PutObjectCommand(uploadParams));
 
-  return `https://${bucket}.s3.${region}.amazonaws.com/${key}`;
+  const port = process.env.PORT || 5000;
+  const baseUrl = process.env.BASE_URL || `http://localhost:${port}`;
+  return `${baseUrl}/api/upload/media/${key}`;
 }
 
 /**
@@ -149,6 +151,8 @@ export async function listFilesFromStorage(folder = "") {
   const client = getS3Client();
   const bucket = process.env.AWS_S3_BUCKET_NAME;
   const region = process.env.AWS_REGION || "ap-south-1";
+  const port = process.env.PORT || 5000;
+  const baseUrl = process.env.BASE_URL || `http://localhost:${port}`;
 
   const params = {
     Bucket: bucket,
@@ -172,7 +176,7 @@ export async function listFilesFromStorage(folder = "") {
         key: obj.Key,
         name: filename,
         alt: alt,
-        url: `https://${bucket}.s3.${region}.amazonaws.com/${obj.Key}`,
+        url: `${baseUrl}/api/upload/media/${obj.Key}`,
         size: obj.Size,
         lastModified: obj.LastModified,
       };

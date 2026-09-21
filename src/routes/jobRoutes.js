@@ -79,6 +79,13 @@ router.post("/", async (req, res, next) => {
       skills,
       qualifications,
       status,
+      metaTitle,
+      metaDescription,
+      metaKeywords,
+      canonicalUrl,
+      ogImage,
+      noIndex,
+      order,
     } = req.body;
 
     if (!title) {
@@ -125,6 +132,13 @@ router.post("/", async (req, res, next) => {
       skills: Array.isArray(skills) ? skills : [],
       qualifications: qualifications || "",
       status: status || "published",
+      metaTitle: metaTitle || "",
+      metaDescription: metaDescription || "",
+      metaKeywords: metaKeywords || "",
+      canonicalUrl: canonicalUrl || `/jobs-current-opening/${generatedSlug}/`,
+      ogImage: ogImage || "",
+      noIndex: Boolean(noIndex),
+      order: typeof order === "number" ? order : 0,
     });
 
     res.status(201).json({

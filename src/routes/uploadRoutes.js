@@ -1,6 +1,14 @@
+import path from "path";
 import express from "express";
+import { GetObjectCommand } from "@aws-sdk/client-s3";
 import { upload } from "../middleware/upload.js";
-import { uploadFileToStorage, listFilesFromStorage, isS3Configured } from "../config/s3.js";
+import {
+  uploadFileToStorage,
+  listFilesFromStorage,
+  isS3Configured,
+  getS3Client,
+  UPLOADS_ROOT,
+} from "../config/s3.js";
 import { isLocalStorageActive } from "../config/storageMode.js";
 
 const router = express.Router();
@@ -8,6 +16,53 @@ const router = express.Router();
 function getStorageType() {
   return isLocalStorageActive() ? "local" : (isS3Configured() ? "s3" : "not_configured");
 }
+
+/**
+ * @route   GET /api/upload/media/*
+ * @desc    Stream uploaded media securely from AWS S3 (or local disk fallback)
+ */
+router.get("/media/*", async (req, res, next) => {
+  try {
+    const rawKey = req.params[0];
+    if (!rawKey) {
+      return res.status(400).send("Media key is required");
+    }
+    const key = decodeURIComponent(rawKey);
+
+    // 1. Local storage mode fallback
+    if (isLocalStorageActive()) {
+      const localFilePath = path.join(UPLOADS_ROOT, key);
+      return res.sendFile(localFilePath);
+    }
+
+    // 2. AWS S3 Cloud Storage
+    const client = getS3Client();
+    const bucket = process.env.AWS_S3_BUCKET_NAME;
+
+    const command = new GetObjectCommand({
+      Bucket: bucket,
+      Key: key,
+    });
+
+    const s3Item = await client.send(command);
+
+    res.setHeader("Content-Type", s3Item.ContentType || "application/octet-stream");
+    if (s3Item.ContentLength) {
+      res.setHeader("Content-Length", s3Item.ContentLength);
+    }
+    if (s3Item.ETag) {
+      res.setHeader("ETag", s3Item.ETag);
+    }
+    res.setHeader("Cache-Control", "public, max-age=31536000, immutable");
+
+    s3Item.Body.pipe(res);
+  } catch (error) {
+    if (error.name === "NoSuchKey" || error.$metadata?.httpStatusCode === 404) {
+      return res.status(404).send("Media not found");
+    }
+    next(error);
+  }
+});
 
 /**
  * @route   POST /api/upload/image

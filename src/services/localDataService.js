@@ -185,11 +185,23 @@ export const localDataService = {
 
     const existing = all[index];
 
-    // If marking a product as Product of the Month, clear it from all other products
+    // If marking a product as Product of the Month, clear it from other products in the SAME category only
     if (existing.entityType === "product" && updates.isProductOfTheMonth === true) {
+      const isHardwareType = (typeStr) => {
+        const t = (typeStr || "").toLowerCase();
+        return t.includes("hard") || t.includes("system") || t.includes("board");
+      };
+      const targetIsHardware = isHardwareType(updates.type || existing.type);
+
       for (const item of all) {
         if (item.entityType === "product" && item.id !== existing.id && item._id !== existing._id) {
-          item.isProductOfTheMonth = false;
+          if (item.isProductOfTheMonth || item.productOfTheMonth) {
+            const otherIsHardware = isHardwareType(item.type);
+            if (otherIsHardware === targetIsHardware) {
+              item.isProductOfTheMonth = false;
+              item.productOfTheMonth = false;
+            }
+          }
         }
       }
     }

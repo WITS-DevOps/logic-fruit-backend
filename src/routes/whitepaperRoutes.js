@@ -73,6 +73,13 @@ router.post("/", async (req, res, next) => {
       whatYouLearn,
       keyHighlights,
       status,
+      metaTitle,
+      metaDescription,
+      metaKeywords,
+      canonicalUrl,
+      ogImage,
+      noIndex,
+      order,
     } = req.body;
 
     if (!title) {
@@ -114,6 +121,13 @@ router.post("/", async (req, res, next) => {
       whatYouLearn: Array.isArray(whatYouLearn) ? whatYouLearn : whatYouLearn ? [whatYouLearn] : [],
       keyHighlights: Array.isArray(keyHighlights) ? keyHighlights : keyHighlights ? [keyHighlights] : [],
       status: status || "published",
+      metaTitle: metaTitle || "",
+      metaDescription: metaDescription || "",
+      metaKeywords: metaKeywords || "",
+      canonicalUrl: canonicalUrl || `/whitepaper/${generatedSlug}`,
+      ogImage: ogImage || img || "",
+      noIndex: Boolean(noIndex),
+      order: typeof order === "number" ? order : 0,
     });
 
     res.status(201).json({

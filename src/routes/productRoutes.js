@@ -74,6 +74,13 @@ router.post("/", async (req, res, next) => {
       datasheetUrl,
       directDownload,
       status,
+      metaTitle,
+      metaDescription,
+      metaKeywords,
+      canonicalUrl,
+      ogImage,
+      noIndex,
+      order,
     } = req.body;
 
     if (!title) {
@@ -113,6 +120,13 @@ router.post("/", async (req, res, next) => {
       datasheetUrl: datasheetUrl || "",
       directDownload: directDownload === true || directDownload === "true",
       status: status || "published",
+      metaTitle: metaTitle || "",
+      metaDescription: metaDescription || "",
+      metaKeywords: metaKeywords || "",
+      canonicalUrl: canonicalUrl || `/products/${generatedSlug}`,
+      ogImage: ogImage || heroImage || "",
+      noIndex: Boolean(noIndex),
+      order: typeof order === "number" ? order : 0,
     });
 
     res.status(201).json({
@@ -162,18 +176,32 @@ router.put("/:id", async (req, res, next) => {
 
     const updates = { ...req.body };
 
-    // If making this product the Product of the Month, clear any other products
+    // Helper to check if a product is Hardware System vs Soft IP
+    const isHardwareType = (typeStr) => {
+      const t = (typeStr || "").toLowerCase();
+      return t.includes("hard") || t.includes("system") || t.includes("board");
+    };
+
+    // If making this product the Product of the Month, clear other products in the SAME category only
+    // This allows 1 POTM for Hardware Systems and 1 POTM for Soft IP Cores
     if (updates.isProductOfTheMonth === true) {
       try {
+        const currentProd = await dynamoService.getBySlugOrId("product", id);
+        const targetType = updates.type || currentProd?.type || "";
+        const targetIsHardware = isHardwareType(targetType);
+
         const allProducts = await dynamoService.getAll("product");
         for (const prod of allProducts) {
           const pId = prod.id || prod._id;
           if (pId !== id && (prod.isProductOfTheMonth || prod.productOfTheMonth)) {
-            await dynamoService.update(pId, { isProductOfTheMonth: false });
+            const otherIsHardware = isHardwareType(prod.type);
+            if (otherIsHardware === targetIsHardware) {
+              await dynamoService.update(pId, { isProductOfTheMonth: false });
+            }
           }
         }
       } catch (e) {
-        console.warn("Error unsetting other products of the month:", e.message);
+        console.warn("Error unsetting other products of the month in same category:", e.message);
       }
     }
 

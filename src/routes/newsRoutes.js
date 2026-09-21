@@ -79,6 +79,13 @@ router.post("/", async (req, res, next) => {
       contentMarkdown,
       externalUrl,
       status,
+      metaTitle,
+      metaDescription,
+      metaKeywords,
+      canonicalUrl,
+      ogImage,
+      noIndex,
+      order,
     } = req.body;
 
     if (!title) {
@@ -117,6 +124,13 @@ router.post("/", async (req, res, next) => {
       contentMarkdown: contentMarkdown || "",
       externalUrl: externalUrl || "",
       status: status || "published",
+      metaTitle: metaTitle || "",
+      metaDescription: metaDescription || "",
+      metaKeywords: metaKeywords || "",
+      canonicalUrl: canonicalUrl || `/news/${generatedSlug}`,
+      ogImage: ogImage || heroImage || "",
+      noIndex: Boolean(noIndex),
+      order: typeof order === "number" ? order : 0,
     });
 
     res.status(201).json({
