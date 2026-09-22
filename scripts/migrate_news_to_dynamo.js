@@ -35,10 +35,24 @@ const LOCAL_UPLOADS_DIR = path.join(__dirname, "../uploads/news");
 const S3_BUCKET = process.env.AWS_S3_BUCKET_NAME || "logicfruit-cms-assets-833823555826";
 const AWS_REGION = process.env.AWS_REGION || "ap-south-1";
 
-// 7 News Articles with authoritative metadata, ordering, and SEO configurations
+// 8 News Articles with authoritative metadata, ordering, and SEO configurations
 const NEWS_DEFINITIONS = [
   {
     order: 0,
+    slug: "logic-fruit-technologies-unveils-l-qntxt-security-platform-for-hsms-silicon-and-embedded-systems",
+    title: "Logic Fruit Technologies Unveils L-QNTXT Security Platform for HSMs, Silicon and Embedded Systems",
+    tag: "Product Announcement",
+    date: "September 23, 2026",
+    location: "Gurugram, India",
+    heroFilename: "hero-l-qntxt-security-platform.png",
+    metaTitle: "Logic Fruit Unveils L-QNTXT Security Platform for HSMs & Silicon | Press Release",
+    metaDescription: "Logic Fruit Technologies introduces L-QNTXT, a crypto-agile quantum-safe security platform spanning licensable Soft IP, embedded hardware root of trust, and PCIe/network HSMs.",
+    metaKeywords: "L-QNTXT, Quantum Safe Security, Hardware Security Module, HSM, Post Quantum Cryptography, PQC, ML-KEM, ML-DSA, FIPS 203, FIPS 140-3, Logic Fruit Technologies, Semiconductor Security",
+    canonicalUrl: "/news/logic-fruit-technologies-unveils-l-qntxt-security-platform-for-hsms-silicon-and-embedded-systems",
+    noIndex: false,
+  },
+  {
+    order: 1,
     slug: "logic-fruit-technologies-appoints-sunil-kar-as-president-ceo-to-accelerate-global-growth",
     title: "Logic Fruit Technologies Appoints Sunil Kar as President & CEO to Accelerate Global Growth",
     tag: "Leadership Announcement",
@@ -52,7 +66,7 @@ const NEWS_DEFINITIONS = [
     noIndex: false,
   },
   {
-    order: 1,
+    order: 2,
     slug: "logic-fruit-technologies-releases-high-speed-interface-ips-stack-for-advanced-computing",
     title: "Logic Fruit Technologies Releases High-Speed Interface IPs Stack for Advanced Computing",
     tag: "Product Release",
@@ -66,7 +80,7 @@ const NEWS_DEFINITIONS = [
     noIndex: false,
   },
   {
-    order: 2,
+    order: 3,
     slug: "logic-fruit-technologies-to-exhibit-advanced-avionics-solutions-at-aerospace-tech-week-europe-2025",
     title: "Logic Fruit Technologies to Exhibit Advanced Avionics Solutions at Aerospace Tech Week Europe 2025",
     tag: "Global Event",
@@ -80,7 +94,7 @@ const NEWS_DEFINITIONS = [
     noIndex: false,
   },
   {
-    order: 3,
+    order: 4,
     slug: "logic-fruit-technologies-to-showcase-innovations-at-embedded-world-europe-2025",
     title: "Logic Fruit Technologies to Showcase Innovations at Embedded World Europe 2025",
     tag: "Industry Exhibition",
@@ -94,7 +108,7 @@ const NEWS_DEFINITIONS = [
     noIndex: false,
   },
   {
-    order: 4,
+    order: 5,
     slug: "paras-defence-invests-in-logic-fruit-technologies-to-boost-defence-tech-capabilities-at-aero-india-2025",
     title: "Paras Defence Invests in Logic Fruit Technologies to Boost Defence Tech Capabilities at AERO India 2025",
     tag: "Strategic Investment",
@@ -108,7 +122,7 @@ const NEWS_DEFINITIONS = [
     noIndex: false,
   },
   {
-    order: 5,
+    order: 6,
     slug: "logic-fruit-announces-strategic-partnership-with-pace-at-aero-india-2025",
     title: "Logic Fruit Announces Strategic Partnership with PACE at Aero India 2025",
     tag: "Strategic Partnership",
@@ -122,7 +136,7 @@ const NEWS_DEFINITIONS = [
     noIndex: false,
   },
   {
-    order: 6,
+    order: 7,
     slug: "logic-fruit-technologies-recognized-as-a-select-200-company-at-forbes-india-dgems-2024",
     title: "Logic Fruit Technologies Recognized as a Select 200 Company at Forbes India-DGEMS 2024",
     tag: "Awards & Recognition",
