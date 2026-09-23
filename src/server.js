@@ -30,11 +30,12 @@ const PORT = process.env.PORT || 5000;
 connectDB();
 
 // Middleware: CORS
-// Allows localhost, production Vercel frontend, preview branches, and any custom CLIENT_URL
+// Allows localhost, production frontend, preview branches, and any custom CLIENT_URL
 const allowedOrigins = [
   "http://localhost:5173",
   "http://localhost:3000",
-  "https://logic-fruit-ui.vercel.app",
+  "https://logic-fruit.com",
+  "https://www.logic-fruit.com",
   ...(process.env.CLIENT_URL
     ? process.env.CLIENT_URL.split(",").map((url) => url.trim())
     : []),
@@ -46,11 +47,10 @@ app.use(
       // Allow requests with no origin (curl, mobile, server-to-server)
       if (!origin) return callback(null, true);
 
-      // Check if origin matches allowed list, localhost, or any *.vercel.app domain
+      // Check if origin matches allowed list, localhost, or IP
       const isAllowed =
         allowedOrigins.includes("*") ||
         allowedOrigins.includes(origin) ||
-        origin.endsWith(".vercel.app") ||
         origin.includes("localhost") ||
         origin.includes("127.0.0.1");
 
@@ -77,7 +77,7 @@ app.get("/", (req, res) => {
   res.json({
     status: "ok",
     name: "Logic Fruit Backend API",
-    platform: process.env.VERCEL ? "Vercel Serverless" : "Local Node Server",
+    platform: "Node Server",
     healthCheck: "/api/health",
   });
 });
@@ -135,12 +135,10 @@ app.use((req, res) => {
 // Global Error Handler
 app.use(errorHandler);
 
-// Start Server locally (Vercel Serverless handles execution automatically)
-if (!process.env.VERCEL) {
-  app.listen(PORT, () => {
-    console.log(`🚀 Server running on http://localhost:${PORT}`);
-    console.log(`📊 Health Check: http://localhost:${PORT}/api/health`);
-  });
-}
+// Start Server
+app.listen(PORT, () => {
+  console.log(`🚀 Server running on http://localhost:${PORT}`);
+  console.log(`📊 Health Check: http://localhost:${PORT}/api/health`);
+});
 
 export default app;

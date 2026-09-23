@@ -74,6 +74,8 @@ export async function sendInquiryAlertToAdmin(inquiry) {
 
   const typeLabels = {
     contact: "Contact Inquiry",
+    job: "Current Opening Application",
+    newsletter: "Newsletter Subscription",
     whitepaper: "Whitepaper Download",
     product: "Product Inquiry",
     general: "General Inquiry",
@@ -121,9 +123,10 @@ export async function sendInquiryAlertToAdmin(inquiry) {
                 <td class="value"><a href="mailto:${inquiry.email}">${inquiry.email}</a></td>
               </tr>
               ${inquiry.phone ? `<tr><td class="label">Phone:</td><td class="value">${inquiry.phone}</td></tr>` : ""}
-              ${inquiry.company ? `<tr><td class="label">Company:</td><td class="value">${inquiry.company}</td></tr>` : ""}
-              ${inquiry.industry ? `<tr><td class="label">Industry / Role:</td><td class="value">${inquiry.industry}</td></tr>` : ""}
+              ${inquiry.company ? `<tr><td class="label">Company / Role:</td><td class="value">${inquiry.company}</td></tr>` : ""}
+              ${inquiry.industry ? `<tr><td class="label">Industry / Link:</td><td class="value">${inquiry.industry}</td></tr>` : ""}
               ${inquiry.resourceTitle ? `<tr><td class="label">Related Item:</td><td class="value">${inquiry.resourceTitle}</td></tr>` : ""}
+              ${inquiry.pageUrl ? `<tr><td class="label">Source Page URL:</td><td class="value"><a href="${inquiry.pageUrl}" target="_blank">${inquiry.pageUrl}</a></td></tr>` : ""}
               <tr>
                 <td class="label">Submitted At:</td>
                 <td class="value">${new Date().toLocaleString("en-US", { timeZone: "Asia/Kolkata" })} IST</td>

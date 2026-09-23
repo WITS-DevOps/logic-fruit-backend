@@ -13,19 +13,31 @@ const router = express.Router();
  */
 router.get("/", async (req, res, next) => {
   try {
-    const { type, status } = req.query;
+    const { type, status, limit, page } = req.query;
     const filter = {};
     if (type && type !== "all") filter.type = type;
     if (status && status !== "all") filter.status = status;
 
-    const items = await dynamoService.getAll("inquiry", filter);
+    let items = await dynamoService.getAll("inquiry", filter);
 
     // Sort descending by createdAt (newest first)
     items.sort((a, b) => new Date(b.createdAt || 0) - new Date(a.createdAt || 0));
 
+    const totalCount = items.length;
+
+    // Optional pagination if limit query parameter is provided
+    const limitNum = parseInt(limit, 10);
+    const pageNum = parseInt(page, 10) || 1;
+    if (limitNum > 0) {
+      const startIndex = (pageNum - 1) * limitNum;
+      items = items.slice(startIndex, startIndex + limitNum);
+    }
+
     res.json({
       success: true,
-      count: items.length,
+      count: totalCount,
+      page: limitNum > 0 ? pageNum : 1,
+      limit: limitNum > 0 ? limitNum : totalCount,
       data: items,
     });
   } catch (error) {
@@ -81,6 +93,9 @@ router.post("/", async (req, res, next) => {
       message,
       projectRequirements,
       notes,
+      pageUrl,
+      sourceUrl,
+      url,
     } = req.body;
 
     // Normalize submitter name
@@ -105,9 +120,10 @@ router.post("/", async (req, res, next) => {
       phone: phone || "",
       company: company || companyName || "",
       industry: industry || "",
-      type: type || "contact", // 'contact' | 'whitepaper' | 'product' | 'general'
+      type: type || "contact", // 'contact' | 'whitepaper' | 'product' | 'job' | 'newsletter'
       resourceTitle: resourceTitle || "Website Contact",
       resourceSlug: resourceSlug || "",
+      pageUrl: pageUrl || sourceUrl || url || "",
       message: message || projectRequirements || notes || "",
       status: "new",
       createdAt: new Date().toISOString(),
