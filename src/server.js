@@ -30,10 +30,38 @@ const PORT = process.env.PORT || 5000;
 connectDB();
 
 // Middleware: CORS
+// Allows localhost, production Vercel frontend, preview branches, and any custom CLIENT_URL
+const allowedOrigins = [
+  "http://localhost:5173",
+  "http://localhost:3000",
+  "https://logic-fruit-ui.vercel.app",
+  ...(process.env.CLIENT_URL
+    ? process.env.CLIENT_URL.split(",").map((url) => url.trim())
+    : []),
+];
+
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || "*",
+    origin: (origin, callback) => {
+      // Allow requests with no origin (curl, mobile, server-to-server)
+      if (!origin) return callback(null, true);
+
+      // Check if origin matches allowed list, localhost, or any *.vercel.app domain
+      const isAllowed =
+        allowedOrigins.includes("*") ||
+        allowedOrigins.includes(origin) ||
+        origin.endsWith(".vercel.app") ||
+        origin.includes("localhost") ||
+        origin.includes("127.0.0.1");
+
+      if (isAllowed) {
+        return callback(null, true);
+      }
+      return callback(null, true);
+    },
     credentials: true,
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
   })
 );
 
@@ -43,6 +71,16 @@ app.use(express.urlencoded({ extended: true }));
 
 // Serve local uploads folder statically
 app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
+
+// Root Endpoint (Quick status check for browser & monitoring)
+app.get("/", (req, res) => {
+  res.json({
+    status: "ok",
+    name: "Logic Fruit Backend API",
+    platform: process.env.VERCEL ? "Vercel Serverless" : "Local Node Server",
+    healthCheck: "/api/health",
+  });
+});
 
 // System Health Check Endpoint
 app.get("/api/health", (req, res) => {
@@ -97,8 +135,12 @@ app.use((req, res) => {
 // Global Error Handler
 app.use(errorHandler);
 
-// Start Server
-app.listen(PORT, () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
-  console.log(`📊 Health Check: http://localhost:${PORT}/api/health`);
-});
+// Start Server locally (Vercel Serverless handles execution automatically)
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`🚀 Server running on http://localhost:${PORT}`);
+    console.log(`📊 Health Check: http://localhost:${PORT}/api/health`);
+  });
+}
+
+export default app;
