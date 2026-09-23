@@ -16,6 +16,7 @@ import productRoutes from "./routes/productRoutes.js";
 import uploadRoutes from "./routes/uploadRoutes.js";
 import jobRoutes from "./routes/jobRoutes.js";
 import inquiryRoutes from "./routes/inquiryRoutes.js";
+import emailRoutes from "./routes/emailRoutes.js";
 import { generateDynamicSitemapXml } from "./services/sitemapService.js";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -56,6 +57,9 @@ app.get("/api/health", (req, res) => {
     storage: isLocal
       ? "Local Storage (/uploads)"
       : (isS3Configured() ? `AWS S3 (${process.env.AWS_S3_BUCKET_NAME})` : "AWS S3 (Not configured)"),
+    email: process.env.SMTP_USER
+      ? `Configured (${process.env.SMTP_USER})`
+      : "Not configured",
     timestamp: new Date().toISOString(),
   });
 });
@@ -68,6 +72,7 @@ app.use("/api/whitepapers", whitepaperRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/jobs", jobRoutes);
 app.use("/api/inquiries", inquiryRoutes);
+app.use("/api/email", emailRoutes);
 
 // Dynamic Sitemap Endpoint (used by Vite frontend & Googlebot)
 app.get("/api/sitemap.xml", async (req, res) => {

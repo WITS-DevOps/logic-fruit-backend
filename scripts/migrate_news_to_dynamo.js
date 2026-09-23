@@ -40,14 +40,14 @@ const NEWS_DEFINITIONS = [
   {
     order: 0,
     slug: "logic-fruit-technologies-unveils-l-qntxt-security-platform-for-hsms-silicon-and-embedded-systems",
-    title: "Logic Fruit Technologies Unveils L-QNTXT Security Platform for HSMs, Silicon and Embedded Systems",
+    title: "Logic Fruit Technologies Unveils L-QNTX™ Security Platform for HSMs, Silicon and Embedded Systems",
     tag: "Product Announcement",
     date: "September 23, 2026",
     location: "Gurugram, India",
     heroFilename: "hero-l-qntxt-security-platform.png",
-    metaTitle: "Logic Fruit Unveils L-QNTXT Security Platform for HSMs & Silicon | Press Release",
-    metaDescription: "Logic Fruit Technologies introduces L-QNTXT, a crypto-agile quantum-safe security platform spanning licensable Soft IP, embedded hardware root of trust, and PCIe/network HSMs.",
-    metaKeywords: "L-QNTXT, Quantum Safe Security, Hardware Security Module, HSM, Post Quantum Cryptography, PQC, ML-KEM, ML-DSA, FIPS 203, FIPS 140-3, Logic Fruit Technologies, Semiconductor Security",
+    metaTitle: "Logic Fruit Unveils L-QNTX™ Security Platform for HSMs & Silicon | Press Release",
+    metaDescription: "Logic Fruit Technologies introduces L-QNTX™, a crypto-agile quantum-safe security platform spanning licensable Soft IP, embedded hardware root of trust, and PCIe/network HSMs.",
+    metaKeywords: "L-QNTX™, Quantum Safe Security, Hardware Security Module, HSM, Post Quantum Cryptography, PQC, ML-KEM, ML-DSA, FIPS 203, FIPS 140-3, Logic Fruit Technologies, Semiconductor Security",
     canonicalUrl: "/news/logic-fruit-technologies-unveils-l-qntxt-security-platform-for-hsms-silicon-and-embedded-systems",
     noIndex: false,
   },
@@ -270,11 +270,22 @@ async function migrateNewsToDynamo(docClient) {
     const heroFilename = newsDef.heroFilename;
     const heroImageUrl = `http://localhost:5000/api/upload/media/news/${slug}/${heroFilename}`;
 
-    // Rewrite markdown image URLs: images/<file> -> S3 media proxy
     let contentMarkdown = rawMd.replace(
       /(src=["']|\()images\/([^"'\)]+)(["'\)])/g,
       `$1http://localhost:5000/api/upload/media/news/${slug}/$2$3`
     );
+
+    if (slug.includes("l-qntx")) {
+      contentMarkdown = contentMarkdown
+        .replace(/L-QNTXT\b/g, "L-QNTX™")
+        .replace(/L-QNTX(?!™)/g, "L-QNTX™")
+        .replace(/L-QNTX™-PCIe-HSM/g, "L-QNTX-PCIe-HSM")
+        .replace(/Crypto-Agile PCIe HSM Mockup/gi, "Crypto-Agile PCIe HSM Product View")
+        .replace(/\bMockup\b/g, "Product View");
+      excerpt = excerpt
+        .replace(/L-QNTXT\b/g, "L-QNTX™")
+        .replace(/L-QNTX(?!™)/g, "L-QNTX™");
+    }
 
     const newsId = `news-${slug}`;
 

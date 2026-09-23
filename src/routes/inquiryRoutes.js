@@ -1,5 +1,9 @@
 import express from "express";
 import { dynamoService } from "../services/dynamoService.js";
+import {
+  sendInquiryAlertToAdmin,
+  sendUserConfirmation,
+} from "../services/emailService.js";
 
 const router = express.Router();
 
@@ -107,6 +111,15 @@ router.post("/", async (req, res, next) => {
       message: message || projectRequirements || notes || "",
       status: "new",
       createdAt: new Date().toISOString(),
+    });
+
+    // Send email notifications in background without delaying client response
+    sendInquiryAlertToAdmin(newInquiry).catch((err) => {
+      console.error("⚠️ Could not send admin inquiry email:", err.message);
+    });
+
+    sendUserConfirmation(newInquiry).catch((err) => {
+      console.error("⚠️ Could not send user confirmation email:", err.message);
     });
 
     res.status(201).json({
