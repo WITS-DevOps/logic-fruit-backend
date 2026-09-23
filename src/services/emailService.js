@@ -43,8 +43,15 @@ export async function verifyEmailConnection() {
 
 /**
  * Send a general email.
+ * Controlled by ENABLE_EMAILS env var — set to 'true' to actually send.
  */
 export async function sendEmail({ to, subject, html, text }) {
+  // Skip sending if emails are disabled via env
+  if (process.env.ENABLE_EMAILS !== "true") {
+    console.log(`📧 Email skipped (ENABLE_EMAILS is not 'true') → To: ${to}, Subject: ${subject}`);
+    return { skipped: true, reason: "ENABLE_EMAILS is not true" };
+  }
+
   const transporter = createTransporter();
   const from = process.env.MAIL_FROM || `"Logic Fruit Technologies" <${process.env.SMTP_USER || "info@logic-fruit.com"}>`;
 
