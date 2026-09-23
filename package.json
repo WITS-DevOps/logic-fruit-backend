@@ -17,8 +17,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@aws-sdk/client-amplify": "^3.1138.0",
     "@aws-sdk/client-dynamodb": "^3.1134.0",
+    "@aws-sdk/client-ec2": "^3.1138.0",
+    "@aws-sdk/client-route-53": "^3.1138.0",
     "@aws-sdk/client-s3": "^3.758.0",
+    "@aws-sdk/client-ssm": "^3.1138.0",
     "@aws-sdk/lib-dynamodb": "^3.1134.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
@@ -27,6 +31,7 @@
     "multer": "^1.4.5-lts.1",
     "nodemailer": "^10.0.10",
     "slugify": "^1.6.6",
+    "ssh2": "^1.17.0",
     "uuid": "^14.0.2"
   },
   "devDependencies": {
