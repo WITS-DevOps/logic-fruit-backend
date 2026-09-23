@@ -29,6 +29,23 @@ router.get("/", async (req, res, next) => {
 });
 
 /**
+ * @route   GET /api/blogs/pinned
+ * @desc    Get the single pinned/featured blog
+ */
+router.get("/pinned", async (req, res, next) => {
+  try {
+    const blogs = await dynamoService.getAll("blog", { status: "published" });
+    const pinned = blogs.find((b) => b.isPinned === true);
+    res.json({
+      success: true,
+      data: pinned || null,
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+/**
  * @route   GET /api/blogs/categories
  * @desc    Get all custom blog categories stored in DB
  */
@@ -264,6 +281,20 @@ router.put("/:id", async (req, res, next) => {
       updates.slug = slugify(updates.title, { lower: true, strict: true });
     } else if (updates.slug) {
       updates.slug = slugify(updates.slug, { lower: true, strict: true });
+    }
+
+    // If pinning this blog, unpin all others first (only one can be pinned)
+    if (updates.isPinned === true) {
+      try {
+        const allBlogs = await dynamoService.getAll("blog");
+        await Promise.all(
+          allBlogs
+            .filter((b) => (b._id || b.id) !== id && b.isPinned === true)
+            .map((b) => dynamoService.update(b._id || b.id, { isPinned: false }))
+        );
+      } catch (e) {
+        console.warn("Could not unpin other blogs:", e.message);
+      }
     }
 
     const updatedBlog = await dynamoService.update(id, updates);

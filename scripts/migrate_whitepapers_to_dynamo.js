@@ -214,10 +214,12 @@ async function migrateWhitepapersToDynamo(docClient) {
   const now = new Date().toISOString();
   const enrichedWhitepapers = [];
 
+  const baseUrl = process.env.BASE_URL || "https://api.logic-fruit.com";
+
   for (const wpDef of WHITEPAPER_DEFINITIONS) {
-    const imageUrl = `http://localhost:5000/api/upload/media/whitepapers/${wpDef.imageFilename}`;
+    const imageUrl = `${baseUrl}/api/upload/media/whitepapers/${wpDef.imageFilename}`;
     const pdfUrl = wpDef.pdfFilename
-      ? `http://localhost:5000/api/upload/media/whitepapers/${wpDef.pdfFilename}`
+      ? `${baseUrl}/api/upload/media/whitepapers/${wpDef.pdfFilename}`
       : "";
 
     const wpId = `wp-${wpDef.slug}`;

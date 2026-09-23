@@ -326,16 +326,17 @@ async function migrateBlogsToDynamo(docClient) {
       }
     }
 
-    // Hero image streaming URL
+    // Hero image streaming URL (points to AWS backend media streaming route)
+    const baseUrl = process.env.BASE_URL || "https://api.logic-fruit.com";
     const heroFilename = blogDef.heroFilename;
-    const heroImageUrl = `http://localhost:5000/api/upload/media/blogs/${slug}/${heroFilename}`;
+    const heroImageUrl = `${baseUrl}/api/upload/media/blogs/${slug}/${heroFilename}`;
 
     // Rewrite all image paths in markdown:
-    // Pattern 1: ![alt](images/filename.ext) -> ![alt](http://localhost:5000/api/upload/media/blogs/<slug>/filename.ext)
-    // Pattern 2: src="images/filename.ext" -> src="http://localhost:5000/api/upload/media/blogs/<slug>/filename.ext"
+    // Pattern 1: ![alt](images/filename.ext) -> ![alt](BASE_URL/api/upload/media/blogs/<slug>/filename.ext)
+    // Pattern 2: src="images/filename.ext" -> src="BASE_URL/api/upload/media/blogs/<slug>/filename.ext"
     let contentMarkdown = rawMd.replace(
       /(src=["']|\()images\/([^"'\)]+)(["'\)])/g,
-      `$1http://localhost:5000/api/upload/media/blogs/${slug}/$2$3`
+      `$1${baseUrl}/api/upload/media/blogs/${slug}/$2$3`
     );
 
     const blogId = `blog-${slug}`;
@@ -358,6 +359,7 @@ async function migrateBlogsToDynamo(docClient) {
       status: "published",
       entityType: "blog",
       order: blogDef.order,
+      isPinned: blogDef.isPinned ?? (blogDef.order === 0),
       metaTitle: blogDef.metaTitle,
       metaDescription: blogDef.metaDescription,
       metaKeywords: blogDef.metaKeywords,

@@ -266,13 +266,14 @@ async function migrateNewsToDynamo(docClient) {
       }
     }
 
-    // Hero image streaming URL
+    // Hero image streaming URL (points to AWS backend media streaming route)
+    const baseUrl = process.env.BASE_URL || "https://api.logic-fruit.com";
     const heroFilename = newsDef.heroFilename;
-    const heroImageUrl = `http://localhost:5000/api/upload/media/news/${slug}/${heroFilename}`;
+    const heroImageUrl = `${baseUrl}/api/upload/media/news/${slug}/${heroFilename}`;
 
     let contentMarkdown = rawMd.replace(
       /(src=["']|\()images\/([^"'\)]+)(["'\)])/g,
-      `$1http://localhost:5000/api/upload/media/news/${slug}/$2$3`
+      `$1${baseUrl}/api/upload/media/news/${slug}/$2$3`
     );
 
     if (slug.includes("l-qntx")) {

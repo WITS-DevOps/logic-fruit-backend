@@ -28,6 +28,7 @@ import { getDocClient, TABLE_NAME } from "../src/config/dynamo.js";
 
 const JOBS_FILE = path.join(__dirname, "../data/current_openings.json");
 const IMAGES_DIR = path.join(__dirname, "../uploads/current-openings-images");
+const BASE_URL = process.env.BASE_URL || "https://api.logic-fruit.com";
 
 // Comprehensive SEO & Ordering metadata for the 7 job openings
 const JOB_SEO_META = {
@@ -37,10 +38,10 @@ const JOB_SEO_META = {
     metaDescription: "Join Logic Fruit Technologies as Executive Assistant to CEO in Gurugram. Lead executive workflows, strategic calendar governance, and international stakeholder coordination.",
     metaKeywords: "Executive Assistant, EA to CEO, Executive Support, Strategic Management, Gurugram Jobs, Logic Fruit Careers, Chief Executive Support",
     canonicalUrl: "/jobs-current-opening/executive-assistant-to-ceo/",
-    ogImage: "http://localhost:5000/api/upload/media/current-openings-images/assistant-to-ceo.jpg",
-    thumb: "http://localhost:5000/api/upload/media/current-openings-images/assistant-to-ceo.jpg",
-    heroImage: "http://localhost:5000/api/upload/media/current-openings-images/assistant-to-ceo.jpg",
-    images: ["http://localhost:5000/api/upload/media/current-openings-images/assistant-to-ceo.jpg"],
+    ogImage: `${BASE_URL}/api/upload/media/current-openings-images/assistant-to-ceo.jpg`,
+    thumb: `${BASE_URL}/api/upload/media/current-openings-images/assistant-to-ceo.jpg`,
+    heroImage: `${BASE_URL}/api/upload/media/current-openings-images/assistant-to-ceo.jpg`,
+    images: [`${BASE_URL}/api/upload/media/current-openings-images/assistant-to-ceo.jpg`],
     noIndex: false,
   },
   "rf-architect": {
@@ -49,10 +50,10 @@ const JOB_SEO_META = {
     metaDescription: "Join Logic Fruit Technologies as RF Architect in Gurugram/Bengaluru. Architect Active Antenna System (AAS) 5G NR radios, multi-band RF hardware chains, and radar systems.",
     metaKeywords: "RF Architect, 5G NR Radio, Active Antenna System, AAS, Microwave Engineering, VNA, NVNA, Antenna Calibration, Hardware Engineering, Logic Fruit Careers",
     canonicalUrl: "/jobs-current-opening/rf-architect/",
-    ogImage: "http://localhost:5000/api/upload/media/current-openings-images/RF-Architect-Hardware-1024x1024.jpg",
-    thumb: "http://localhost:5000/api/upload/media/current-openings-images/RF-Architect-Hardware-1024x1024.jpg",
-    heroImage: "http://localhost:5000/api/upload/media/current-openings-images/RF-Architect-Hardware-1024x1024.jpg",
-    images: ["http://localhost:5000/api/upload/media/current-openings-images/RF-Architect-Hardware-1024x1024.jpg"],
+    ogImage: `${BASE_URL}/api/upload/media/current-openings-images/RF-Architect-Hardware-1024x1024.jpg`,
+    thumb: `${BASE_URL}/api/upload/media/current-openings-images/RF-Architect-Hardware-1024x1024.jpg`,
+    heroImage: `${BASE_URL}/api/upload/media/current-openings-images/RF-Architect-Hardware-1024x1024.jpg`,
+    images: [`${BASE_URL}/api/upload/media/current-openings-images/RF-Architect-Hardware-1024x1024.jpg`],
     noIndex: false,
   },
   "verification-lead": {
@@ -61,10 +62,10 @@ const JOB_SEO_META = {
     metaDescription: "Logic Fruit is hiring a Verification Lead in Gurugram. Manage verification teams, architect UVM testbenches, and drive coverage closure across PCIe, CXL, and Ethernet protocols.",
     metaKeywords: "Verification Lead, SystemVerilog, UVM, PCIe, CXL, Ethernet, Functional Coverage, Constrained Randomization, ASIC Verification, Logic Fruit",
     canonicalUrl: "/jobs-current-opening/verification-lead/",
-    ogImage: "http://localhost:5000/api/upload/media/current-openings-images/Verification-Lead-Job-Post-banner.jpg",
-    thumb: "http://localhost:5000/api/upload/media/current-openings-images/Verification-Lead-Job-Post-banner.jpg",
-    heroImage: "http://localhost:5000/api/upload/media/current-openings-images/Verification-Lead-Job-Post-banner.jpg",
-    images: ["http://localhost:5000/api/upload/media/current-openings-images/Verification-Lead-Job-Post-banner.jpg"],
+    ogImage: `${BASE_URL}/api/upload/media/current-openings-images/Verification-Lead-Job-Post-banner.jpg`,
+    thumb: `${BASE_URL}/api/upload/media/current-openings-images/Verification-Lead-Job-Post-banner.jpg`,
+    heroImage: `${BASE_URL}/api/upload/media/current-openings-images/Verification-Lead-Job-Post-banner.jpg`,
+    images: [`${BASE_URL}/api/upload/media/current-openings-images/Verification-Lead-Job-Post-banner.jpg`],
     noIndex: false,
   },
   "project-lead-fpga": {
@@ -73,10 +74,10 @@ const JOB_SEO_META = {
     metaDescription: "Apply as Project Lead - FPGA at Logic Fruit Technologies in Gurugram/Bengaluru. Lead RTL design, timing closure, and HW/SW integration for PCIe Gen5/Gen6 and 100G Ethernet platforms.",
     metaKeywords: "FPGA Project Lead, RTL Design, VHDL, Verilog, Xilinx Vivado, Intel Quartus, PCIe Gen5, 100G Ethernet, Timing Closure, Logic Fruit Careers",
     canonicalUrl: "/jobs-current-opening/project-lead-fpga/",
-    ogImage: "http://localhost:5000/api/upload/media/current-openings-images/Project-Lead-FPGA-updated-1024x1024.jpg",
-    thumb: "http://localhost:5000/api/upload/media/current-openings-images/Project-Lead-FPGA-updated-1024x1024.jpg",
-    heroImage: "http://localhost:5000/api/upload/media/current-openings-images/Project-Lead-FPGA-updated-1024x1024.jpg",
-    images: ["http://localhost:5000/api/upload/media/current-openings-images/Project-Lead-FPGA-updated-1024x1024.jpg"],
+    ogImage: `${BASE_URL}/api/upload/media/current-openings-images/Project-Lead-FPGA-updated-1024x1024.jpg`,
+    thumb: `${BASE_URL}/api/upload/media/current-openings-images/Project-Lead-FPGA-updated-1024x1024.jpg`,
+    heroImage: `${BASE_URL}/api/upload/media/current-openings-images/Project-Lead-FPGA-updated-1024x1024.jpg`,
+    images: [`${BASE_URL}/api/upload/media/current-openings-images/Project-Lead-FPGA-updated-1024x1024.jpg`],
     noIndex: false,
   },
   "it-expert": {

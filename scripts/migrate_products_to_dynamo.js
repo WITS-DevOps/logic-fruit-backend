@@ -215,7 +215,8 @@ async function migrateProductsToDynamo(docClient) {
         return 0;
       });
 
-      const s3Base = `http://localhost:5000/api/upload/media/products/${encodeURIComponent(matchedFolder)}`;
+      const baseUrl = process.env.BASE_URL || "https://api.logic-fruit.com";
+      const s3Base = `${baseUrl}/api/upload/media/products/${encodeURIComponent(matchedFolder)}`;
 
       if (allFiles.length > 0) {
         heroImage = `${s3Base}/${allFiles[0]}`;
@@ -225,7 +226,8 @@ async function migrateProductsToDynamo(docClient) {
           .map((f) => `${s3Base}/${f}`);
       }
     } else if (rawTitle.toLowerCase().includes("avant")) {
-      const s3Base = `http://localhost:5000/api/upload/media/products/${encodeURIComponent("Lattice Avant G70 PCIe Mini-Board")}`;
+      const baseUrl = process.env.BASE_URL || "https://api.logic-fruit.com";
+      const s3Base = `${baseUrl}/api/upload/media/products/${encodeURIComponent("Lattice Avant G70 PCIe Mini-Board")}`;
       heroImage = `${s3Base}/Avant%20G70%20PCIe%20Mini%20Board.png`;
       galleryImages = [heroImage];
     }
