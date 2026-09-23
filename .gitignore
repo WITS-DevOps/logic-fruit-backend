@@ -1,9 +1,30 @@
+# Dependencies
 node_modules
+
+# Environment variables (contains secrets)
 .env
+.env.local
+.env.*.local
+
+# Deploy scripts (contain PEM keys and credentials)
+deploy/
+*.pem
+
+# Local storage / uploads
 uploads
 data
+
+# OS files
 .DS_Store
+Thumbs.db
+
+# Logs
 *.log
 npm-debug.log*
+
+# Vercel
 .vercel
 
+# Editor
+.vscode
+.idea
