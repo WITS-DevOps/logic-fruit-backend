@@ -1,0 +1,1957 @@
+[
+  {
+    "id": 89939,
+    "type": "page",
+    "title": "PCIe Gen6 x16 Test Breakout Board",
+    "slug": "pcie-gen6-x16-test-breakout-board",
+    "link": "https://dev.logic-fruit.tech/products/pcie-gen6-x16-test-breakout-board/",
+    "emailTo": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "emailSubject": [
+      "[field id=\\"
+    ],
+    "emailTo2": [
+      "[field id=\\"
+    ],
+    "emailSubject2": [
+      "PCIe Gen6 x16 Test Breakout Board Datasheet from Logic Fruit Technologies"
+    ],
+    "emailFromName": [
+      "Jaswant from Logic Fruit"
+    ],
+    "emailFrom": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "pdfs": [
+      "https:\\/\\/dev.logic-fruit.tech\\/wp-content\\/uploads\\/2026\\/06\\/LFT_PCIe_Gen6_x16_Test_Breakout_Board_Datasheet_1.pdf"
+    ]
+  },
+  {
+    "id": 89903,
+    "type": "page",
+    "title": "PCIe Gen 6 AIC to QSFPDD Adapter",
+    "slug": "pcie-gen-6-aic-to-qsfpdd-adapter",
+    "link": "https://dev.logic-fruit.tech/products/pcie-gen-6-aic-to-qsfpdd-adapter/",
+    "emailTo": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "emailSubject": [
+      "[field id=\\"
+    ],
+    "emailTo2": [
+      "[field id=\\"
+    ],
+    "emailSubject2": [
+      "PCIe Gen 6 AIC to QSFPDD Adapter Datasheet from Logic Fruit Technologies"
+    ],
+    "emailFromName": [
+      "Jaswant from Logic Fruit"
+    ],
+    "emailFrom": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "pdfs": [
+      "https:\\/\\/dev.logic-fruit.tech\\/wp-content\\/uploads\\/2026\\/06\\/PCIe-Gen-6-AIC-to-QSFPDD-Adapter.pdf"
+    ]
+  },
+  {
+    "id": 89886,
+    "type": "page",
+    "title": "PCIe Gen 6 Backplane Board",
+    "slug": "pcie-gen-6-backplane-board",
+    "link": "https://dev.logic-fruit.tech/products/pcie-gen-6-backplane-board/",
+    "emailTo": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "emailSubject": [
+      "[field id=\\"
+    ],
+    "emailTo2": [
+      "[field id=\\"
+    ],
+    "emailSubject2": [
+      "PCIe Gen 6 Backplane Board Datasheet from Logic Fruit Technologies"
+    ],
+    "emailFromName": [
+      "Jaswant from Logic Fruit"
+    ],
+    "emailFrom": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "pdfs": [
+      "https:\\/\\/dev.logic-fruit.tech\\/wp-content\\/uploads\\/2026\\/06\\/Datasheet-PCIe-Gen-6-Backplane-Board-Logic-Fruit-Technologies.pdf"
+    ]
+  },
+  {
+    "id": 80386,
+    "type": "page",
+    "title": "Defense",
+    "slug": "defense",
+    "link": "https://dev.logic-fruit.tech/defense/",
+    "emailTo": [],
+    "emailSubject": [],
+    "emailTo2": [],
+    "emailSubject2": [],
+    "emailFromName": [],
+    "emailFrom": [],
+    "pdfs": []
+  },
+  {
+    "id": 75536,
+    "type": "page",
+    "title": "FPGA Proven PCIe GEN6 Controller IP",
+    "slug": "pcie-gen6-controller-ip",
+    "link": "https://dev.logic-fruit.tech/ip/pcie-gen6-controller-ip/",
+    "emailTo": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "emailSubject": [
+      "[field id=\\"
+    ],
+    "emailTo2": [
+      "[field id=\\"
+    ],
+    "emailSubject2": [
+      "FPGA Proven PCIe GEN6 Controller IP Datasheet from Logic Fruit Technologies"
+    ],
+    "emailFromName": [
+      "Jaswant from Logic Fruit"
+    ],
+    "emailFrom": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "pdfs": [
+      "https:\\/\\/dev.logic-fruit.tech\\/wp-content\\/uploads\\/datasheet\\/PCIe-Gen6-Controller-IP-Datasheet.pdf"
+    ]
+  },
+  {
+    "id": 75610,
+    "type": "page",
+    "title": "PCIe GEN6 PHY IP",
+    "slug": "pcie-gen6-phy-ip",
+    "link": "https://dev.logic-fruit.tech/ip/pcie-gen6-phy-ip/",
+    "emailTo": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "emailSubject": [
+      "[field id=\\"
+    ],
+    "emailTo2": [
+      "[field id=\\"
+    ],
+    "emailSubject2": [
+      "PCIe GEN6 PHY IP Datasheet from Logic Fruit Technologies"
+    ],
+    "emailFromName": [
+      "Jaswant from Logic Fruit"
+    ],
+    "emailFrom": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "pdfs": [
+      "https:\\/\\/dev.logic-fruit.tech\\/wp-content\\/uploads\\/datasheet\\/PCIe-Gen6-PHY-IP-Datasheet.pdf"
+    ]
+  },
+  {
+    "id": 75636,
+    "type": "page",
+    "title": "CXL 3 CONTROLLER IP",
+    "slug": "cxl-3-controller-ip",
+    "link": "https://dev.logic-fruit.tech/ip/cxl-3-controller-ip/",
+    "emailTo": [
+      "meenu.kukreja@logic-fruit.com"
+    ],
+    "emailSubject": [
+      "[field id=\\"
+    ],
+    "emailTo2": [
+      "[field id=\\"
+    ],
+    "emailSubject2": [
+      "CXL 3 CONTROLLER IP Datasheet from Logic Fruit Technologies"
+    ],
+    "emailFromName": [
+      "Jaswant from Logic Fruit"
+    ],
+    "emailFrom": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "pdfs": [
+      "https:\\/\\/dev.logic-fruit.tech\\/wp-content\\/uploads\\/datasheet\\/CXL3-Controller-IP-Datasheet.pdf"
+    ]
+  },
+  {
+    "id": 74307,
+    "type": "page",
+    "title": "SATA 3 Controller IP",
+    "slug": "sata-3-controller-ip",
+    "link": "https://dev.logic-fruit.tech/ip/sata-3-controller-ip/",
+    "emailTo": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "emailSubject": [
+      "[field id=\\"
+    ],
+    "emailTo2": [
+      "[field id=\\"
+    ],
+    "emailSubject2": [
+      "SATA 3 Controller IP Datasheet from Logic Fruit Technologies"
+    ],
+    "emailFromName": [
+      "Jaswant from Logic Fruit"
+    ],
+    "emailFrom": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "pdfs": [
+      "https:\\/\\/dev.logic-fruit.tech\\/wp-content\\/uploads\\/datasheet\\/Sata3-Controller-IP-Datasheet.pdf"
+    ]
+  },
+  {
+    "id": 73688,
+    "type": "page",
+    "title": "RF Recorder and Waveform Generator",
+    "slug": "rf-recorder-waveform-generator",
+    "link": "https://dev.logic-fruit.tech/products/rf-recorder-waveform-generator/",
+    "emailTo": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "emailSubject": [
+      "[field id=\\"
+    ],
+    "emailTo2": [
+      "[field id=\\"
+    ],
+    "emailSubject2": [
+      "RF Recorder and Waveform Generator Datasheet from Logic Fruit Technologies"
+    ],
+    "emailFromName": [
+      "Jaswant from Logic Fruit"
+    ],
+    "emailFrom": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "pdfs": [
+      "https:\\/\\/dev.logic-fruit.tech\\/wp-content\\/uploads\\/datasheet\\/RF-Recorder-and-Waveform-Generator.pdf"
+    ]
+  },
+  {
+    "id": 72985,
+    "type": "page",
+    "title": "JPEG Compression",
+    "slug": "jpeg-compression",
+    "link": "https://dev.logic-fruit.tech/ip/jpeg-compression/",
+    "emailTo": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "emailSubject": [
+      "[field id=\\"
+    ],
+    "emailTo2": [
+      "[field id=\\"
+    ],
+    "emailSubject2": [
+      "JPEG Compression IP Core Datasheet from Logic Fruit Technologies"
+    ],
+    "emailFromName": [
+      "Jaswant from Logic Fruit"
+    ],
+    "emailFrom": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "pdfs": [
+      "https:\\/\\/dev.logic-fruit.tech\\/wp-content\\/uploads\\/datasheet\\/JPEG-Compression-Datasheet.pdf"
+    ]
+  },
+  {
+    "id": 68685,
+    "type": "page",
+    "title": "100G UDP IP Stack",
+    "slug": "100g-udp-ip-stack",
+    "link": "https://dev.logic-fruit.tech/ip/100g-udp-ip-stack/",
+    "emailTo": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "emailSubject": [
+      "[field id=\\"
+    ],
+    "emailTo2": [
+      "[field id=\\"
+    ],
+    "emailSubject2": [
+      "100G UDP IP STACK Datasheet from Logic Fruit Technologies"
+    ],
+    "emailFromName": [
+      "Jaswant from Logic Fruit"
+    ],
+    "emailFrom": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "pdfs": [
+      "https:\\/\\/dev.logic-fruit.tech\\/wp-content\\/uploads\\/datasheet\\/100G-UDP-IP-Stack-Datasheet.pdf"
+    ]
+  },
+  {
+    "id": 63851,
+    "type": "page",
+    "title": "Design Verification",
+    "slug": "design-verification",
+    "link": "https://dev.logic-fruit.tech/product-engineering/design-verification/",
+    "emailTo": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "emailSubject": [
+      " [field id=\\"
+    ],
+    "emailTo2": [
+      "[field id=\\"
+    ],
+    "emailSubject2": [
+      "Here is your whitepaper you requested on Logic Fruit Technologies Website"
+    ],
+    "emailFromName": [
+      "Logic Fruit Technologies"
+    ],
+    "emailFrom": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "pdfs": [
+      "https:\\/\\/dev.logic-fruit.tech\\/wp-content\\/uploads\\/2021\\/06\\/Noise-reduction-less-than-100-uVrms-on-the-CCD-analog-Video-Signal-Acquisition.pdf",
+      "https:\\/\\/dev.logic-fruit.tech\\/wp-content\\/uploads\\/2021\\/05\\/Real-Time-Algorithm_compressed.pdf"
+    ]
+  },
+  {
+    "id": 63506,
+    "type": "page",
+    "title": "ARINC 818-3 IP CORE",
+    "slug": "arinc-818-3-ip-core",
+    "link": "https://dev.logic-fruit.tech/ip/arinc-818-3-ip-core/",
+    "emailTo": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "emailSubject": [
+      "[field id=\\"
+    ],
+    "emailTo2": [
+      "[field id=\\"
+    ],
+    "emailSubject2": [
+      "ARINC 818-3 IP CORE Datasheet from Logic Fruit Technologies"
+    ],
+    "emailFromName": [
+      "Jaswant from Logic Fruit"
+    ],
+    "emailFrom": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "pdfs": [
+      "https:\\/\\/dev.logic-fruit.tech\\/wp-content\\/uploads\\/datasheet\\/ARINC-818-3-Datasheet.pdf"
+    ]
+  },
+  {
+    "id": 62064,
+    "type": "page",
+    "title": "Ethernet 10G MAC",
+    "slug": "ethernet-10g-mac",
+    "link": "https://dev.logic-fruit.tech/ip/ethernet-10g-mac/",
+    "emailTo": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "emailSubject": [
+      "[field id=\\"
+    ],
+    "emailTo2": [
+      "[field id=\\"
+    ],
+    "emailSubject2": [
+      "Ethernet 10G MAC Datasheet from Logic Fruit Technologies"
+    ],
+    "emailFromName": [
+      "Jaswant from Logic Fruit"
+    ],
+    "emailFrom": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "pdfs": [
+      "https:\\/\\/dev.logic-fruit.tech\\/wp-content\\/uploads\\/datasheet\\/Ethernet-10G-MAC-Datasheet.pdf"
+    ]
+  },
+  {
+    "id": 58974,
+    "type": "page",
+    "title": "Kritin iXD 6U VPX Single Board Computer",
+    "slug": "kritin-ixd-6u-vpx-sbc",
+    "link": "https://dev.logic-fruit.tech/products/kritin-ixd-6u-vpx-sbc/",
+    "emailTo": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "emailSubject": [
+      "[field id=\\"
+    ],
+    "emailTo2": [
+      "[field id=\\"
+    ],
+    "emailSubject2": [
+      "Kritin iXD 6U VPX SBC Datasheet from Logic Fruit Technologies"
+    ],
+    "emailFromName": [
+      "Jaswant from Logic Fruit"
+    ],
+    "emailFrom": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "pdfs": [
+      "https:\\/\\/dev.logic-fruit.tech\\/wp-content\\/uploads\\/datasheet\\/Logic-Fruit-Kritin-iXD-6U-VPX-SBC-Datasheet.pdf"
+    ]
+  },
+  {
+    "id": 59587,
+    "type": "page",
+    "title": "Avionics Bus Interface Board",
+    "slug": "avionics-bus-interface-board",
+    "link": "https://dev.logic-fruit.tech/products/avionics-bus-interface-board/",
+    "emailTo": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "emailSubject": [
+      "[field id=\\"
+    ],
+    "emailTo2": [
+      "[field id=\\"
+    ],
+    "emailSubject2": [
+      "Avionics Bus Interface Board Datasheet from Logic Fruit Technologies"
+    ],
+    "emailFromName": [
+      "Jaswant from Logic Fruit"
+    ],
+    "emailFrom": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "pdfs": [
+      "https:\\/\\/dev.logic-fruit.tech\\/wp-content\\/uploads\\/datasheet\\/Avionics-bus-Interface-board-Datasheet.pdf"
+    ]
+  },
+  {
+    "id": 56232,
+    "type": "page",
+    "title": "40G UDP IP Stack",
+    "slug": "40g-udp-ip-stack",
+    "link": "https://dev.logic-fruit.tech/ip/40g-udp-ip-stack/",
+    "emailTo": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "emailSubject": [
+      "[field id=\\"
+    ],
+    "emailTo2": [
+      "[field id=\\"
+    ],
+    "emailSubject2": [
+      "40G UDP IP STACK Datasheet from Logic Fruit Technologies"
+    ],
+    "emailFromName": [
+      "Jaswant from Logic Fruit"
+    ],
+    "emailFrom": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "pdfs": [
+      "https:\\/\\/dev.logic-fruit.tech\\/wp-content\\/uploads\\/datasheet\\/40G-UDP-IP-Stack-Datasheet.pdf"
+    ]
+  },
+  {
+    "id": 58699,
+    "type": "page",
+    "title": "High Data Rate Receiver",
+    "slug": "high-data-rate-receiver",
+    "link": "https://dev.logic-fruit.tech/products/high-data-rate-receiver/",
+    "emailTo": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "emailSubject": [
+      "[field id=\\"
+    ],
+    "emailTo2": [
+      "[field id=\\"
+    ],
+    "emailSubject2": [
+      "High Data Rate Receiver Datasheet from Logic Fruit Technologies"
+    ],
+    "emailFromName": [
+      "Jaswant from Logic Fruit"
+    ],
+    "emailFrom": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "pdfs": [
+      "https:\\/\\/dev.logic-fruit.tech\\/wp-content\\/uploads\\/datasheet\\/High-Data-Rate-Receiver-Datasheet.pdf"
+    ]
+  },
+  {
+    "id": 58682,
+    "type": "page",
+    "title": "AES 256 IP CORE",
+    "slug": "aes-256-ip-core",
+    "link": "https://dev.logic-fruit.tech/ip/aes-256-ip-core/",
+    "emailTo": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "emailSubject": [
+      "[field id=\\"
+    ],
+    "emailTo2": [
+      "[field id=\\"
+    ],
+    "emailSubject2": [
+      "AES 256 IP CORE Datasheet from Logic Fruit Technologies"
+    ],
+    "emailFromName": [
+      "Jaswant from Logic Fruit"
+    ],
+    "emailFrom": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "pdfs": [
+      "https:\\/\\/dev.logic-fruit.tech\\/wp-content\\/uploads\\/datasheet\\/AES-256-IP-Core-Datasheet.pdf"
+    ]
+  },
+  {
+    "id": 58668,
+    "type": "page",
+    "title": "1G UDP IP Stack",
+    "slug": "1g-udp-ip-stack",
+    "link": "https://dev.logic-fruit.tech/ip/1g-udp-ip-stack/",
+    "emailTo": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "emailSubject": [
+      "[field id=\\"
+    ],
+    "emailTo2": [
+      "[field id=\\"
+    ],
+    "emailSubject2": [
+      "1G UDP IP STACK Datasheet from Logic Fruit Technologies"
+    ],
+    "emailFromName": [
+      "Jaswant from Logic Fruit"
+    ],
+    "emailFrom": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "pdfs": [
+      "https:\\/\\/dev.logic-fruit.tech\\/wp-content\\/uploads\\/datasheet\\/1G-UDP-IP-Stack-Datasheet.pdf"
+    ]
+  },
+  {
+    "id": 56198,
+    "type": "page",
+    "title": "10G UDP IP STACK",
+    "slug": "10g-udp-ip-stack",
+    "link": "https://dev.logic-fruit.tech/ip/10g-udp-ip-stack/",
+    "emailTo": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "emailSubject": [
+      "[field id=\\"
+    ],
+    "emailTo2": [
+      "[field id=\\"
+    ],
+    "emailSubject2": [
+      "10G UDP IP STACK Datasheet from Logic Fruit Technologies"
+    ],
+    "emailFromName": [
+      "Jaswant from Logic Fruit"
+    ],
+    "emailFrom": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "pdfs": [
+      "https:\\/\\/dev.logic-fruit.tech\\/wp-content\\/uploads\\/datasheet\\/10G-UDP-IP-Stack-Datasheet.pdf"
+    ]
+  },
+  {
+    "id": 53752,
+    "type": "page",
+    "title": "Memory",
+    "slug": "memory",
+    "link": "https://dev.logic-fruit.tech/memory/",
+    "emailTo": [],
+    "emailSubject": [],
+    "emailTo2": [],
+    "emailSubject2": [],
+    "emailFromName": [],
+    "emailFrom": [],
+    "pdfs": []
+  },
+  {
+    "id": 52927,
+    "type": "page",
+    "title": "MIL1553B IP Core",
+    "slug": "mil1553b-ip-core",
+    "link": "https://dev.logic-fruit.tech/ip/mil1553b-ip-core/",
+    "emailTo": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "emailSubject": [
+      "[field id=\\"
+    ],
+    "emailTo2": [
+      "[field id=\\"
+    ],
+    "emailSubject2": [
+      "MIL1553B IP Core Datasheet from Logic Fruit Technologies"
+    ],
+    "emailFromName": [
+      "Jaswant from Logic Fruit"
+    ],
+    "emailFrom": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "pdfs": [
+      "https:\\/\\/dev.logic-fruit.tech\\/wp-content\\/uploads\\/datasheet\\/MIL1553B-IP-CORE-Datasheet.pdf"
+    ]
+  },
+  {
+    "id": 50130,
+    "type": "page",
+    "title": "High Speed Interface",
+    "slug": "high-speed-interface",
+    "link": "https://dev.logic-fruit.tech/high-speed-interface/",
+    "emailTo": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "emailSubject": [
+      "New Subscriber on Logic Fruit Technologies"
+    ],
+    "emailTo2": [
+      "rahat.yasmin@demo.dev.logic-fruit.tech"
+    ],
+    "emailSubject2": [
+      "New message from \\"
+    ],
+    "emailFromName": [
+      "Jaswant from Logic Fruit"
+    ],
+    "emailFrom": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "pdfs": []
+  },
+  {
+    "id": 48901,
+    "type": "page",
+    "title": "Automotive",
+    "slug": "automotive",
+    "link": "https://dev.logic-fruit.tech/automotive/",
+    "emailTo": [],
+    "emailSubject": [],
+    "emailTo2": [],
+    "emailSubject2": [],
+    "emailFromName": [],
+    "emailFrom": [],
+    "pdfs": []
+  },
+  {
+    "id": 48334,
+    "type": "page",
+    "title": "DVI TO STANAG 3350 CLASS B/C VIDEO CONVERTER",
+    "slug": "dvi-to-stanag-3350-class-b-c-video-converter",
+    "link": "https://dev.logic-fruit.tech/products/dvi-to-stanag-3350-class-b-c-video-converter/",
+    "emailTo": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "emailSubject": [
+      "[field id=\\"
+    ],
+    "emailTo2": [
+      "[field id=\\"
+    ],
+    "emailSubject2": [
+      "DVI TO STANAG 3350 Class B\\/C Video Converter Datasheet from Logic Fruit Technologies"
+    ],
+    "emailFromName": [
+      "Jaswant from Logic Fruit"
+    ],
+    "emailFrom": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "pdfs": [
+      "https:\\/\\/dev.logic-fruit.tech\\/wp-content\\/uploads\\/datasheet\\/DVI-STANAG-CON-SPEC-Datasheet.pdf"
+    ]
+  },
+  {
+    "id": 48353,
+    "type": "page",
+    "title": "STANAG 3350 CLASS B/C TO DVI VIDEO CONVERTER",
+    "slug": "stanag-3350-class-b-c-to-dvi-video-converter",
+    "link": "https://dev.logic-fruit.tech/products/stanag-3350-class-b-c-to-dvi-video-converter/",
+    "emailTo": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "emailSubject": [
+      "[field id=\\"
+    ],
+    "emailTo2": [
+      "[field id=\\"
+    ],
+    "emailSubject2": [
+      "STANAG 3350 CLASS B\\/C TO DVI VIDEO CONVERTER  Datasheet from Logic Fruit Technologies"
+    ],
+    "emailFromName": [
+      "Jaswant from Logic Fruit"
+    ],
+    "emailFrom": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "pdfs": [
+      "https:\\/\\/dev.logic-fruit.tech\\/wp-content\\/uploads\\/datasheet\\/STANAG-DVI-CON-SPEC-Datasheet.pdf"
+    ]
+  },
+  {
+    "id": 48386,
+    "type": "page",
+    "title": "STANAG MONITOR",
+    "slug": "stanag-monitor",
+    "link": "https://dev.logic-fruit.tech/products/stanag-monitor/",
+    "emailTo": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "emailSubject": [
+      "[field id=\\"
+    ],
+    "emailTo2": [
+      "[field id=\\"
+    ],
+    "emailSubject2": [
+      "STANAG MONITOR  Datasheet from Logic Fruit Technologies"
+    ],
+    "emailFromName": [
+      "Jaswant from Logic Fruit"
+    ],
+    "emailFrom": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "pdfs": [
+      "https:\\/\\/dev.logic-fruit.tech\\/wp-content\\/uploads\\/datasheet\\/15-Inch-STANAG-Monitor-Datasheet.pdf"
+    ]
+  },
+  {
+    "id": 48322,
+    "type": "page",
+    "title": "ARINC 818 TO DVI VIDEO CONVERTER",
+    "slug": "arinc-818-to-dvi-video-converter",
+    "link": "https://dev.logic-fruit.tech/products/arinc-818-to-dvi-video-converter/",
+    "emailTo": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "emailSubject": [
+      "[field id=\\"
+    ],
+    "emailTo2": [
+      "[field id=\\"
+    ],
+    "emailSubject2": [
+      "ARINC 818 TO DVI VIDEO CONVERTER Datasheet from Logic Fruit Technologies"
+    ],
+    "emailFromName": [
+      "Jaswant from Logic Fruit"
+    ],
+    "emailFrom": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "pdfs": [
+      "https:\\/\\/dev.logic-fruit.tech\\/wp-content\\/uploads\\/datasheet\\/ARINC-DVI-CON-SPEC-Datasheet.pdf"
+    ]
+  },
+  {
+    "id": 48590,
+    "type": "page",
+    "title": "ARINC 818 Video Protocol Analyzer",
+    "slug": "arinc-818-video-protocol-analyzer",
+    "link": "https://dev.logic-fruit.tech/products/arinc-818-video-protocol-analyzer/",
+    "emailTo": [
+      ""
+    ],
+    "emailSubject": [
+      "[field id=\\"
+    ],
+    "emailTo2": [
+      "[field id=\\"
+    ],
+    "emailSubject2": [
+      "ARINC 818 VIDEO PROTOCOL ANALYZER Datasheet from Logic Fruit Technologies"
+    ],
+    "emailFromName": [
+      "Jaswant from Logic Fruit"
+    ],
+    "emailFrom": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "pdfs": [
+      "https:\\/\\/dev.logic-fruit.tech\\/wp-content\\/uploads\\/datasheet\\/ARINC818-VIDEO-PROTOCOL-ANALYZER-SPEC-Datasheet.pdf"
+    ]
+  },
+  {
+    "id": 48302,
+    "type": "page",
+    "title": "DVI TO ARINC 818 VIDEO CONVERTER",
+    "slug": "dvi-to-arinc-818-video-converter",
+    "link": "https://dev.logic-fruit.tech/products/dvi-to-arinc-818-video-converter/",
+    "emailTo": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "emailSubject": [
+      "[field id=\\"
+    ],
+    "emailTo2": [
+      "[field id=\\"
+    ],
+    "emailSubject2": [
+      "DVI to ARINC 818 Video Converter Datasheet from Logic Fruit Technologies"
+    ],
+    "emailFromName": [
+      "Jaswant from Logic Fruit"
+    ],
+    "emailFrom": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "pdfs": [
+      "https:\\/\\/dev.logic-fruit.tech\\/wp-content\\/uploads\\/datasheet\\/DVI-ARINC-CON-SPEC-Datasheet.pdf"
+    ]
+  },
+  {
+    "id": 48433,
+    "type": "page",
+    "title": "ARINC 818 MONITOR",
+    "slug": "arinc-818-monitor",
+    "link": "https://dev.logic-fruit.tech/products/arinc-818-monitor/",
+    "emailTo": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "emailSubject": [
+      "[field id=\\"
+    ],
+    "emailTo2": [
+      "[field id=\\"
+    ],
+    "emailSubject2": [
+      "ARINC 818 MONITOR Datasheet from Logic Fruit Technologies"
+    ],
+    "emailFromName": [
+      "Jaswant from Logic Fruit"
+    ],
+    "emailFrom": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "pdfs": [
+      "https:\\/\\/dev.logic-fruit.tech\\/wp-content\\/uploads\\/datasheet\\/15-ARINC-818-Monitor-Datasheet.pdf"
+    ]
+  },
+  {
+    "id": 47715,
+    "type": "page",
+    "title": "Embedded",
+    "slug": "embedded",
+    "link": "https://dev.logic-fruit.tech/embedded/",
+    "emailTo": [],
+    "emailSubject": [],
+    "emailTo2": [],
+    "emailSubject2": [],
+    "emailFromName": [],
+    "emailFrom": [],
+    "pdfs": []
+  },
+  {
+    "id": 47155,
+    "type": "page",
+    "title": "Flexray RTL IP Core",
+    "slug": "flexray-rtl-ip-core",
+    "link": "https://dev.logic-fruit.tech/ip/flexray-rtl-ip-core/",
+    "emailTo": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "emailSubject": [
+      "[field id=\\"
+    ],
+    "emailTo2": [
+      "[field id=\\"
+    ],
+    "emailSubject2": [
+      "Flexray RTL IP Core Datasheet from Logic Fruit Technologies"
+    ],
+    "emailFromName": [
+      "Jaswant from Logic Fruit"
+    ],
+    "emailFrom": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "pdfs": [
+      "https:\\/\\/dev.logic-fruit.tech\\/wp-content\\/uploads\\/datasheet\\/FlexRay-RTL-IP-Core-Datasheet.pdf"
+    ]
+  },
+  {
+    "id": 46356,
+    "type": "page",
+    "title": "Application Form New",
+    "slug": "application-form-new",
+    "link": "https://dev.logic-fruit.tech/career/application-form-new/",
+    "emailTo": [
+      "meenu.kukreja@logic-fruit.com"
+    ],
+    "emailSubject": [
+      "[field id=\\"
+    ],
+    "emailTo2": [
+      "meenu.kukreja@logic-fruit.com"
+    ],
+    "emailSubject2": [
+      "New message from \\"
+    ],
+    "emailFromName": [
+      "Jaswant from Logic Fruit"
+    ],
+    "emailFrom": [
+      "careers@logic-fruit.com"
+    ],
+    "pdfs": []
+  },
+  {
+    "id": 45807,
+    "type": "page",
+    "title": "FlexRay",
+    "slug": "flexray",
+    "link": "https://dev.logic-fruit.tech/flexray/",
+    "emailTo": [],
+    "emailSubject": [],
+    "emailTo2": [],
+    "emailSubject2": [],
+    "emailFromName": [],
+    "emailFrom": [],
+    "pdfs": []
+  },
+  {
+    "id": 43019,
+    "type": "page",
+    "title": "CAN Controller IP Core",
+    "slug": "can-controller-ip-core",
+    "link": "https://dev.logic-fruit.tech/ip/can-controller-ip-core/",
+    "emailTo": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "emailSubject": [
+      "[field id=\\"
+    ],
+    "emailTo2": [
+      "[field id=\\"
+    ],
+    "emailSubject2": [
+      "CAN Controller IP Core Datasheet from Logic Fruit Technologies"
+    ],
+    "emailFromName": [
+      "Jaswant from Logic Fruit"
+    ],
+    "emailFrom": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "pdfs": [
+      "https:\\/\\/dev.logic-fruit.tech\\/wp-content\\/uploads\\/2026\\/04\\/CAN-IP-Datasheet-New-Design.pdf"
+    ]
+  },
+  {
+    "id": 41343,
+    "type": "page",
+    "title": "DAQ",
+    "slug": "daq",
+    "link": "https://dev.logic-fruit.tech/daq/",
+    "emailTo": [],
+    "emailSubject": [],
+    "emailTo2": [],
+    "emailSubject2": [],
+    "emailFromName": [],
+    "emailFrom": [],
+    "pdfs": []
+  },
+  {
+    "id": 41114,
+    "type": "page",
+    "title": "LIN Master Slave IP Core",
+    "slug": "lin-master-slave-ip-core",
+    "link": "https://dev.logic-fruit.tech/ip/lin-master-slave-ip-core/",
+    "emailTo": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "emailSubject": [
+      "[field id=\\"
+    ],
+    "emailTo2": [
+      "[field id=\\"
+    ],
+    "emailSubject2": [
+      "LIN Master Slave IP Core Datasheet from Logic Fruit Technologies"
+    ],
+    "emailFromName": [
+      "Jaswant from Logic Fruit"
+    ],
+    "emailFrom": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "pdfs": [
+      "https:\\/\\/dev.logic-fruit.tech\\/wp-content\\/uploads\\/datasheet\\/LIN-IP-Datasheet.pdf"
+    ]
+  },
+  {
+    "id": 40952,
+    "type": "page",
+    "title": "CAN",
+    "slug": "can",
+    "link": "https://dev.logic-fruit.tech/can/",
+    "emailTo": [],
+    "emailSubject": [],
+    "emailTo2": [],
+    "emailSubject2": [],
+    "emailFromName": [],
+    "emailFrom": [],
+    "pdfs": []
+  },
+  {
+    "id": 33175,
+    "type": "page",
+    "title": "PCIE",
+    "slug": "pcie-blog",
+    "link": "https://dev.logic-fruit.tech/pcie-blog/",
+    "emailTo": [],
+    "emailSubject": [],
+    "emailTo2": [],
+    "emailSubject2": [],
+    "emailFromName": [],
+    "emailFrom": [],
+    "pdfs": []
+  },
+  {
+    "id": 37497,
+    "type": "page",
+    "title": "New Home Page",
+    "slug": "new-home-page",
+    "link": "https://dev.logic-fruit.tech/new-home-page/",
+    "emailTo": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "emailSubject": [
+      "New message from \\"
+    ],
+    "emailTo2": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "emailSubject2": [
+      "New message from \\"
+    ],
+    "emailFromName": [
+      "Logic Fruit Technologies"
+    ],
+    "emailFrom": [
+      "email@logic-fruit.com"
+    ],
+    "pdfs": [
+      "https:\\/\\/dev.logic-fruit.tech\\/wp-content\\/uploads\\/2021\\/06\\/Noise-reduction-less-than-100-uVrms-on-the-CCD-analog-Video-Signal-Acquisition.pdf",
+      "https:\\/\\/dev.logic-fruit.tech\\/wp-content\\/uploads\\/2021\\/05\\/Real-Time-Algorithm_compressed.pdf"
+    ]
+  },
+  {
+    "id": 36225,
+    "type": "page",
+    "title": "General",
+    "slug": "general",
+    "link": "https://dev.logic-fruit.tech/general/",
+    "emailTo": [],
+    "emailSubject": [],
+    "emailTo2": [],
+    "emailSubject2": [],
+    "emailFromName": [],
+    "emailFrom": [],
+    "pdfs": []
+  },
+  {
+    "id": 36015,
+    "type": "page",
+    "title": "TPM",
+    "slug": "tpm",
+    "link": "https://dev.logic-fruit.tech/tpm/",
+    "emailTo": [],
+    "emailSubject": [],
+    "emailTo2": [],
+    "emailSubject2": [],
+    "emailFromName": [],
+    "emailFrom": [],
+    "pdfs": []
+  },
+  {
+    "id": 36013,
+    "type": "page",
+    "title": "HPC",
+    "slug": "hpc",
+    "link": "https://dev.logic-fruit.tech/hpc/",
+    "emailTo": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "emailSubject": [
+      "New Subscriber on Logic Fruit Technologies"
+    ],
+    "emailTo2": [
+      "rahat.yasmin@demo.dev.logic-fruit.tech"
+    ],
+    "emailSubject2": [
+      "New message from \\"
+    ],
+    "emailFromName": [
+      "Jaswant from Logic Fruit"
+    ],
+    "emailFrom": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "pdfs": []
+  },
+  {
+    "id": 35868,
+    "type": "page",
+    "title": "Podcast",
+    "slug": "podcast",
+    "link": "https://dev.logic-fruit.tech/podcast/",
+    "emailTo": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "emailSubject": [
+      "New Subscriber on Logic Fruit Technologies"
+    ],
+    "emailTo2": [
+      "rahat.yasmin@demo.dev.logic-fruit.tech"
+    ],
+    "emailSubject2": [
+      "New message from \\"
+    ],
+    "emailFromName": [
+      "Jaswant from Logic Fruit"
+    ],
+    "emailFrom": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "pdfs": []
+  },
+  {
+    "id": 29697,
+    "type": "page",
+    "title": "SDLC",
+    "slug": "sdlc",
+    "link": "https://dev.logic-fruit.tech/sdlc/",
+    "emailTo": [],
+    "emailSubject": [],
+    "emailTo2": [],
+    "emailSubject2": [],
+    "emailFromName": [],
+    "emailFrom": [],
+    "pdfs": []
+  },
+  {
+    "id": 26832,
+    "type": "page",
+    "title": "ARINC 429 IP Core",
+    "slug": "arinc-429-ip-core",
+    "link": "https://dev.logic-fruit.tech/ip/arinc-429-ip-core/",
+    "emailTo": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "emailSubject": [
+      "[field id=\\"
+    ],
+    "emailTo2": [
+      "[field id=\\"
+    ],
+    "emailSubject2": [
+      "ARINC 429 IP Core Datasheet from Logic Fruit Technologies"
+    ],
+    "emailFromName": [
+      "Jaswant from Logic Fruit"
+    ],
+    "emailFrom": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "pdfs": [
+      "https:\\/\\/dev.logic-fruit.tech\\/wp-content\\/uploads\\/datasheet\\/ARINC-429-Datasheet.pdf"
+    ]
+  },
+  {
+    "id": 26536,
+    "type": "page",
+    "title": "CXL",
+    "slug": "cxl",
+    "link": "https://dev.logic-fruit.tech/cxl/",
+    "emailTo": [],
+    "emailSubject": [],
+    "emailTo2": [],
+    "emailSubject2": [],
+    "emailFromName": [],
+    "emailFrom": [],
+    "pdfs": []
+  },
+  {
+    "id": 26099,
+    "type": "page",
+    "title": "CPRI Master and Slave RTL IP Core",
+    "slug": "cpri-master-and-slave-rtl-ip-core",
+    "link": "https://dev.logic-fruit.tech/ip/cpri-master-and-slave-rtl-ip-core/",
+    "emailTo": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "emailSubject": [
+      "[field id=\\"
+    ],
+    "emailTo2": [
+      "[field id=\\"
+    ],
+    "emailSubject2": [
+      "CPRI Master and Slave RTL IP Core  Datasheet from Logic Fruit Technologies"
+    ],
+    "emailFromName": [
+      "Jaswant from Logic Fruit"
+    ],
+    "emailFrom": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "pdfs": [
+      "https:\\/\\/dev.logic-fruit.tech\\/wp-content\\/uploads\\/datasheet\\/CPRI-Master-and-Slave-RTL-IP-Core.pdf"
+    ]
+  },
+  {
+    "id": 26266,
+    "type": "page",
+    "title": "Multi-Format Video Display/Monitor",
+    "slug": "multi-format-video-display-monitor",
+    "link": "https://dev.logic-fruit.tech/products/multi-format-video-display-monitor/",
+    "emailTo": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "emailSubject": [
+      "[field id=\\"
+    ],
+    "emailTo2": [
+      "[field id=\\"
+    ],
+    "emailSubject2": [
+      "Multi-Format Video Display\\/Monitor Datasheet from Logic Fruit Technologies"
+    ],
+    "emailFromName": [
+      "Jaswant from Logic Fruit"
+    ],
+    "emailFrom": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "pdfs": [
+      "https:\\/\\/dev.logic-fruit.tech\\/wp-content\\/uploads\\/datasheet\\/Multi-Format-Video-Display-Monitor-Datasheet.pdf"
+    ]
+  },
+  {
+    "id": 24675,
+    "type": "page",
+    "title": "DISPLAY PORT IPs",
+    "slug": "display-port-ips",
+    "link": "https://dev.logic-fruit.tech/ip/display-port-ips/",
+    "emailTo": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "emailSubject": [
+      "[field id=\\"
+    ],
+    "emailTo2": [
+      "[field id=\\"
+    ],
+    "emailSubject2": [
+      "DISPLAY PORT IPs Datasheet from Logic Fruit Technologies"
+    ],
+    "emailFromName": [
+      "Jaswant from Logic Fruit"
+    ],
+    "emailFrom": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "pdfs": [
+      "https:\\/\\/logic-fruit.com\\/wp-content\\/uploads\\/datasheet\\/DisplayPort-1.4-IP.pdf"
+    ]
+  },
+  {
+    "id": 24259,
+    "type": "page",
+    "title": "Resources",
+    "slug": "resources",
+    "link": "https://dev.logic-fruit.tech/resources/",
+    "emailTo": [],
+    "emailSubject": [],
+    "emailTo2": [],
+    "emailSubject2": [],
+    "emailFromName": [],
+    "emailFrom": [],
+    "pdfs": []
+  },
+  {
+    "id": 23553,
+    "type": "page",
+    "title": "JESD204B Transmitter and Receiver IP",
+    "slug": "jesd204b-transmitter-and-receiver-ip",
+    "link": "https://dev.logic-fruit.tech/ip/jesd204b-transmitter-and-receiver-ip/",
+    "emailTo": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "emailSubject": [
+      "[field id=\\"
+    ],
+    "emailTo2": [
+      "[field id=\\"
+    ],
+    "emailSubject2": [
+      "JESD204B IP Core Datasheet from Logic Fruit Technologies"
+    ],
+    "emailFromName": [
+      "Jaswant from Logic Fruit"
+    ],
+    "emailFrom": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "pdfs": [
+      "https:\\/\\/dev.logic-fruit.tech\\/wp-content\\/uploads\\/datasheet\\/JESD204B-Transmitter-and-Receiver-IP-Datasheet.pdf"
+    ]
+  },
+  {
+    "id": 23500,
+    "type": "page",
+    "title": "JESD204C Transmitter and Receiver IP",
+    "slug": "jesd204c-transmitter-and-receiver-ip",
+    "link": "https://dev.logic-fruit.tech/ip/jesd204c-transmitter-and-receiver-ip/",
+    "emailTo": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "emailSubject": [
+      "[field id=\\"
+    ],
+    "emailTo2": [
+      "[field id=\\"
+    ],
+    "emailSubject2": [
+      "JESD204C IP Core Datasheet from Logic Fruit Technologies"
+    ],
+    "emailFromName": [
+      "Jaswant from Logic Fruit"
+    ],
+    "emailFrom": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "pdfs": [
+      "https:\\/\\/dev.logic-fruit.tech\\/wp-content\\/uploads\\/datasheet\\/JESD204C-Transmitter-and-Receiver-IP-Datasheet.pdf"
+    ]
+  },
+  {
+    "id": 22937,
+    "type": "page",
+    "title": "ARINC Standard",
+    "slug": "arinc-standard",
+    "link": "https://dev.logic-fruit.tech/arinc-standard/",
+    "emailTo": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "emailSubject": [
+      "New Subscriber on Logic Fruit Technologies"
+    ],
+    "emailTo2": [
+      "[field id=\\",
+      "rahat.yasmin@demo.dev.logic-fruit.tech"
+    ],
+    "emailSubject2": [
+      "Here is your whitepaper you requested on Logic Fruit Technologies Website",
+      "New message from \\"
+    ],
+    "emailFromName": [
+      "Jaswant from Logic Fruit"
+    ],
+    "emailFrom": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "pdfs": [
+      "https:\\/\\/dev.logic-fruit.tech\\/wp-content\\/uploads\\/2021\\/05\\/Multistream-in-DisplayPort.pdf"
+    ]
+  },
+  {
+    "id": 22923,
+    "type": "page",
+    "title": "Wireless Communication",
+    "slug": "wireless-communication",
+    "link": "https://dev.logic-fruit.tech/wireless-communication/",
+    "emailTo": [],
+    "emailSubject": [],
+    "emailTo2": [],
+    "emailSubject2": [],
+    "emailFromName": [],
+    "emailFrom": [],
+    "pdfs": []
+  },
+  {
+    "id": 22915,
+    "type": "page",
+    "title": "Video Processing",
+    "slug": "video-processing",
+    "link": "https://dev.logic-fruit.tech/video-processing/",
+    "emailTo": [],
+    "emailSubject": [],
+    "emailTo2": [],
+    "emailSubject2": [],
+    "emailFromName": [],
+    "emailFrom": [],
+    "pdfs": []
+  },
+  {
+    "id": 22909,
+    "type": "page",
+    "title": "Video Interfaces",
+    "slug": "video-interfaces",
+    "link": "https://dev.logic-fruit.tech/video-interfaces/",
+    "emailTo": [],
+    "emailSubject": [],
+    "emailTo2": [],
+    "emailSubject2": [],
+    "emailFromName": [],
+    "emailFrom": [],
+    "pdfs": []
+  },
+  {
+    "id": 22903,
+    "type": "page",
+    "title": "Video Compression",
+    "slug": "video-compression",
+    "link": "https://dev.logic-fruit.tech/video-compression/",
+    "emailTo": [],
+    "emailSubject": [],
+    "emailTo2": [],
+    "emailSubject2": [],
+    "emailFromName": [],
+    "emailFrom": [],
+    "pdfs": []
+  },
+  {
+    "id": 22897,
+    "type": "page",
+    "title": "FPGA",
+    "slug": "fpga",
+    "link": "https://dev.logic-fruit.tech/fpga/",
+    "emailTo": [],
+    "emailSubject": [],
+    "emailTo2": [],
+    "emailSubject2": [],
+    "emailFromName": [],
+    "emailFrom": [],
+    "pdfs": []
+  },
+  {
+    "id": 22890,
+    "type": "page",
+    "title": "Digital Interfaces",
+    "slug": "digital-interfaces",
+    "link": "https://dev.logic-fruit.tech/digital-interfaces/",
+    "emailTo": [],
+    "emailSubject": [],
+    "emailTo2": [],
+    "emailSubject2": [],
+    "emailFromName": [],
+    "emailFrom": [],
+    "pdfs": []
+  },
+  {
+    "id": 22883,
+    "type": "page",
+    "title": "Avionics",
+    "slug": "avionics",
+    "link": "https://dev.logic-fruit.tech/avionics/",
+    "emailTo": [],
+    "emailSubject": [],
+    "emailTo2": [],
+    "emailSubject2": [],
+    "emailFromName": [],
+    "emailFrom": [],
+    "pdfs": []
+  },
+  {
+    "id": 22874,
+    "type": "page",
+    "title": "AI / ML",
+    "slug": "ai-ml",
+    "link": "https://dev.logic-fruit.tech/ai-ml/",
+    "emailTo": [],
+    "emailSubject": [],
+    "emailTo2": [],
+    "emailSubject2": [],
+    "emailFromName": [],
+    "emailFrom": [],
+    "pdfs": []
+  },
+  {
+    "id": 22797,
+    "type": "page",
+    "title": "ARINC",
+    "slug": "arinc",
+    "link": "https://dev.logic-fruit.tech/arinc/",
+    "emailTo": [],
+    "emailSubject": [],
+    "emailTo2": [],
+    "emailSubject2": [],
+    "emailFromName": [],
+    "emailFrom": [],
+    "pdfs": []
+  },
+  {
+    "id": 22373,
+    "type": "page",
+    "title": "Radar Data Acquisition System (RDA) &#8211; Application Note",
+    "slug": "radar-data-acquisition",
+    "link": "https://dev.logic-fruit.tech/application-notes/radar-data-acquisition/",
+    "emailTo": [],
+    "emailSubject": [],
+    "emailTo2": [],
+    "emailSubject2": [],
+    "emailFromName": [],
+    "emailFrom": [],
+    "pdfs": []
+  },
+  {
+    "id": 23188,
+    "type": "page",
+    "title": "Electronics Board For MegaPixel Sensor",
+    "slug": "electronics-board-for-megapixel-sensor",
+    "link": "https://dev.logic-fruit.tech/case-studies/electronics-board-for-megapixel-sensor/",
+    "emailTo": [],
+    "emailSubject": [],
+    "emailTo2": [],
+    "emailSubject2": [],
+    "emailFromName": [],
+    "emailFrom": [],
+    "pdfs": []
+  },
+  {
+    "id": 23187,
+    "type": "page",
+    "title": "Firmware Development for Wide Area Surveillance Border Area",
+    "slug": "firmware-development-for-wide-area-surveillance-border-area",
+    "link": "https://dev.logic-fruit.tech/case-studies/firmware-development-for-wide-area-surveillance-border-area/",
+    "emailTo": [],
+    "emailSubject": [],
+    "emailTo2": [],
+    "emailSubject2": [],
+    "emailFromName": [],
+    "emailFrom": [],
+    "pdfs": []
+  },
+  {
+    "id": 23186,
+    "type": "page",
+    "title": "Fast Centroid Estimator Signal Processing Unit",
+    "slug": "fast-centroid-estimator-signal-processing-unit",
+    "link": "https://dev.logic-fruit.tech/case-studies/fast-centroid-estimator-signal-processing-unit/",
+    "emailTo": [],
+    "emailSubject": [],
+    "emailTo2": [],
+    "emailSubject2": [],
+    "emailFromName": [],
+    "emailFrom": [],
+    "pdfs": []
+  },
+  {
+    "id": 23185,
+    "type": "page",
+    "title": "Electronics for Day Camera Enhancement",
+    "slug": "electronics-for-day-camera-video-enhancement",
+    "link": "https://dev.logic-fruit.tech/case-studies/electronics-for-day-camera-video-enhancement/",
+    "emailTo": [],
+    "emailSubject": [],
+    "emailTo2": [],
+    "emailSubject2": [],
+    "emailFromName": [],
+    "emailFrom": [],
+    "pdfs": []
+  },
+  {
+    "id": 23184,
+    "type": "page",
+    "title": "VNIR Sensor Processing Electronics",
+    "slug": "vnir-sensor-processing-electronics",
+    "link": "https://dev.logic-fruit.tech/case-studies/vnir-sensor-processing-electronics/",
+    "emailTo": [],
+    "emailSubject": [],
+    "emailTo2": [],
+    "emailSubject2": [],
+    "emailFromName": [],
+    "emailFrom": [],
+    "pdfs": []
+  },
+  {
+    "id": 23183,
+    "type": "page",
+    "title": "Real-Time Panorama Generation System",
+    "slug": "real-time-panorama-generation-system",
+    "link": "https://dev.logic-fruit.tech/case-studies/real-time-panorama-generation-system/",
+    "emailTo": [],
+    "emailSubject": [],
+    "emailTo2": [],
+    "emailSubject2": [],
+    "emailFromName": [],
+    "emailFrom": [],
+    "pdfs": []
+  },
+  {
+    "id": 21545,
+    "type": "page",
+    "title": "ARINC 818 Video Analyzer &#038; Multiformat Video Generator",
+    "slug": "avag",
+    "link": "https://dev.logic-fruit.tech/products/avag/",
+    "emailTo": [
+      "meenu.kukreja@logic-fruit.com"
+    ],
+    "emailSubject": [
+      "[field id=\\"
+    ],
+    "emailTo2": [
+      "[field id=\\"
+    ],
+    "emailSubject2": [
+      "Arinc 818 Video Analyzer & Multiformat Video Generator  Datasheet from Logic Fruit Technologies"
+    ],
+    "emailFromName": [
+      "Logic Fruit Technologies"
+    ],
+    "emailFrom": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "pdfs": [
+      "https:\\/\\/dev.logic-fruit.tech\\/wp-content\\/uploads\\/datasheet\\/AVAG-Datasheet.pdf"
+    ]
+  },
+  {
+    "id": 18300,
+    "type": "page",
+    "title": "Glossary",
+    "slug": "glossary",
+    "link": "https://dev.logic-fruit.tech/glossary/",
+    "emailTo": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "emailSubject": [
+      "New Subscriber on Logic Fruit Technologies"
+    ],
+    "emailTo2": [
+      "rahat.yasmin@demo.dev.logic-fruit.tech"
+    ],
+    "emailSubject2": [
+      "New message from \\"
+    ],
+    "emailFromName": [
+      "Jaswant from Logic Fruit"
+    ],
+    "emailFrom": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "pdfs": []
+  },
+  {
+    "id": 9550,
+    "type": "page",
+    "title": "Application Form",
+    "slug": "application-form",
+    "link": "https://dev.logic-fruit.tech/career/application-form/",
+    "emailTo": [
+      "careers@logic-fruit.com,jaswant.singh@logic-fruit.com"
+    ],
+    "emailSubject": [
+      "[field id=\\"
+    ],
+    "emailTo2": [
+      "rahat.yasmin@demo.dev.logic-fruit.tech"
+    ],
+    "emailSubject2": [
+      "New message from \\"
+    ],
+    "emailFromName": [
+      "Jaswant from Logic Fruit"
+    ],
+    "emailFrom": [
+      "careers@logic-fruit.com"
+    ],
+    "pdfs": []
+  },
+  {
+    "id": 6082,
+    "type": "page",
+    "title": "Contact Us",
+    "slug": "contact-us",
+    "link": "https://dev.logic-fruit.tech/contact-us/",
+    "emailTo": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "emailSubject": [
+      " [field id=\\"
+    ],
+    "emailTo2": [
+      "[field id=\\"
+    ],
+    "emailSubject2": [
+      "Here is your whitepaper you requested on Logic Fruit Technologies Website"
+    ],
+    "emailFromName": [
+      "Logic Fruit Technologies"
+    ],
+    "emailFrom": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "pdfs": [
+      "https:\\/\\/dev.logic-fruit.tech\\/wp-content\\/uploads\\/2021\\/06\\/Noise-reduction-less-than-100-uVrms-on-the-CCD-analog-Video-Signal-Acquisition.pdf",
+      "https:\\/\\/dev.logic-fruit.tech\\/wp-content\\/uploads\\/2021\\/05\\/Real-Time-Algorithm_compressed.pdf"
+    ]
+  },
+  {
+    "id": 5749,
+    "type": "page",
+    "title": "Infographics",
+    "slug": "infographics",
+    "link": "https://dev.logic-fruit.tech/infographics/",
+    "emailTo": [],
+    "emailSubject": [],
+    "emailTo2": [],
+    "emailSubject2": [],
+    "emailFromName": [],
+    "emailFrom": [],
+    "pdfs": []
+  },
+  {
+    "id": 5743,
+    "type": "page",
+    "title": "News",
+    "slug": "news",
+    "link": "https://dev.logic-fruit.tech/news/",
+    "emailTo": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "emailSubject": [
+      "New Subscriber on Logic Fruit Technologies"
+    ],
+    "emailTo2": [
+      "[field id=\\",
+      "rahat.yasmin@demo.dev.logic-fruit.tech"
+    ],
+    "emailSubject2": [
+      "Here is your whitepaper you requested on Logic Fruit Technologies Website",
+      "New message from \\"
+    ],
+    "emailFromName": [
+      "Jaswant from Logic Fruit"
+    ],
+    "emailFrom": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "pdfs": [
+      "https:\\/\\/dev.logic-fruit.tech\\/wp-content\\/uploads\\/2021\\/05\\/Multistream-in-DisplayPort.pdf"
+    ]
+  },
+  {
+    "id": 5723,
+    "type": "page",
+    "title": "Whitepaper",
+    "slug": "whitepaper",
+    "link": "https://dev.logic-fruit.tech/whitepaper/",
+    "emailTo": [],
+    "emailSubject": [],
+    "emailTo2": [],
+    "emailSubject2": [],
+    "emailFromName": [],
+    "emailFrom": [],
+    "pdfs": []
+  },
+  {
+    "id": 5707,
+    "type": "page",
+    "title": "Blog",
+    "slug": "blog",
+    "link": "https://dev.logic-fruit.tech/blog/",
+    "emailTo": [],
+    "emailSubject": [],
+    "emailTo2": [],
+    "emailSubject2": [],
+    "emailFromName": [],
+    "emailFrom": [],
+    "pdfs": []
+  },
+  {
+    "id": 1278,
+    "type": "page",
+    "title": "Aquila Scalable Data Acquisition System",
+    "slug": "scalable-data-acquisition-system",
+    "link": "https://dev.logic-fruit.tech/products/scalable-data-acquisition-system/",
+    "emailTo": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "emailSubject": [
+      "[field id=\\"
+    ],
+    "emailTo2": [
+      "[field id=\\"
+    ],
+    "emailSubject2": [
+      "Aquila Data Acquisition System With Built-In Signal Conditioner (512 CHANNEL DAS)  Datasheet from Logic Fruit Technologies"
+    ],
+    "emailFromName": [
+      "Jaswant from Logic Fruit"
+    ],
+    "emailFrom": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "pdfs": [
+      "https:\\/\\/dev.logic-fruit.tech\\/wp-content\\/uploads\\/datasheet\\/Aquila-Scalable-Data-Acquisition-System-Datasheet.pdf"
+    ]
+  },
+  {
+    "id": 1265,
+    "type": "page",
+    "title": "Arbitrary Waveform Generator",
+    "slug": "arbitrary-waveform-generator",
+    "link": "https://dev.logic-fruit.tech/products/arbitrary-waveform-generator/",
+    "emailTo": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "emailSubject": [
+      "[field id=\\"
+    ],
+    "emailTo2": [
+      "[field id=\\"
+    ],
+    "emailSubject2": [
+      "Arbitrary Waveform Generator Datasheet from Logic Fruit Technologies"
+    ],
+    "emailFromName": [
+      "Jaswant from Logic Fruit"
+    ],
+    "emailFrom": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "pdfs": [
+      "https:\\/\\/dev.logic-fruit.tech\\/wp-content\\/uploads\\/datasheet\\/Arbitrary-Waveform-Generator-Datasheet.pdf"
+    ]
+  },
+  {
+    "id": 1258,
+    "type": "page",
+    "title": "IF Recorder And Playback System",
+    "slug": "if-recorder-and-playback-system",
+    "link": "https://dev.logic-fruit.tech/products/if-recorder-and-playback-system/",
+    "emailTo": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "emailSubject": [
+      "[field id=\\"
+    ],
+    "emailTo2": [
+      "[field id=\\"
+    ],
+    "emailSubject2": [
+      "IF Recorder And Playback System Datasheet from Logic Fruit Technologies"
+    ],
+    "emailFromName": [
+      "Jaswant from Logic Fruit"
+    ],
+    "emailFrom": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "pdfs": [
+      "https:\\/\\/dev.logic-fruit.tech\\/wp-content\\/uploads\\/datasheet\\/IF-Recorder-Datasheet.pdf"
+    ]
+  },
+  {
+    "id": 1247,
+    "type": "page",
+    "title": "Smart Multi-Functional Display",
+    "slug": "smfd",
+    "link": "https://dev.logic-fruit.tech/products/smfd/",
+    "emailTo": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "emailSubject": [
+      "[field id=\\"
+    ],
+    "emailTo2": [
+      "[field id=\\"
+    ],
+    "emailSubject2": [
+      "Smart Multi-Functional Display Datasheet from Logic Fruit Technologies"
+    ],
+    "emailFromName": [
+      "Jaswant from Logic Fruit"
+    ],
+    "emailFrom": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "pdfs": [
+      "https:\\/\\/dev.logic-fruit.tech\\/wp-content\\/uploads\\/datasheet\\/SMFD-Datasheet.pdf"
+    ]
+  },
+  {
+    "id": 1232,
+    "type": "page",
+    "title": "Kritin iAB 6U VPX Single Board Computer",
+    "slug": "single-board-computer-with-arinc-818-interface",
+    "link": "https://dev.logic-fruit.tech/products/single-board-computer-with-arinc-818-interface/",
+    "emailTo": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "emailSubject": [
+      "[field id=\\"
+    ],
+    "emailTo2": [
+      "[field id=\\"
+    ],
+    "emailSubject2": [
+      "Kritin iAB 6U VPX SBC Datasheet from Logic Fruit Technologies"
+    ],
+    "emailFromName": [
+      "Jaswant from Logic Fruit"
+    ],
+    "emailFrom": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "pdfs": [
+      "https:\\/\\/dev.logic-fruit.tech\\/wp-content\\/uploads\\/datasheet\\/Kritin-iAB-6U-VPX-SBC-Datasheet.pdf"
+    ]
+  },
+  {
+    "id": 1099,
+    "type": "page",
+    "title": "ARINC 818 IP-2 CORE",
+    "slug": "arinc-818-ip-core",
+    "link": "https://dev.logic-fruit.tech/ip/arinc-818-ip-core/",
+    "emailTo": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "emailSubject": [
+      "[field id=\\"
+    ],
+    "emailTo2": [
+      "[field id=\\"
+    ],
+    "emailSubject2": [
+      "ARINC 818-2 IP CORE Datasheet from Logic Fruit Technologies"
+    ],
+    "emailFromName": [
+      "Jaswant from Logic Fruit"
+    ],
+    "emailFrom": [
+      "jaswant.singh@logic-fruit.com"
+    ],
+    "pdfs": [
+      "https:\\/\\/dev.logic-fruit.tech\\/wp-content\\/uploads\\/datasheet\\/ARINC-818-2-IP-CORE-Datasheet.pdf"
+    ]
+  }
+]

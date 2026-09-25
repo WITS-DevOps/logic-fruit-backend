@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import "dotenv/config";
+import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -17,7 +18,9 @@ import uploadRoutes from "./routes/uploadRoutes.js";
 import jobRoutes from "./routes/jobRoutes.js";
 import inquiryRoutes from "./routes/inquiryRoutes.js";
 import emailRoutes from "./routes/emailRoutes.js";
+import emailTemplateRoutes from "./routes/emailTemplateRoutes.js";
 import { generateDynamicSitemapXml } from "./services/sitemapService.js";
+
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -72,6 +75,12 @@ app.use(express.urlencoded({ extended: true }));
 // Serve local uploads folder statically
 app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
 
+// Legacy WordPress uploads redirect (Redirects old email PDF links directly to media streaming endpoint)
+app.get(["/wp-content/uploads/*", "/uploads/legacy-wp/*"], (req, res) => {
+  const filename = path.basename(req.path);
+  res.redirect(301, `/api/upload/media/legacy-wp/${filename}`);
+});
+
 // Root Endpoint (Quick status check for browser & monitoring)
 app.get("/", (req, res) => {
   res.json({
@@ -111,6 +120,8 @@ app.use("/api/products", productRoutes);
 app.use("/api/jobs", jobRoutes);
 app.use("/api/inquiries", inquiryRoutes);
 app.use("/api/email", emailRoutes);
+app.use("/api/email-templates", emailTemplateRoutes);
+
 
 // Dynamic Sitemap Endpoint (used by Vite frontend & Googlebot)
 app.get("/api/sitemap.xml", async (req, res) => {

@@ -1,0 +1,812 @@
+[
+  {
+    "id": 89968,
+    "title": "FPGAs_in_Next-Gen_Test_and_Measurement version 1.2",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2026/07/FPGAs_in_Next-Gen_Test_and_Measurement-version-1.2.pdf",
+    "date": "2026-07-24T19:16:47"
+  },
+  {
+    "id": 89946,
+    "title": "LFT_PCIe_Gen6_x16_Test_Breakout_Board_Datasheet_1",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2026/06/LFT_PCIe_Gen6_x16_Test_Breakout_Board_Datasheet_1.pdf",
+    "date": "2026-06-18T17:37:07"
+  },
+  {
+    "id": 89902,
+    "title": "PCIe Gen 6 AIC to QSFPDD Adapter",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2026/06/PCIe-Gen-6-AIC-to-QSFPDD-Adapter.pdf",
+    "date": "2026-06-16T17:18:07"
+  },
+  {
+    "id": 89894,
+    "title": "Datasheet &#8211; PCIe Gen 6 Backplane Board &#8211; Logic Fruit Technologies",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2026/06/Datasheet-PCIe-Gen-6-Backplane-Board-Logic-Fruit-Technologies.pdf",
+    "date": "2026-06-16T16:35:01"
+  },
+  {
+    "id": 89752,
+    "title": "CAN Controller IP &#8211; Logic Fruit",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2026/04/CAN-IP-Datasheet-New-Design.pdf",
+    "date": "2026-04-01T11:10:45"
+  },
+  {
+    "id": 89131,
+    "title": "DisplayPort-1.4-IP",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2026/01/DisplayPort-1.4-IP-1.pdf",
+    "date": "2026-01-27T23:33:30"
+  },
+  {
+    "id": 89130,
+    "title": "DisplayPort-1.4-IP",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2026/01/DisplayPort-1.4-IP.pdf",
+    "date": "2026-01-27T23:28:36"
+  },
+  {
+    "id": 69053,
+    "title": "40G UDP IP Stack Datasheet",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2024/11/40G-UDP-IP-Stack-Datasheet.pdf",
+    "date": "2024-11-11T14:39:47"
+  },
+  {
+    "id": 69052,
+    "title": "10G UDP IP Stack Datasheet",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2024/11/10G-UDP-IP-Stack-Datasheet.pdf",
+    "date": "2024-11-11T14:39:44"
+  },
+  {
+    "id": 68857,
+    "title": "Products Portfolio &#8211; Logic Fruit Technologies",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2024/11/Products-Portfolio-Logic-Fruit-Technologies.pdf",
+    "date": "2024-11-10T10:56:33"
+  },
+  {
+    "id": 68275,
+    "title": "Booklet (All IPs A4 size) 2024 (2)",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2024/11/Booklet-All-IPs-A4-size-2024-2.pdf",
+    "date": "2024-11-06T14:24:36"
+  },
+  {
+    "id": 68274,
+    "title": "Booklet (All Products A4 size) 2024 (1)",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2024/11/Booklet-All-Products-A4-size-2024-1.pdf",
+    "date": "2024-11-06T14:23:41"
+  },
+  {
+    "id": 61432,
+    "title": "Advancements in Codebook-Based Downlink CSI for 5G and Future Wireless Networks",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2024/09/Advancements-in-Codebook-Based-Downlink-CSI-for-5G-and-Future-Wireless-Networks.pdf",
+    "date": "2024-09-06T13:41:34"
+  },
+  {
+    "id": 59592,
+    "title": "Avionics Bus Interface Board Datasheet",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2024/08/Avionics-Bus-Interface-Board-Datasheet.pdf",
+    "date": "2024-08-12T17:58:29"
+  },
+  {
+    "id": 58994,
+    "title": "Logic Fruit Xeon Single Board Computer Datasheet",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2024/08/Logic-Fruit-Xeon-Single-Board-Computer-Datasheet.pdf",
+    "date": "2024-08-06T10:46:59"
+  },
+  {
+    "id": 58701,
+    "title": "HDR Datasheet",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2024/07/HDR-Datasheet.pdf",
+    "date": "2024-07-30T16:36:26"
+  },
+  {
+    "id": 58690,
+    "title": "AES 256 IP Core Datasheet",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2024/07/AES-256-IP-Core-Datasheet.pdf",
+    "date": "2024-07-30T16:22:06"
+  },
+  {
+    "id": 58674,
+    "title": "1G UDP IP Stack Datasheet",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2024/07/1G-UDP-IP-Stack-Datasheet.pdf",
+    "date": "2024-07-30T16:02:38"
+  },
+  {
+    "id": 56211,
+    "title": "40G UDP IP Stack Datasheet",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2024/06/40G-UDP-IP-Stack-Datasheet.pdf",
+    "date": "2024-06-21T13:34:38"
+  },
+  {
+    "id": 56210,
+    "title": "10G UDP IP Stack Datasheet",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2024/06/10G-UDP-IP-Stack-Datasheet.pdf",
+    "date": "2024-06-21T13:34:36"
+  },
+  {
+    "id": 55937,
+    "title": "Products-Portfolio",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2024/06/Products-Portfolio.pdf",
+    "date": "2024-06-18T20:23:41"
+  },
+  {
+    "id": 55910,
+    "title": "FPGA-RTL-IPs-Portfolio",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/dlm_uploads/2024/06/FPGA-RTL-IPs-Portfolio.pdf",
+    "date": "2024-06-18T19:57:52"
+  },
+  {
+    "id": 54626,
+    "title": "MIMO Beamforming Whitepaper",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2024/06/MIMO-Beamforming-Whitepaper.pdf",
+    "date": "2024-06-05T11:00:43"
+  },
+  {
+    "id": 53239,
+    "title": "MIL1553B IP CORE &#8211; Logic Fruit Technologies",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2024/05/MIL1553B-IP-CORE-Logic-Fruit-Technologies.pdf",
+    "date": "2024-05-28T14:00:49"
+  },
+  {
+    "id": 53020,
+    "title": "MIL-Datasheet",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2024/05/MIL-Datasheet.pdf",
+    "date": "2024-05-28T10:21:12"
+  },
+  {
+    "id": 52490,
+    "title": "PCIe Gen6 Retimer Equalization-new",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2024/04/PCIe-Gen6-Retimer-Equalization-new.pdf",
+    "date": "2024-04-26T15:33:18"
+  },
+  {
+    "id": 52425,
+    "title": "PCIe Gen6 Retimer Equalization-updated",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2024/04/PCIe-Gen6-Retimer-Equalization-updated.pdf",
+    "date": "2024-04-24T12:45:17"
+  },
+  {
+    "id": 52287,
+    "title": "PCIe Gen6 Retimer Equalization",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2024/04/PCIe-Gen6-Retimer-Equalization.pdf",
+    "date": "2024-04-23T09:56:52"
+  },
+  {
+    "id": 52118,
+    "title": "PCIe Gen-5 Transaction Layer &#8211; An Ultimate Guide",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2024/04/PCIe-Gen-5-Transaction-Layer-An-Ultimate-Guide.pdf",
+    "date": "2024-04-17T12:16:45"
+  },
+  {
+    "id": 51403,
+    "title": "Single Board Computer Datasheet final",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2024/04/Single-Board-Computer-Datasheet-final.pdf",
+    "date": "2024-04-01T10:52:36"
+  },
+  {
+    "id": 50897,
+    "title": "Beginner’s Guide to Precision Time Protocol",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2024/03/Beginners-Guide-to-Precision-Time-Protocol.pdf",
+    "date": "2024-03-13T12:58:16"
+  },
+  {
+    "id": 50097,
+    "title": "STANAG Monitor",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2024/02/STANAG-Monitor.pdf",
+    "date": "2024-02-27T11:46:42"
+  },
+  {
+    "id": 50096,
+    "title": "ARINC 818 Monitor",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2024/02/ARINC-818-Monitor.pdf",
+    "date": "2024-02-27T11:46:15"
+  },
+  {
+    "id": 49554,
+    "title": "15-ARINC-818-Monitor-New",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2024/02/15-ARINC-818-Monitor-New.pdf",
+    "date": "2024-02-16T15:52:50"
+  },
+  {
+    "id": 49553,
+    "title": "15-Inch-STANAG-Monitor-New",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2024/02/15-Inch-STANAG-Monitor-New.pdf",
+    "date": "2024-02-16T15:52:36"
+  },
+  {
+    "id": 49506,
+    "title": "DVI-ARINC CON SPEC-NEW",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2024/02/DVI-ARINC-CON-SPEC-NEW.pdf",
+    "date": "2024-02-16T14:29:41"
+  },
+  {
+    "id": 49505,
+    "title": "ARINC-DVI CON SPEC-NEW",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2024/02/ARINC-DVI-CON-SPEC-NEW.pdf",
+    "date": "2024-02-16T14:29:32"
+  },
+  {
+    "id": 49504,
+    "title": "DVI-STANAG CON SPEC-NEW",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2024/02/DVI-STANAG-CON-SPEC-NEW.pdf",
+    "date": "2024-02-16T14:29:21"
+  },
+  {
+    "id": 49499,
+    "title": "STANAG-DVI CON SPEC-NEW",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2024/02/STANAG-DVI-CON-SPEC-NEW.pdf",
+    "date": "2024-02-16T14:29:11"
+  },
+  {
+    "id": 48885,
+    "title": "ARINC818 VIDEO PROTOCOL ANALYZER SPEC-NEW",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2024/02/ARINC818-VIDEO-PROTOCOL-ANALYZER-SPEC-NEW.pdf",
+    "date": "2024-02-15T12:34:26"
+  },
+  {
+    "id": 48464,
+    "title": "STANAG-DVI CON SPEC",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2024/02/STANAG-DVI-CON-SPEC.pdf",
+    "date": "2024-02-14T11:45:55"
+  },
+  {
+    "id": 48463,
+    "title": "HDMI DVI-ARINC CON SPEC",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2024/02/HDMI-DVI-ARINC-CON-SPEC.pdf",
+    "date": "2024-02-14T11:45:49"
+  },
+  {
+    "id": 48462,
+    "title": "DVI-STANAG CON SPEC",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2024/02/DVI-STANAG-CON-SPEC.pdf",
+    "date": "2024-02-14T11:45:41"
+  },
+  {
+    "id": 48461,
+    "title": "ARINC-HDMI DVI CON SPEC",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2024/02/ARINC-HDMI-DVI-CON-SPEC.pdf",
+    "date": "2024-02-14T11:45:32"
+  },
+  {
+    "id": 48460,
+    "title": "ARINC818 VIDEO PROTOCOL ANALYZER SPEC (2 page)",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2024/02/ARINC818-VIDEO-PROTOCOL-ANALYZER-SPEC-2-page.pdf",
+    "date": "2024-02-14T11:45:23"
+  },
+  {
+    "id": 48459,
+    "title": "15 Inch STANAG Monitor",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2024/02/15-Inch-STANAG-Monitor.pdf",
+    "date": "2024-02-14T11:45:13"
+  },
+  {
+    "id": 48458,
+    "title": "15 ARINC 818 Monitor",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2024/02/15-ARINC-818-Monitor.pdf",
+    "date": "2024-02-14T11:45:04"
+  },
+  {
+    "id": 47234,
+    "title": "FlexRay IP Datasheet",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2024/01/FlexRay-IP-Datasheet.pdf",
+    "date": "2024-01-24T19:42:45"
+  },
+  {
+    "id": 45862,
+    "title": "Key Components of a Data Acquisition System",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2022/09/Key-Components-of-a-Data-Acquisition-System.pdf",
+    "date": "2023-12-28T13:55:15"
+  },
+  {
+    "id": 41154,
+    "title": "LIN IP Datasheet",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2023/11/LIN-IP-Datasheet.pdf",
+    "date": "2023-11-03T19:48:01"
+  },
+  {
+    "id": 36278,
+    "title": "Intel-Slim-Bootloader-Whitepaper-updated",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2023/09/Intel-Slim-Bootloader-Whitepaper-updated.pdf",
+    "date": "2023-09-13T15:03:37"
+  },
+  {
+    "id": 35799,
+    "title": "Intel Slim Bootloader Whitepaper",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2023/09/Intel-Slim-Bootloader-Whitepaper.pdf",
+    "date": "2023-09-06T11:35:21"
+  },
+  {
+    "id": 34893,
+    "title": "Webcam based Live Streaming Whitepaper",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2023/08/Webcam-based-Live-Streaming-Whitepaper.pdf",
+    "date": "2023-08-09T12:55:52"
+  },
+  {
+    "id": 32602,
+    "title": "ARINC 818 Datasheet Final",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2023/06/ARINC-818-Datasheet-Final.pdf",
+    "date": "2023-06-19T11:18:03"
+  },
+  {
+    "id": 32540,
+    "title": "Heat Transfer Flow Simulation in PCB 1",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2023/06/Heat-Transfer-Flow-Simulation-in-PCB-1.pdf",
+    "date": "2023-06-16T12:56:53"
+  },
+  {
+    "id": 32539,
+    "title": "Enabling RISC-V Based System Development",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2023/06/Enabling-RISC-V-Based-System-Development.pdf",
+    "date": "2023-06-16T12:56:26"
+  },
+  {
+    "id": 32464,
+    "title": "Real Time Algorithm",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2023/06/Real-Time-Algorithm-1.pdf",
+    "date": "2023-06-15T18:23:18"
+  },
+  {
+    "id": 32463,
+    "title": "Quick Insights into PCI Gen 6 Physical Layer Logical Sub – Blocks",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2023/06/Quick-Insights-into-PCI-Gen-6-Physical-Layer-Logical-Sub-–-Blocks.pdf",
+    "date": "2023-06-15T18:23:08"
+  },
+  {
+    "id": 32462,
+    "title": "PCIe Gen5 DLL Whitepaper",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2023/06/PCIe-Gen5-DLL-Whitepaper-1.pdf",
+    "date": "2023-06-15T18:22:54"
+  },
+  {
+    "id": 32461,
+    "title": "MAc 1",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2023/06/MAc-1-1.pdf",
+    "date": "2023-06-15T18:22:34"
+  },
+  {
+    "id": 32460,
+    "title": "Guide-to-design-FPGA-based-Flash-storage-Card-with-NVMe-interface",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2023/06/Guide-to-design-FPGA-based-Flash-storage-Card-with-NVMe-interface.pdf",
+    "date": "2023-06-15T18:22:00"
+  },
+  {
+    "id": 32459,
+    "title": "Designing Digital Testing Solutions with FPGA",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2023/06/Designing-Digital-Testing-Solutions-with-FPGA-1.pdf",
+    "date": "2023-06-15T18:21:44"
+  },
+  {
+    "id": 32458,
+    "title": "DDR3",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2023/06/DDR3.pdf",
+    "date": "2023-06-15T18:21:26"
+  },
+  {
+    "id": 32217,
+    "title": "MAC1",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2023/06/MAC1.pdf",
+    "date": "2023-06-06T13:19:58"
+  },
+  {
+    "id": 32212,
+    "title": "PCIe Gen5 DLL Whitepaper",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2023/06/PCIe-Gen5-DLL-Whitepaper.pdf",
+    "date": "2023-06-06T13:05:17"
+  },
+  {
+    "id": 32100,
+    "title": "Xilinx App Store Whitepaper",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2023/06/Xilinx-App-Store-Whitepaper.pdf",
+    "date": "2023-06-02T13:39:27"
+  },
+  {
+    "id": 32096,
+    "title": "white paper for digitiser 05 Junel 2021",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2023/06/white-paper-for-digitiser-05-Junel-2021.pdf",
+    "date": "2023-06-02T13:39:17"
+  },
+  {
+    "id": 32095,
+    "title": "UVM Tricks Whitepaper",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2023/06/UVM-Tricks-Whitepaper.pdf",
+    "date": "2023-06-02T13:39:09"
+  },
+  {
+    "id": 32094,
+    "title": "User Guide",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2023/06/User-Guide.pdf",
+    "date": "2023-06-02T13:38:28"
+  },
+  {
+    "id": 32093,
+    "title": "USB Host Whitepape",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2023/06/USB-Host-Whitepape.pdf",
+    "date": "2023-06-02T13:38:08"
+  },
+  {
+    "id": 32092,
+    "title": "Real Time Algorithm",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2023/06/Real-Time-Algorithm.pdf",
+    "date": "2023-06-02T13:38:00"
+  },
+  {
+    "id": 32091,
+    "title": "PCIe Virtualization Stack Overview Final",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2023/06/PCIe-Virtualization-Stack-Overview-Final.pdf",
+    "date": "2023-06-02T13:37:58"
+  },
+  {
+    "id": 32090,
+    "title": "PCIe gen6",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2023/06/PCIe-gen6.pdf",
+    "date": "2023-06-02T13:37:47"
+  },
+  {
+    "id": 32089,
+    "title": "PCIe gen6 version 9.0",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2023/06/PCIe-gen6-version-9.0.pdf",
+    "date": "2023-06-02T13:37:37"
+  },
+  {
+    "id": 32088,
+    "title": "PCI Express 3.0 final",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2023/06/PCI-Express-3.0-final.pdf",
+    "date": "2023-06-02T13:37:25"
+  },
+  {
+    "id": 32087,
+    "title": "Multistream-in-DisplayPort Whitepaper",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2023/06/Multistream-in-DisplayPort-Whitepaper.pdf",
+    "date": "2023-06-02T13:37:10"
+  },
+  {
+    "id": 32086,
+    "title": "MAc 1",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2023/06/MAc-1.pdf",
+    "date": "2023-06-02T13:36:51"
+  },
+  {
+    "id": 32085,
+    "title": "Gen5 DLL Whitepaper",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2023/06/Gen5-DLL-Whitepaper.pdf",
+    "date": "2023-06-02T13:36:35"
+  },
+  {
+    "id": 32084,
+    "title": "Designing Digital Testing Solutions with FPGA",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2023/06/Designing-Digital-Testing-Solutions-with-FPGA.pdf",
+    "date": "2023-06-02T13:36:19"
+  },
+  {
+    "id": 32083,
+    "title": "DAC Synchronization final",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2023/06/DAC-Synchronization-final.pdf",
+    "date": "2023-06-02T13:36:17"
+  },
+  {
+    "id": 32082,
+    "title": "ADC Synchronization final",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2023/06/ADC-Synchronization-final.pdf",
+    "date": "2023-06-02T13:36:12"
+  },
+  {
+    "id": 32081,
+    "title": "Accelerated Application Development on Amazon EC2 F1 Whitepaper",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2023/06/Accelerated-Application-Development-on-Amazon-EC2-F1-Whitepaper.pdf",
+    "date": "2023-06-02T13:36:01"
+  },
+  {
+    "id": 32023,
+    "title": "Application note RADAR DATA Acquistion",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2023/06/Application-note-RADAR-DATA-Acquistion.pdf",
+    "date": "2023-06-01T18:52:03"
+  },
+  {
+    "id": 31991,
+    "title": "SMFD Datasheet",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2023/06/SMFD-Datasheet.pdf",
+    "date": "2023-06-01T12:39:51"
+  },
+  {
+    "id": 31990,
+    "title": "Single Board Computer Datasheet final",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2023/06/Single-Board-Computer-Datasheet-final.pdf",
+    "date": "2023-06-01T12:39:42"
+  },
+  {
+    "id": 31989,
+    "title": "Secure Encryption USB Device Datasheet final",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2023/06/Secure-Encryption-USB-Device-Datasheet-final.pdf",
+    "date": "2023-06-01T12:39:34"
+  },
+  {
+    "id": 31988,
+    "title": "Multi Video Display Monitor",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2023/06/Multi-Video-Display-Monitor.pdf",
+    "date": "2023-06-01T12:39:09"
+  },
+  {
+    "id": 31987,
+    "title": "JESD204C Protocol final",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2023/06/JESD204C-Protocol-final.pdf",
+    "date": "2023-06-01T12:38:56"
+  },
+  {
+    "id": 31986,
+    "title": "JESD204B Protocol final",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2023/06/JESD204B-Protocol-final.pdf",
+    "date": "2023-06-01T12:38:48"
+  },
+  {
+    "id": 31985,
+    "title": "IF Recorder datasheet",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2023/06/IF-Recorder-datasheet.pdf",
+    "date": "2023-06-01T12:38:39"
+  },
+  {
+    "id": 31984,
+    "title": "Display Port IP",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2023/06/Display-Port-IP.pdf",
+    "date": "2023-06-01T12:38:30"
+  },
+  {
+    "id": 31983,
+    "title": "CPRI IP Datasheet Final",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2023/06/CPRI-IP-Datasheet-Final.pdf",
+    "date": "2023-06-01T12:38:19"
+  },
+  {
+    "id": 31982,
+    "title": "AWG Datasheet",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2023/06/AWG-Datasheet.pdf",
+    "date": "2023-06-01T12:38:03"
+  },
+  {
+    "id": 31981,
+    "title": "AVAG Datasheet final",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2023/06/AVAG-Datasheet-final.pdf",
+    "date": "2023-06-01T12:37:50"
+  },
+  {
+    "id": 31980,
+    "title": "ARINC 818 to Converter Document Final",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2023/06/ARINC-818-to-Converter-Document-Final.pdf",
+    "date": "2023-06-01T12:37:36"
+  },
+  {
+    "id": 31979,
+    "title": "ARINC 429 Datasheet final",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2023/06/ARINC-429-Datasheet-final.pdf",
+    "date": "2023-06-01T12:37:24"
+  },
+  {
+    "id": 31978,
+    "title": "Aquila Datasheet Final",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2023/06/Aquila-Datasheet-Final.pdf",
+    "date": "2023-06-01T12:37:10"
+  },
+  {
+    "id": 30392,
+    "title": "PCI Express Gen 6 Equalization &#8211; Logic Fruit Technologies",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2023/03/PCI-Express-Gen-6-Equalization-Logic-Fruit-Technologies.pdf",
+    "date": "2023-03-20T13:11:40"
+  },
+  {
+    "id": 28043,
+    "title": "PCIe Virtualization Stack Overview Final",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2022/11/PCIe-Virtualization-Stack-Overview-Final.pdf",
+    "date": "2022-11-14T06:36:30"
+  },
+  {
+    "id": 26847,
+    "title": "ARINC 429 Datasheet",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2022/09/ARINC-429-Datasheet-1.pdf",
+    "date": "2022-09-28T10:43:24"
+  },
+  {
+    "id": 26759,
+    "title": "Logic Fruit is in Top 10 Aerospace Engineering Service Providers 2022 by Industry Outlook",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2022/09/Logic-Fruit-is-in-Top-10-Aerospace-Engineering-Service-Providers-2022-by-Industry-Outlook.pdf",
+    "date": "2022-09-21T10:58:49"
+  },
+  {
+    "id": 26704,
+    "title": "Gen5 DLL Whitepaper (1)",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2022/09/Gen5-DLL-Whitepaper-1.pdf",
+    "date": "2022-09-13T09:09:15"
+  },
+  {
+    "id": 26332,
+    "title": "Multi Video Display Monitor",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2022/08/Multi-Video-Display-Monitor-1.pdf",
+    "date": "2022-08-13T06:08:57"
+  },
+  {
+    "id": 26304,
+    "title": "Multi Video Display Monitor",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2022/08/Multi-Video-Display-Monitor.pdf",
+    "date": "2022-08-13T05:44:56"
+  },
+  {
+    "id": 26161,
+    "title": "CPRI IP Datasheet",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2022/08/CPRI-IP-Datasheet.pdf",
+    "date": "2022-08-07T17:32:56"
+  },
+  {
+    "id": 25430,
+    "title": "Brand Manual Guidelines",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2022/05/Brand-Manual-Guidelines.pdf",
+    "date": "2022-05-29T19:15:54"
+  },
+  {
+    "id": 25340,
+    "title": "Dheeraj Whitepaper",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2022/05/Dheeraj-Whitepaper.pdf",
+    "date": "2022-05-23T17:44:35"
+  },
+  {
+    "id": 25276,
+    "title": "Whitepaper",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2022/05/Whitepaper.pdf",
+    "date": "2022-05-21T07:21:20"
+  },
+  {
+    "id": 25262,
+    "title": "ADC Synchronization_compressed",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2022/05/ADC-Synchronization_compressed.pdf",
+    "date": "2022-05-17T17:54:27"
+  },
+  {
+    "id": 25224,
+    "title": "DAC Synchronization_compressed",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2022/05/DAC-Synchronization_compressed.pdf",
+    "date": "2022-05-13T11:48:04"
+  },
+  {
+    "id": 25047,
+    "title": "DAC Synchronization (1)",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2022/05/DAC-Synchronization-1.pdf",
+    "date": "2022-05-06T08:10:45"
+  },
+  {
+    "id": 25046,
+    "title": "ADC Synchronization (1)",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2022/05/ADC-Synchronization-1.pdf",
+    "date": "2022-05-06T08:10:41"
+  },
+  {
+    "id": 24946,
+    "title": "DAC Synchronization",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2022/04/DAC-Synchronization-1.pdf",
+    "date": "2022-04-28T20:46:09"
+  },
+  {
+    "id": 24945,
+    "title": "DAC Synchronization",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2022/04/DAC-Synchronization.pdf",
+    "date": "2022-04-28T20:46:04"
+  },
+  {
+    "id": 24944,
+    "title": "ADC Synchronization",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2022/04/ADC-Synchronization.pdf",
+    "date": "2022-04-28T20:45:53"
+  },
+  {
+    "id": 24889,
+    "title": "Display Port IP",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2022/04/Display-Port-IP.pdf",
+    "date": "2022-04-27T19:50:30"
+  },
+  {
+    "id": 24687,
+    "title": "Display Port IPs",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2022/04/Display-Port-IPs.pdf",
+    "date": "2022-04-22T17:17:49"
+  },
+  {
+    "id": 23568,
+    "title": "JESD204B Protocol",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2022/03/JESD204B-Protocol.pdf",
+    "date": "2022-03-16T15:17:01"
+  },
+  {
+    "id": 23517,
+    "title": "JESD204C Protocol",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2022/03/JESD204C-Protocol.pdf",
+    "date": "2022-03-16T14:31:15"
+  },
+  {
+    "id": 23498,
+    "title": "Electronics for day Camera Video Enhancement (1)",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2022/03/Electronics-for-day-Camera-Video-Enhancement-1.pdf",
+    "date": "2022-03-14T10:19:41"
+  },
+  {
+    "id": 23409,
+    "title": "Real-Time Panorama Generation System (1)",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2022/03/Real-Time-Panorama-Generation-System-1.pdf",
+    "date": "2022-03-14T06:28:49"
+  },
+  {
+    "id": 23260,
+    "title": "Development of Firmware for Wide Area Surveillance of Border Area",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2022/03/Development-of-Firmware-for-Wide-Area-Surveillance-of-Border-Area.pdf",
+    "date": "2022-03-12T18:22:22"
+  },
+  {
+    "id": 23259,
+    "title": "Electronics Board for Megapixel Sensor",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2022/03/Electronics-Board-for-Megapixel-Sensor.pdf",
+    "date": "2022-03-12T18:22:03"
+  },
+  {
+    "id": 23258,
+    "title": "Electronics for day Camera Video Enhancement",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2022/03/Electronics-for-day-Camera-Video-Enhancement.pdf",
+    "date": "2022-03-12T18:21:58"
+  },
+  {
+    "id": 23257,
+    "title": "Extended View Imaging System",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2022/03/Extended-View-Imaging-System.pdf",
+    "date": "2022-03-12T18:21:46"
+  },
+  {
+    "id": 23256,
+    "title": "Fast Centroid Estimator Signal Processing Unit for Adaptive Optics Application",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2022/03/Fast-Centroid-Estimator-Signal-Processing-Unit-for-Adaptive-Optics-Application.pdf",
+    "date": "2022-03-12T18:21:40"
+  },
+  {
+    "id": 23255,
+    "title": "VNIR Sensor Processing Electronics",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2022/03/VNIR-Sensor-Processing-Electronics.pdf",
+    "date": "2022-03-12T18:21:36"
+  },
+  {
+    "id": 22645,
+    "title": "AS 9100D Certificate &#8211; Logic Fruit Technologies",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2022/02/AS-9100D-Certificate-Logic-Fruit-Technologies.pdf",
+    "date": "2022-02-21T06:09:20"
+  },
+  {
+    "id": 22529,
+    "title": "PCI Express Gen 6 Equalization (Updated)",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2022/02/PCI-Express-Gen-6-Equalization-Updated.pdf",
+    "date": "2022-02-17T04:36:32"
+  },
+  {
+    "id": 22425,
+    "title": "Application Note (1)",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2022/02/Application-Note-1.pdf",
+    "date": "2022-02-11T16:00:48"
+  },
+  {
+    "id": 21508,
+    "title": "SMFD Datasheet",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2022/01/SMFD-Datasheet.pdf",
+    "date": "2022-01-04T07:44:25"
+  },
+  {
+    "id": 21507,
+    "title": "AVPSM Datasheet",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2022/01/AVPSM-Datasheet.pdf",
+    "date": "2022-01-04T07:44:17"
+  },
+  {
+    "id": 21287,
+    "title": "AVAG Datasheet_compressed",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2021/12/AVAG-Datasheet_compressed.pdf",
+    "date": "2021-12-21T07:50:09"
+  },
+  {
+    "id": 20967,
+    "title": "PCIe gen6 version 9.0 (1)",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2021/12/PCIe-gen6-version-9.0-1.pdf",
+    "date": "2021-12-15T07:51:58"
+  },
+  {
+    "id": 20961,
+    "title": "PCIe gen6 version 9.0",
+    "url": "https://dev.logic-fruit.tech/wp-content/uploads/2021/07/PCIe-gen6-version-9.0.pdf",
+    "date": "2021-12-15T07:50:27"
+  }
+]
