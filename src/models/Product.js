@@ -56,6 +56,28 @@ const productSchema = new mongoose.Schema(
       type: Boolean,
       default: true,
     },
+    isProductOfTheMonth: {
+      type: Boolean,
+      default: false,
+    },
+    overviewHeadline: {
+      type: String,
+      default: "",
+    },
+    featuresSubtitle: {
+      type: String,
+      default: "",
+    },
+    featureBadges: {
+      type: [String],
+      default: [],
+    },
+    faqs: [
+      {
+        question: { type: String, trim: true },
+        answer: { type: String, trim: true },
+      },
+    ],
     metaTitle: {
       type: String,
       default: "",
