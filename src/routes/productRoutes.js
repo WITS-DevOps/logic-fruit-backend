@@ -5,8 +5,33 @@ import { dynamoService } from "../services/dynamoService.js";
 const router = express.Router();
 
 /**
+ * Helper to determine if an incoming request is from the Staging environment.
+ * Checks query param (env=staging), custom header (X-Environment: staging),
+ * or Origin / Referer matching STAGING_URL or vercel.app / localhost.
+ */
+function isStagingRequest(req) {
+  // 1. Explicit query parameter or custom header
+  const envParam = req.query?.env || req.headers?.["x-environment"] || "";
+  if (typeof envParam === "string" && envParam.toLowerCase() === "staging") {
+    return true;
+  }
+
+  // 2. Check Origin or Referer against configured staging URLs
+  const origin = (req.headers?.origin || req.headers?.referer || "").toLowerCase();
+  const stagingUrl = (process.env.STAGING_URL || "https://logic-fruit-ui.vercel.app").toLowerCase();
+  const stagingOrigins = [
+    stagingUrl,
+    "logic-fruit-ui.vercel.app",
+    "localhost",
+    "127.0.0.1",
+  ];
+
+  return stagingOrigins.some((stg) => origin.includes(stg.replace(/^https?:\/\//, "")));
+}
+
+/**
  * @route   GET /api/products
- * @desc    Get all products (supports type and status filters)
+ * @desc    Get all products (supports type and status filters, respects staging vs live production)
  */
 router.get("/", async (req, res, next) => {
   try {
@@ -16,7 +41,18 @@ router.get("/", async (req, res, next) => {
       status: status || "published",
     };
 
-    const products = await dynamoService.getAll("product", filter);
+    let products = await dynamoService.getAll("product", filter);
+
+    // Staging vs Production visibility rule:
+    // 1. If requested by Admin CMS (status === "all"), return all products so admins can manage everything.
+    // 2. If requested on Staging (Vercel / localhost), return all published products (both live and staging-only).
+    // 3. If requested on Live Production, exclude products where isProduction is explicitly false.
+    const isStaging = isStagingRequest(req);
+    const isAdmin = status === "all";
+
+    if (!isStaging && !isAdmin) {
+      products = products.filter((p) => p.isProduction !== false);
+    }
 
     res.json({
       success: true,
@@ -30,7 +66,7 @@ router.get("/", async (req, res, next) => {
 
 /**
  * @route   GET /api/products/:slug
- * @desc    Get a single product by slug or ID
+ * @desc    Get a single product by slug or ID (protected if staging-only)
  */
 router.get("/:slug", async (req, res, next) => {
   try {
@@ -42,6 +78,17 @@ router.get("/:slug", async (req, res, next) => {
       return res.status(404).json({
         success: false,
         message: "Product not found",
+      });
+    }
+
+    const isStaging = isStagingRequest(req);
+    const isPreview = req.query.preview === "true";
+
+    // If product is marked staging-only (isProduction === false) and accessed on live production, return 404
+    if (!isStaging && !isPreview && product.isProduction === false) {
+      return res.status(404).json({
+        success: false,
+        message: "Product not available in production",
       });
     }
 
@@ -120,6 +167,7 @@ router.post("/", async (req, res, next) => {
       datasheetUrl: datasheetUrl || "",
       directDownload: directDownload === true || directDownload === "true",
       status: status || "published",
+      isProduction: req.body.isProduction !== undefined ? Boolean(req.body.isProduction) : true,
       metaTitle: metaTitle || "",
       metaDescription: metaDescription || "",
       metaKeywords: metaKeywords || "",
@@ -175,6 +223,9 @@ router.put("/:id", async (req, res, next) => {
     }
 
     const updates = { ...req.body };
+    if (updates.isProduction !== undefined) {
+      updates.isProduction = Boolean(updates.isProduction);
+    }
 
     // Helper to check if a product is Hardware System vs Soft IP
     const isHardwareType = (typeStr) => {

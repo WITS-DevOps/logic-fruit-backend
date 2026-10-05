@@ -39,6 +39,8 @@ const allowedOrigins = [
   "http://localhost:3000",
   "https://logic-fruit.com",
   "https://www.logic-fruit.com",
+  "https://logic-fruit-ui.vercel.app",
+  ...(process.env.STAGING_URL ? [process.env.STAGING_URL.trim()] : []),
   ...(process.env.CLIENT_URL
     ? process.env.CLIENT_URL.split(",").map((url) => url.trim())
     : []),
@@ -55,7 +57,8 @@ app.use(
         allowedOrigins.includes("*") ||
         allowedOrigins.includes(origin) ||
         origin.includes("localhost") ||
-        origin.includes("127.0.0.1");
+        origin.includes("127.0.0.1") ||
+        origin.includes("vercel.app");
 
       if (isAllowed) {
         return callback(null, true);
@@ -64,7 +67,7 @@ app.use(
     },
     credentials: true,
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
+    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With", "X-Environment"],
   })
 );
 
