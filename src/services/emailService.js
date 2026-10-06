@@ -436,6 +436,24 @@ export async function sendInquiryAlertToAdmin(inquiry) {
 export async function sendUserConfirmation(inquiry) {
   if (!inquiry.email) return null;
 
+  // 1. Overall check: Verify if sending emails to visitors / submitters is enabled
+  const routing = await emailTemplateService.getGlobalRoutingSettings().catch(() => ({}));
+  const isVisitorEmailEnabled =
+    typeof routing?.enableVisitorEmails === "boolean"
+      ? routing.enableVisitorEmails
+      : (process.env.ENABLE_VISITOR_EMAILS === "true" || process.env.ENABLE_RECIPIENT_EMAILS === "true");
+
+  if (!isVisitorEmailEnabled) {
+    console.log(
+      `\n🚫 [Visitor Email Skipped] Form submission received from: "${inquiry.name || "Visitor"}" <${inquiry.email}> (Type: ${inquiry.type || "contact"}).` +
+      `\n   Visitor confirmation emails are currently DISABLED. The internal alert was sent to the team; no email sent to submitter.\n`
+    );
+    return {
+      skipped: true,
+      reason: "Visitor confirmation emails are disabled in CMS configuration / ENABLE_VISITOR_EMAILS environment variable",
+    };
+  }
+
   const isWhitepaper = inquiry.type === "whitepaper";
   const isProduct = inquiry.type === "product";
   const downloadUrl = await getDownloadUrlForResource(inquiry);
@@ -458,6 +476,14 @@ export async function sendUserConfirmation(inquiry) {
   try {
     const template = await emailTemplateService.getTemplateByKey(templateKey);
     if (template) {
+      if (template.isActive === false) {
+        console.log(`🚫 [Template Inactive] Visitor template "${template.name}" is disabled. Skipping visitor email.`);
+        return {
+          skipped: true,
+          reason: `Template "${template.name}" is marked inactive`,
+        };
+      }
+
       console.log(`   CMS DB Template: "${template.name}" (Subject: "${template.subject}")`);
       const { subject, html, senderName, replyTo } = emailTemplateService.renderVisitorEmail(
         template,

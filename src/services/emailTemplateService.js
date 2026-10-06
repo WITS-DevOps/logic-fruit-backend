@@ -374,8 +374,20 @@ export const emailTemplateService = {
         if (all && all.length > 0) settings = all[0];
       }
 
+      // Check environment variable fallback (default: false to keep visitor emails disabled)
+      const envVisitorDefault =
+        process.env.ENABLE_VISITOR_EMAILS !== undefined
+          ? process.env.ENABLE_VISITOR_EMAILS === "true"
+          : (process.env.ENABLE_RECIPIENT_EMAILS === "true");
+
       if (settings) {
-        return settings;
+        return {
+          ...settings,
+          enableVisitorEmails:
+            typeof settings.enableVisitorEmails === "boolean"
+              ? settings.enableVisitorEmails
+              : envVisitorDefault,
+        };
       }
 
       // Initialize default routing in DB
@@ -383,6 +395,7 @@ export const emailTemplateService = {
         id: "global_routing_settings",
         _id: "global_routing_settings",
         entityType: "email_settings",
+        enableVisitorEmails: envVisitorDefault,
         internalLeadEmails:
           process.env.INTERNAL_LEAD_EMAILS ||
           process.env.LEAD_NOTIFICATION_EMAILS ||
@@ -410,6 +423,10 @@ export const emailTemplateService = {
     } catch (err) {
       console.warn("Could not read routing settings from DB, using fallback:", err.message);
       return {
+        enableVisitorEmails:
+          process.env.ENABLE_VISITOR_EMAILS !== undefined
+            ? process.env.ENABLE_VISITOR_EMAILS === "true"
+            : (process.env.ENABLE_RECIPIENT_EMAILS === "true"),
         internalLeadEmails:
           process.env.INTERNAL_LEAD_EMAILS ||
           process.env.LEAD_NOTIFICATION_EMAILS ||

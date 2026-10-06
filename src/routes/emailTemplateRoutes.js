@@ -18,6 +18,10 @@ router.get("/settings/config", async (req, res, next) => {
       data: {
         ...dbSettings,
         enableEmails: process.env.ENABLE_EMAILS === "true",
+        enableVisitorEmails:
+          typeof dbSettings?.enableVisitorEmails === "boolean"
+            ? dbSettings.enableVisitorEmails
+            : (process.env.ENABLE_VISITOR_EMAILS === "true"),
         smtpUser: process.env.SMTP_USER || "info@logic-fruit.com",
         s3Bucket: process.env.AWS_S3_BUCKET_NAME || "logicfruit-cms-assets-833823555826",
       },

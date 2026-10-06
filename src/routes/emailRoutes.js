@@ -4,6 +4,7 @@ import {
   sendEmail,
   sendInquiryAlertToAdmin,
 } from "../services/emailService.js";
+import { emailTemplateService } from "../services/emailTemplateService.js";
 
 const router = express.Router();
 
@@ -13,11 +14,17 @@ const router = express.Router();
  */
 router.get("/status", async (req, res) => {
   const result = await verifyEmailConnection();
+  const routing = await emailTemplateService.getGlobalRoutingSettings().catch(() => ({}));
   res.json({
     configured: Boolean(process.env.SMTP_USER && process.env.SMTP_PASS),
     sender: process.env.SMTP_USER || "Not configured",
     smtpHost: process.env.SMTP_HOST || "smtp.gmail.com",
     smtpPort: process.env.SMTP_PORT || "465",
+    enableEmails: process.env.ENABLE_EMAILS === "true",
+    enableVisitorEmails:
+      typeof routing?.enableVisitorEmails === "boolean"
+        ? routing.enableVisitorEmails
+        : (process.env.ENABLE_VISITOR_EMAILS === "true"),
     ...result,
   });
 });
