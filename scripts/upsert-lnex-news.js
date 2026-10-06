@@ -110,8 +110,6 @@ async function main() {
 
 *Featured image (hero)*
 
----
-
 **GURUGRAM, India — October 6, 2026** — Logic Fruit Technologies, a deep-tech semiconductor product company headquartered in India and serving customers worldwide, today announced **L-Nex™**, a new family of FPGA-based Baseboard Management Controller (BMC) products being developed for next-generation AI, cloud, datacenter, sovereign and other high-performance computing infrastructure.
 
 L-Nex™ is designed around the Open Compute Project (OCP) DC-SCM 2.x architecture and combines the management processor, host interfaces, remote KVM, telemetry and hardware root-of-trust functions within a reconfigurable FPGA SoC. The platform runs OpenBMC and is designed to support industry-standard management and security interfaces including Redfish, IPMI, PLDM/MCTP and SPDM.
