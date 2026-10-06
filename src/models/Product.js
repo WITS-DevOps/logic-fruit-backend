@@ -72,6 +72,34 @@ const productSchema = new mongoose.Schema(
       type: [String],
       default: [],
     },
+    heroDescription: {
+      type: String,
+      default: "",
+    },
+    heroTitleWhite: {
+      type: String,
+      default: "",
+    },
+    heroTitleOrange: {
+      type: String,
+      default: "",
+    },
+    overviewDescription: {
+      type: String,
+      default: "",
+    },
+    overviewHeadlineWhite: {
+      type: String,
+      default: "",
+    },
+    overviewHeadlineOrange: {
+      type: String,
+      default: "",
+    },
+    overviewChecklist: {
+      type: [String],
+      default: [],
+    },
     faqs: [
       {
         question: { type: String, trim: true },
