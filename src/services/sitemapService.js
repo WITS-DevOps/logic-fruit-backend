@@ -72,7 +72,7 @@ export async function generateDynamicSitemapXml() {
   // 3. Published News
   const news = await fetchPublished("news");
   news.forEach((n) => {
-    if (n.slug && !n.noIndex) {
+    if (n.slug && !n.noIndex && n.isProduction !== false) {
       urls.push({
         loc: `${SITE_URL}/news/${n.slug}`,
         lastmod: n.updatedAt ? n.updatedAt.split("T")[0] : today,

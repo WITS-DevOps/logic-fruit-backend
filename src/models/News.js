@@ -50,6 +50,10 @@ const newsSchema = new mongoose.Schema(
       enum: ["draft", "published"],
       default: "published",
     },
+    isProduction: {
+      type: Boolean,
+      default: true,
+    },
     metaTitle: {
       type: String,
       default: "",
