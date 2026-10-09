@@ -17,6 +17,7 @@ import productRoutes from "./routes/productRoutes.js";
 import uploadRoutes from "./routes/uploadRoutes.js";
 import jobRoutes from "./routes/jobRoutes.js";
 import inquiryRoutes from "./routes/inquiryRoutes.js";
+import consentRoutes from "./routes/consentRoutes.js";
 import emailRoutes from "./routes/emailRoutes.js";
 import emailTemplateRoutes from "./routes/emailTemplateRoutes.js";
 import { generateDynamicSitemapXml } from "./services/sitemapService.js";
@@ -122,6 +123,7 @@ app.use("/api/whitepapers", whitepaperRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/jobs", jobRoutes);
 app.use("/api/inquiries", inquiryRoutes);
+app.use("/api/consents", consentRoutes);
 app.use("/api/email", emailRoutes);
 app.use("/api/email-templates", emailTemplateRoutes);
 

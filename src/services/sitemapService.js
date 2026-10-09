@@ -2,26 +2,24 @@ import { dynamoService } from "./dynamoService.js";
 
 const SITE_URL = "https://www.logic-fruit.com";
 
+// Only canonical URLs — no aliases, no redirect-only pages
 const STATIC_ROUTES = [
   { path: "/", priority: "1.0", changefreq: "daily" },
   { path: "/solutions", priority: "0.9", changefreq: "weekly" },
+  { path: "/solutions/security", priority: "0.8", changefreq: "monthly" },
   { path: "/products/soft-ip", priority: "0.9", changefreq: "weekly" },
   { path: "/products/hardware-systems", priority: "0.9", changefreq: "weekly" },
   { path: "/blogs", priority: "0.9", changefreq: "weekly" },
   { path: "/news", priority: "0.8", changefreq: "weekly" },
   { path: "/whitepaper", priority: "0.8", changefreq: "monthly" },
   { path: "/careers", priority: "0.8", changefreq: "weekly" },
-  { path: "/career/jobs-current-opening/", priority: "0.8", changefreq: "daily" },
   { path: "/about-us", priority: "0.8", changefreq: "monthly" },
   { path: "/leadership", priority: "0.7", changefreq: "monthly" },
   { path: "/partner-ecosystem", priority: "0.7", changefreq: "monthly" },
   { path: "/quality-security", priority: "0.7", changefreq: "monthly" },
   { path: "/contact", priority: "0.8", changefreq: "monthly" },
-  { path: "/telecom", priority: "0.8", changefreq: "monthly" },
-  { path: "/datacenter", priority: "0.8", changefreq: "monthly" },
-  { path: "/aiml", priority: "0.8", changefreq: "monthly" },
+  { path: "/datacenter-and-ai", priority: "0.8", changefreq: "monthly" },
   { path: "/defence", priority: "0.8", changefreq: "monthly" },
-  { path: "/semiconductor", priority: "0.8", changefreq: "monthly" },
   { path: "/robotics", priority: "0.8", changefreq: "monthly" },
   { path: "/terms-of-use", priority: "0.3", changefreq: "yearly" },
   { path: "/privacy-policy", priority: "0.3", changefreq: "yearly" },
