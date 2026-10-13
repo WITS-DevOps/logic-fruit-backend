@@ -20,6 +20,7 @@ import inquiryRoutes from "./routes/inquiryRoutes.js";
 import consentRoutes from "./routes/consentRoutes.js";
 import emailRoutes from "./routes/emailRoutes.js";
 import emailTemplateRoutes from "./routes/emailTemplateRoutes.js";
+import adminAuthRoutes from "./routes/adminAuthRoutes.js";
 import { generateDynamicSitemapXml } from "./services/sitemapService.js";
 
 
@@ -116,6 +117,7 @@ app.get("/api/health", (req, res) => {
 });
 
 // API Routes
+app.use("/api/admin", adminAuthRoutes);
 app.use("/api/upload", uploadRoutes);
 app.use("/api/blogs", blogRoutes);
 app.use("/api/news", newsRoutes);
