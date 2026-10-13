@@ -94,6 +94,42 @@ router.post("/image", upload.single("image"), async (req, res, next) => {
 });
 
 /**
+ * @route   POST /api/upload/video
+ * @desc    Upload a single video (to S3 or local uploads)
+ */
+router.post("/video", upload.single("video"), async (req, res, next) => {
+  try {
+    if (!req.file) {
+      return res.status(400).json({
+        success: false,
+        message: "No video file provided. Please attach a file with key 'video'.",
+      });
+    }
+
+    if (!req.file.mimetype.startsWith("video/")) {
+      return res.status(400).json({
+        success: false,
+        message: "Uploaded file is not a video.",
+      });
+    }
+
+    const folder = req.body.folder || "videos";
+    const fileUrl = await uploadFileToStorage(req.file, folder);
+
+    res.status(201).json({
+      success: true,
+      message: "Video uploaded successfully",
+      url: fileUrl,
+      storageType: getStorageType(),
+      filename: req.file.originalname,
+      size: req.file.size,
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+/**
  * @route   POST /api/upload/pdf
  * @desc    Upload a whitepaper PDF file
  */
