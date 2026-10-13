@@ -34,6 +34,15 @@ const blogSchema = new mongoose.Schema(
       default: "",
       trim: true,
     },
+    authorBio: {
+      type: String,
+      default: "",
+      trim: true,
+    },
+    authorImage: {
+      type: String,
+      default: "",
+    },
     readTime: {
       type: String,
       default: "5 min read",

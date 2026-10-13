@@ -168,6 +168,8 @@ router.post("/", async (req, res, next) => {
       tag,
       author,
       authorRole,
+      authorBio,
+      authorImage,
       readTime,
       date,
       heroImage,
@@ -209,6 +211,8 @@ router.post("/", async (req, res, next) => {
       tag: tag || "Article",
       author: author || "Logic Fruit Team",
       authorRole: authorRole || "",
+      authorBio: authorBio || "",
+      authorImage: authorImage || "",
       readTime: readTime || "5 min read",
       date:
         date ||
