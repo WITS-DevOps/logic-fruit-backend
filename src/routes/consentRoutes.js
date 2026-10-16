@@ -16,6 +16,10 @@ function normalizePreferences(prefs = {}) {
 }
 
 function getClientIp(req) {
+  const cfIp = req.headers["cf-connecting-ip"];
+  if (typeof cfIp === "string" && cfIp.trim().length > 0) return cfIp.trim();
+  const realIp = req.headers["x-real-ip"];
+  if (typeof realIp === "string" && realIp.trim().length > 0) return realIp.trim();
   const forwarded = req.headers["x-forwarded-for"];
   if (typeof forwarded === "string" && forwarded.length > 0) {
     return forwarded.split(",")[0].trim();
@@ -87,22 +91,54 @@ router.post("/", async (req, res, next) => {
 router.get("/stats", async (req, res, next) => {
   try {
     const items = await dynamoService.getAll("consent", {});
+
+    // Sort newest first
+    items.sort((a, b) => new Date(b.createdAt || 0) - new Date(a.createdAt || 0));
+
+    // Deduplicate / group by IP to see unique users
+    const ipMap = new Map();
+    for (const item of items) {
+      const key = item.ip || item.consentId || item.id;
+      if (!ipMap.has(key)) {
+        ipMap.set(key, item);
+      }
+    }
+    const uniqueItems = Array.from(ipMap.values());
+
     const stats = {
       total: items.length,
+      uniqueUsers: uniqueItems.length,
       accept_all: 0,
       reject_all: 0,
       custom: 0,
       analyticsOptIn: 0,
+      analyticsRejected: 0,
       functionalOptIn: 0,
       marketingOptIn: 0,
+      // Unique IP counts
+      unique_accept_all: 0,
+      unique_reject_all: 0,
+      unique_custom: 0,
+      unique_analyticsOptIn: 0,
+      unique_analyticsRejected: 0,
     };
+
     for (const item of items) {
       if (stats[item.status] !== undefined) stats[item.status] += 1;
       else stats.custom += 1;
       if (item.preferences?.analytics) stats.analyticsOptIn += 1;
+      else stats.analyticsRejected += 1;
       if (item.preferences?.functional) stats.functionalOptIn += 1;
       if (item.preferences?.marketing) stats.marketingOptIn += 1;
     }
+
+    for (const item of uniqueItems) {
+      if (stats[`unique_${item.status}`] !== undefined) stats[`unique_${item.status}`] += 1;
+      else stats.unique_custom += 1;
+      if (item.preferences?.analytics) stats.unique_analyticsOptIn += 1;
+      else stats.unique_analyticsRejected += 1;
+    }
+
     res.json({ success: true, data: stats });
   } catch (error) {
     next(error);
@@ -115,14 +151,30 @@ router.get("/stats", async (req, res, next) => {
  */
 router.get("/", async (req, res, next) => {
   try {
-    const { status, limit, page } = req.query;
+    const { status, limit, page, unique } = req.query;
     let items = await dynamoService.getAll("consent", {});
+
+    items.sort((a, b) => new Date(b.createdAt || 0) - new Date(a.createdAt || 0));
+
+    if (unique === "true" || unique === "1") {
+      // Group by IP (merging duplicate visits from the same IP)
+      const ipMap = new Map();
+      for (const item of items) {
+        const key = item.ip || item.consentId || item.id;
+        if (!ipMap.has(key)) {
+          ipMap.set(key, { ...item, totalEvents: 1, history: [item] });
+        } else {
+          const entry = ipMap.get(key);
+          entry.totalEvents += 1;
+          entry.history.push(item);
+        }
+      }
+      items = Array.from(ipMap.values());
+    }
 
     if (status && status !== "all") {
       items = items.filter((item) => item.status === status);
     }
-
-    items.sort((a, b) => new Date(b.createdAt || 0) - new Date(a.createdAt || 0));
 
     const totalCount = items.length;
     const limitNum = parseInt(limit, 10);
