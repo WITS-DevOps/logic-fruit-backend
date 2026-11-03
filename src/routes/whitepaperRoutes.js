@@ -114,6 +114,7 @@ router.post("/", async (req, res, next) => {
         }),
       author: author || "",
       authorRole: authorRole || "",
+      authorImage: req.body.authorImage || "",
       img: img || "",
       pdfUrl: pdfUrl || "",
       hasLivePdf: hasLivePdf !== undefined ? Boolean(hasLivePdf) : Boolean(pdfUrl),

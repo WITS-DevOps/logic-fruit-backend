@@ -62,6 +62,10 @@ export const dynamoService = {
       ScanIndexForward: false, // Descending by createdAt
     };
 
+    if (filters.limit && Number(filters.limit) > 0) {
+      queryParams.Limit = Number(filters.limit);
+    }
+
     if (filterExpressions.length > 0) {
       queryParams.FilterExpression = filterExpressions.join(" AND ");
     }
@@ -77,6 +81,33 @@ export const dynamoService = {
       return new Date(b.createdAt || 0) - new Date(a.createdAt || 0);
     });
     return items;
+  },
+
+  /**
+   * Get total count for an entity type via fast DynamoDB Select: "COUNT" (~300ms)
+   */
+  async getCount(entityType) {
+    if (isLocalStorageActive()) {
+      const all = await localDataService.getAll(entityType);
+      return all.length;
+    }
+    const docClient = getDocClient();
+    if (!docClient) return 0;
+    try {
+      const res = await docClient.send(
+        new QueryCommand({
+          TableName: TABLE_NAME,
+          IndexName: "EntityTypeIndex",
+          KeyConditionExpression: "#entityType = :entityType",
+          ExpressionAttributeNames: { "#entityType": "entityType" },
+          ExpressionAttributeValues: { ":entityType": entityType },
+          Select: "COUNT",
+        })
+      );
+      return typeof res.Count === "number" ? res.Count : 0;
+    } catch {
+      return 0;
+    }
   },
 
   /**

@@ -33,6 +33,10 @@ const whitepaperSchema = new mongoose.Schema(
       default: "",
       trim: true,
     },
+    authorImage: {
+      type: String,
+      default: "",
+    },
     img: {
       type: String,
       default: "", // Image cover URL (S3)

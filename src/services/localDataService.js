@@ -85,6 +85,10 @@ export const localDataService = {
       return new Date(b.createdAt || 0) - new Date(a.createdAt || 0);
     });
 
+    if (filters.limit && Number(filters.limit) > 0) {
+      items = items.slice(0, Number(filters.limit));
+    }
+
     return items;
   },
 

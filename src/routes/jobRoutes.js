@@ -29,6 +29,84 @@ router.get("/", async (req, res, next) => {
 });
 
 /**
+ * @route   GET /api/jobs/departments
+ * @desc    Get all custom job departments stored in DB
+ */
+router.get("/departments", async (req, res, next) => {
+  try {
+    let customDepts = [];
+    try {
+      customDepts = await dynamoService.getAll("department");
+    } catch (e) {
+      console.warn("Could not query departments from DB:", e.message);
+    }
+
+    res.json({
+      success: true,
+      data: customDepts || [],
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+/**
+ * @route   POST /api/jobs/departments
+ * @desc    Create and store a new job department in DB
+ */
+router.post("/departments", async (req, res, next) => {
+  try {
+    const { label, value } = req.body;
+    if (!label || !label.trim()) {
+      return res.status(400).json({
+        success: false,
+        message: "Please provide a department name",
+      });
+    }
+
+    const trimmedLabel = label.trim();
+    const slug = value
+      ? slugify(value, { lower: true, strict: true })
+      : slugify(trimmedLabel, { lower: true, strict: true });
+
+    let existing = [];
+    try {
+      existing = await dynamoService.getAll("department");
+    } catch (e) {
+      console.warn("Could not check existing departments:", e.message);
+    }
+
+    const duplicate = existing.find(
+      (d) =>
+        d.value === slug ||
+        d.label?.toLowerCase() === trimmedLabel.toLowerCase() ||
+        d.value?.toLowerCase() === trimmedLabel.toLowerCase()
+    );
+
+    if (duplicate) {
+      return res.json({
+        success: true,
+        message: "Department already exists",
+        data: duplicate,
+      });
+    }
+
+    const newDept = await dynamoService.create("department", {
+      label: trimmedLabel,
+      value: trimmedLabel,
+    });
+
+    res.status(201).json({
+      success: true,
+      message: "Department added successfully to database",
+      data: newDept,
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+/**
  * @route   GET /api/jobs/:slug
  * @desc    Get a single job opening by slug or ID
  */

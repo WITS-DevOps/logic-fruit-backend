@@ -28,6 +28,20 @@ const newsSchema = new mongoose.Schema(
       default: "",
       trim: true,
     },
+    author: {
+      type: String,
+      default: "Logic Fruit Team",
+      trim: true,
+    },
+    authorRole: {
+      type: String,
+      default: "Corporate Communications",
+      trim: true,
+    },
+    authorImage: {
+      type: String,
+      default: "",
+    },
     heroImage: {
       type: String,
       default: "",
@@ -53,6 +67,14 @@ const newsSchema = new mongoose.Schema(
     isProduction: {
       type: Boolean,
       default: true,
+    },
+    isFeatured: {
+      type: Boolean,
+      default: false,
+    },
+    isPinned: {
+      type: Boolean,
+      default: false,
     },
     metaTitle: {
       type: String,
