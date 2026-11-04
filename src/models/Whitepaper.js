@@ -74,6 +74,21 @@ const whitepaperSchema = new mongoose.Schema(
       default: "",
       trim: true,
     },
+    sidebarCardTitle: {
+      type: String,
+      default: "",
+      trim: true,
+    },
+    sidebarCardDescription: {
+      type: String,
+      default: "",
+      trim: true,
+    },
+    sidebarButtonText: {
+      type: String,
+      default: "",
+      trim: true,
+    },
     overview: {
       type: [String],
       default: [],
