@@ -24,7 +24,7 @@ const productSchema = new mongoose.Schema(
       default: "",
     },
     featureList: {
-      type: [String],
+      type: [mongoose.Schema.Types.Mixed],
       default: [],
     },
     heroImage: {
