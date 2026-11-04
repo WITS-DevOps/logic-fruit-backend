@@ -105,6 +105,7 @@ router.post("/", async (req, res, next) => {
       title,
       slug: generatedSlug,
       tag: tag || "Whitepaper",
+      badge: req.body.badge || "Technical Whitepaper",
       date:
         date ||
         new Date().toLocaleDateString("en-US", {

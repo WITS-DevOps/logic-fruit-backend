@@ -19,6 +19,11 @@ const whitepaperSchema = new mongoose.Schema(
       default: "Whitepaper",
       trim: true,
     },
+    badge: {
+      type: String,
+      default: "Technical Whitepaper",
+      trim: true,
+    },
     date: {
       type: String,
       default: () => new Date().toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" }),

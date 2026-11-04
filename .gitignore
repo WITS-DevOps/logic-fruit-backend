@@ -11,6 +11,10 @@ deploy/
 *.pem
 *.key
 
+# Environment & Guidelines docs
+GEMINI.md
+ENVIRONMENTS.md
+
 # AI tools
 .claude/
 .gemini/
