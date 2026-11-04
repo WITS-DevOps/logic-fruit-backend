@@ -47,6 +47,11 @@ const productSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
+    buttonText: {
+      type: String,
+      default: "Download Datasheet",
+      trim: true,
+    },
     status: {
       type: String,
       enum: ["draft", "published"],
