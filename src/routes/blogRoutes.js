@@ -184,6 +184,9 @@ router.post("/", async (req, res, next) => {
       ogImage,
       noIndex,
       order,
+      cardTitle,
+      cardDescription,
+      buttonText,
     } = req.body;
 
     if (!title) {
@@ -233,6 +236,9 @@ router.post("/", async (req, res, next) => {
       ogImage: ogImage || heroImage || "",
       noIndex: Boolean(noIndex),
       order: typeof order === "number" ? order : 0,
+      cardTitle: cardTitle || "",
+      cardDescription: cardDescription || "",
+      buttonText: buttonText || "",
     });
 
     res.status(201).json({

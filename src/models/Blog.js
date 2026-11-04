@@ -102,6 +102,21 @@ const blogSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    cardTitle: {
+      type: String,
+      default: "",
+      trim: true,
+    },
+    cardDescription: {
+      type: String,
+      default: "",
+      trim: true,
+    },
+    buttonText: {
+      type: String,
+      default: "",
+      trim: true,
+    },
   },
   {
     timestamps: true,
