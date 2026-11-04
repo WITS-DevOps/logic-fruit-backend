@@ -99,13 +99,19 @@ app.get("/", (req, res) => {
 // System Health Check Endpoint
 app.get("/api/health", (req, res) => {
   const isLocal = isLocalStorageActive();
+  const isMongo = Boolean(process.env.MONGODB_URI);
+  let dbInfo = `AWS DynamoDB (${process.env.DYNAMODB_TABLE_NAME || "logicfruit_cms"})`;
+  if (isLocal) {
+    dbInfo = "Local File Storage (backend/data/local_db.json)";
+  } else if (isMongo) {
+    dbInfo = "MongoDB Atlas (logicfruit_staging)";
+  }
+
   res.json({
     status: "ok",
     message: "Logic Fruit Backend API is running smoothly",
-    mode: isLocal ? "local" : "aws",
-    database: isLocal
-      ? "Local File Storage (backend/data/local_db.json)"
-      : `AWS DynamoDB (${process.env.DYNAMODB_TABLE_NAME || "logicfruit_cms"})`,
+    mode: isLocal ? "local" : (isMongo ? "mongo-atlas" : "aws"),
+    database: dbInfo,
     storage: isLocal
       ? "Local Storage (/uploads)"
       : (isS3Configured() ? `AWS S3 (${process.env.AWS_S3_BUCKET_NAME})` : "AWS S3 (Not configured)"),

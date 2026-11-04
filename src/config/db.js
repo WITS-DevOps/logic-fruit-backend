@@ -1,4 +1,10 @@
-import { DescribeTableCommand } from "@aws-sdk/client-dynamodb";
+import dns from "dns";
+import mongoose from "mongoose";
+
+// Use public DNS fallback if system DNS fails SRV lookups (common on some Windows setups)
+try {
+  dns.setServers(["8.8.8.8", "8.8.4.4", "1.1.1.1"]);
+} catch {}
 import { getDocClient, TABLE_NAME, isDynamoDBConfigured } from "./dynamo.js";
 import { isLocalStorageActive } from "./storageMode.js";
 
@@ -13,8 +19,20 @@ export async function connectDB() {
     return;
   }
 
+  // If MongoDB Atlas URI is provided, use MongoDB
+  if (process.env.MONGODB_URI) {
+    try {
+      await mongoose.connect(process.env.MONGODB_URI);
+      const safeUri = process.env.MONGODB_URI.replace(/:([^:@]+)@/, ":****@");
+      console.log(`✅ MongoDB Atlas Connected: ${safeUri}`);
+      return;
+    } catch (error) {
+      console.error(`❌ MongoDB Atlas Connection Error: ${error.message}`);
+    }
+  }
+
   if (!isDynamoDBConfigured()) {
-    console.log("⚠️  AWS DynamoDB credentials not configured. Please check your .env file.");
+    console.log("⚠️  Database credentials not configured. Please check your .env file.");
     return;
   }
 
@@ -27,4 +45,3 @@ export async function connectDB() {
     console.error(`❌ AWS DynamoDB Connection Error: ${error.message}`);
   }
 }
-

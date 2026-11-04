@@ -8,6 +8,7 @@ import { v4 as uuidv4 } from "uuid";
 import { getDocClient, TABLE_NAME } from "../config/dynamo.js";
 import { isLocalStorageActive } from "../config/storageMode.js";
 import { localDataService } from "./localDataService.js";
+import { mongoDataService, isMongoActive } from "./mongoDataService.js";
 
 export const dynamoService = {
   /**
@@ -16,6 +17,9 @@ export const dynamoService = {
   async getAll(entityType, filters = {}) {
     if (isLocalStorageActive()) {
       return localDataService.getAll(entityType, filters);
+    }
+    if (isMongoActive()) {
+      return mongoDataService.getAll(entityType, filters);
     }
 
     const docClient = getDocClient();
@@ -118,6 +122,9 @@ export const dynamoService = {
     if (isLocalStorageActive()) {
       return localDataService.getById(id);
     }
+    if (isMongoActive()) {
+      return mongoDataService.getById(id);
+    }
 
     const docClient = getDocClient();
     if (!docClient) throw new Error("AWS DynamoDB is not configured");
@@ -143,8 +150,12 @@ export const dynamoService = {
    * Get a single item by slug
    */
   async getBySlug(slug) {
+    if (!slug) return null;
     if (isLocalStorageActive()) {
       return localDataService.getBySlug(slug);
+    }
+    if (isMongoActive()) {
+      return mongoDataService.getBySlug(slug);
     }
 
     const docClient = getDocClient();
@@ -174,6 +185,9 @@ export const dynamoService = {
     if (isLocalStorageActive()) {
       return localDataService.getBySlugOrId(entityType, slugOrId);
     }
+    if (isMongoActive()) {
+      return mongoDataService.getBySlugOrId(entityType, slugOrId);
+    }
 
     let item = await this.getBySlug(slugOrId);
     if (item && item.entityType === entityType) {
@@ -195,6 +209,9 @@ export const dynamoService = {
     if (isLocalStorageActive()) {
       return localDataService.slugExists(slug);
     }
+    if (isMongoActive()) {
+      return mongoDataService.slugExists(slug);
+    }
 
     const item = await this.getBySlug(slug);
     return Boolean(item);
@@ -206,6 +223,9 @@ export const dynamoService = {
   async create(entityType, data) {
     if (isLocalStorageActive()) {
       return localDataService.create(entityType, data);
+    }
+    if (isMongoActive()) {
+      return mongoDataService.create(entityType, data);
     }
 
     const docClient = getDocClient();
@@ -240,6 +260,9 @@ export const dynamoService = {
     if (!id) return null;
     if (isLocalStorageActive()) {
       return localDataService.update(id, updates);
+    }
+    if (isMongoActive()) {
+      return mongoDataService.update(id, updates);
     }
 
     const docClient = getDocClient();
@@ -281,6 +304,9 @@ export const dynamoService = {
     if (isLocalStorageActive()) {
       return localDataService.reorder(entityType, orderedIds);
     }
+    if (isMongoActive()) {
+      return mongoDataService.reorder(entityType, orderedIds);
+    }
     if (!Array.isArray(orderedIds)) return false;
     for (let i = 0; i < orderedIds.length; i++) {
       const id = orderedIds[i];
@@ -300,6 +326,9 @@ export const dynamoService = {
     if (!id) return null;
     if (isLocalStorageActive()) {
       return localDataService.delete(id);
+    }
+    if (isMongoActive()) {
+      return mongoDataService.delete(id);
     }
 
     const docClient = getDocClient();
@@ -325,4 +354,3 @@ export const dynamoService = {
     return { id: realId };
   },
 };
-
