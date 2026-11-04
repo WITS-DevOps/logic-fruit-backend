@@ -1,3 +1,4 @@
+import { triggerDeployWebhook } from "../services/deployWebhookService.js";
 import express from "express";
 import slugify from "slugify";
 import { dynamoService } from "../services/dynamoService.js";
@@ -219,6 +220,7 @@ router.post("/", async (req, res, next) => {
       order: typeof order === "number" ? order : 0,
     });
 
+    triggerDeployWebhook(`Job created: ${newJob.slug || generatedSlug}`);
     res.status(201).json({
       success: true,
       message: "Job opening created successfully",
@@ -281,6 +283,7 @@ router.put("/:id", async (req, res, next) => {
       });
     }
 
+    triggerDeployWebhook(`Job updated: ${updatedJob.slug || id}`);
     res.json({
       success: true,
       message: "Job opening updated successfully",

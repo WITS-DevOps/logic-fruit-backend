@@ -54,6 +54,26 @@ const whitepaperSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    cardTitle: {
+      type: String,
+      default: "",
+      trim: true,
+    },
+    cardDescription: {
+      type: String,
+      default: "",
+      trim: true,
+    },
+    buttonText: {
+      type: String,
+      default: "",
+      trim: true,
+    },
+    secondaryButtonText: {
+      type: String,
+      default: "",
+      trim: true,
+    },
     overview: {
       type: [String],
       default: [],

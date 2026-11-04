@@ -21,6 +21,7 @@ import consentRoutes from "./routes/consentRoutes.js";
 import emailRoutes from "./routes/emailRoutes.js";
 import emailTemplateRoutes from "./routes/emailTemplateRoutes.js";
 import adminAuthRoutes from "./routes/adminAuthRoutes.js";
+import deployRoutes from "./routes/deployRoutes.js";
 import { generateDynamicSitemapXml } from "./services/sitemapService.js";
 
 
@@ -134,6 +135,7 @@ app.use("/api/inquiries", inquiryRoutes);
 app.use("/api/consents", consentRoutes);
 app.use("/api/email", emailRoutes);
 app.use("/api/email-templates", emailTemplateRoutes);
+app.use("/api/deploy", deployRoutes);
 
 
 // Dynamic Sitemap Endpoint (used by Vite frontend & Googlebot)

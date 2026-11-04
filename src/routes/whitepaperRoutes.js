@@ -1,3 +1,4 @@
+import { triggerDeployWebhook } from "../services/deployWebhookService.js";
 import express from "express";
 import slugify from "slugify";
 import { dynamoService } from "../services/dynamoService.js";
@@ -69,6 +70,10 @@ router.post("/", async (req, res, next) => {
       img,
       pdfUrl,
       hasLivePdf,
+      cardTitle,
+      cardDescription,
+      buttonText,
+      secondaryButtonText,
       overview,
       whatYouLearn,
       keyHighlights,
@@ -119,6 +124,10 @@ router.post("/", async (req, res, next) => {
       img: img || "",
       pdfUrl: pdfUrl || "",
       hasLivePdf: hasLivePdf !== undefined ? Boolean(hasLivePdf) : Boolean(pdfUrl),
+      cardTitle: cardTitle || "",
+      cardDescription: cardDescription || "",
+      buttonText: buttonText || "",
+      secondaryButtonText: secondaryButtonText || "",
       overview: Array.isArray(overview) ? overview : overview ? [overview] : [],
       whatYouLearn: Array.isArray(whatYouLearn) ? whatYouLearn : whatYouLearn ? [whatYouLearn] : [],
       keyHighlights: Array.isArray(keyHighlights) ? keyHighlights : keyHighlights ? [keyHighlights] : [],
@@ -132,6 +141,7 @@ router.post("/", async (req, res, next) => {
       order: typeof order === "number" ? order : 0,
     });
 
+    triggerDeployWebhook(`Whitepaper created: ${newWhitepaper.slug || generatedSlug}`);
     res.status(201).json({
       success: true,
       message: "Whitepaper created successfully",
@@ -198,6 +208,7 @@ router.put("/:id", async (req, res, next) => {
       });
     }
 
+    triggerDeployWebhook(`Whitepaper updated: ${updatedWhitepaper.slug || id}`);
     res.json({
       success: true,
       message: "Whitepaper updated successfully",
