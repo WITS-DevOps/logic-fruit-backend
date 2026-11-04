@@ -1,4 +1,4 @@
-import express from "express";
+﻿import express from "express";
 import { dynamoService } from "../services/dynamoService.js";
 import {
   sendInquiryAlertToAdmin,
@@ -70,18 +70,6 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
-function getClientIp(req) {
-  const cfIp = req.headers["cf-connecting-ip"];
-  if (typeof cfIp === "string" && cfIp.trim().length > 0) return cfIp.trim();
-  const realIp = req.headers["x-real-ip"];
-  if (typeof realIp === "string" && realIp.trim().length > 0) return realIp.trim();
-  const forwarded = req.headers["x-forwarded-for"];
-  if (typeof forwarded === "string" && forwarded.length > 0) {
-    return forwarded.split(",")[0].trim();
-  }
-  return req.ip || req.socket?.remoteAddress || "";
-}
-
 /**
  * @route   POST /api/inquiries
  * @desc    Submit a new contact, whitepaper, or product lead form
@@ -128,8 +116,6 @@ router.post("/", async (req, res, next) => {
       });
     }
 
-    const clientIp = String(ip || getClientIp(req) || "").slice(0, 100);
-
     const newInquiry = await dynamoService.create("inquiry", {
       name: submitterName,
       email: submitterEmail,
@@ -141,7 +127,6 @@ router.post("/", async (req, res, next) => {
       resourceSlug: resourceSlug || "",
       pageUrl: pageUrl || sourceUrl || url || "",
       message: message || projectRequirements || notes || "",
-      ip: clientIp,
       consentId: String(consentId || "").slice(0, 100),
       status: "new",
       createdAt: new Date().toISOString(),

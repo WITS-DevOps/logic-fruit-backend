@@ -1,4 +1,4 @@
-import express from "express";
+﻿import express from "express";
 import { dynamoService } from "../services/dynamoService.js";
 
 const router = express.Router();
@@ -15,16 +15,14 @@ let cachedStats = null;
 const CACHE_TTL_MS = 120 * 1000; // 2 minutes TTL
 
 function attachKnownInquiryData(items, inquiries = []) {
-  const inquiryByIp = new Map();
+  // Match only by consentId — no IP tracking used
   const inquiryByConsentId = new Map();
   for (const inq of inquiries) {
-    if (inq.ip) inquiryByIp.set(inq.ip, inq);
     if (inq.consentId) inquiryByConsentId.set(inq.consentId, inq);
   }
 
   for (const item of items) {
     const matched =
-      (item.ip && inquiryByIp.get(item.ip)) ||
       (item.consentId && inquiryByConsentId.get(item.consentId)) ||
       null;
 
@@ -49,6 +47,24 @@ function attachKnownInquiryData(items, inquiries = []) {
     }
   }
   return items;
+}
+
+/**
+ * Strip all PII / fingerprinting fields before sending data to the client.
+ * Existing records in the DB may still have ip/userAgent/pageUrl/referrer —
+ * we mask them here so they are never exposed through the API.
+ */
+function scrubPrivateFields(item) {
+  if (!item || typeof item !== "object") return item;
+  const { ip, userAgent, pageUrl, referrer, ...clean } = item;
+  // Scrub history entries too
+  if (Array.isArray(clean.history)) {
+    clean.history = clean.history.map((h) => {
+      const { ip: _ip, userAgent: _ua, pageUrl: _pu, referrer: _ref, ...hClean } = h;
+      return hClean;
+    });
+  }
+  return clean;
 }
 
 async function warmConsentCache(force = false) {
@@ -100,22 +116,10 @@ function normalizePreferences(prefs = {}) {
   };
 }
 
-function getClientIp(req) {
-  const cfIp = req.headers["cf-connecting-ip"];
-  if (typeof cfIp === "string" && cfIp.trim().length > 0) return cfIp.trim();
-  const realIp = req.headers["x-real-ip"];
-  if (typeof realIp === "string" && realIp.trim().length > 0) return realIp.trim();
-  const forwarded = req.headers["x-forwarded-for"];
-  if (typeof forwarded === "string" && forwarded.length > 0) {
-    return forwarded.split(",")[0].trim();
-  }
-  return req.ip || req.socket?.remoteAddress || "";
-}
-
 function computeStatsFromItems(items) {
   const ipMap = new Map();
   for (const item of items) {
-    const key = item.ip || item.consentId || item.id;
+    const key = item.consentId || item.id;
     if (!ipMap.has(key)) {
       ipMap.set(key, item);
     }
@@ -198,10 +202,7 @@ router.post("/", async (req, res, next) => {
       consentId: String(consentId || ""),
       status: finalStatus,
       preferences: normalizedPrefs,
-      pageUrl: String(pageUrl || "").slice(0, 2000),
-      referrer: String(referrer || "").slice(0, 2000),
-      userAgent: String(req.headers["user-agent"] || "").slice(0, 1000),
-      ip: String(getClientIp(req) || "").slice(0, 100),
+      // pageUrl, referrer, userAgent, and ip intentionally omitted — no fingerprinting
       policyVersion: String(policyVersion || POLICY_VERSION).slice(0, 50),
     });
 
@@ -275,14 +276,14 @@ router.get("/", async (req, res, next) => {
       if (unique === "true" || unique === "1") {
         const ipMap = new Map();
         for (const item of fastItems) {
-          const key = item.ip || item.consentId || item.id;
+          const key = item.consentId || item.id;
           if (!ipMap.has(key)) {
             ipMap.set(key, { ...item, totalEvents: 1, history: [item] });
           }
         }
         processed = Array.from(ipMap.values());
       }
-      const pageSlice = processed.slice(0, limitNum);
+      const pageSlice = processed.slice(0, limitNum).map(scrubPrivateFields);
       const totalPages = Math.max(1, Math.ceil(totalCount / limitNum));
 
       return res.json({
@@ -317,7 +318,7 @@ router.get("/", async (req, res, next) => {
     if (unique === "true" || unique === "1") {
       const ipMap = new Map();
       for (const item of items) {
-        const key = item.ip || item.consentId || item.id;
+        const key = item.consentId || item.id;
         if (!ipMap.has(key)) {
           ipMap.set(key, { ...item, totalEvents: 1, history: [item] });
         } else {
@@ -342,7 +343,6 @@ router.get("/", async (req, res, next) => {
     if (search && typeof search === "string" && search.trim()) {
       const q = search.trim().toLowerCase();
       processedItems = processedItems.filter((item) => {
-        const ip = (item.ip || "").toLowerCase();
         const name = (item.name || "").toLowerCase();
         const email = (item.email || "").toLowerCase();
         const company = (item.company || "").toLowerCase();
@@ -350,7 +350,6 @@ router.get("/", async (req, res, next) => {
         const cid = (item.consentId || item.id || "").toLowerCase();
         const ref = (item.referrer || "").toLowerCase();
         return (
-          ip.includes(q) ||
           name.includes(q) ||
           email.includes(q) ||
           company.includes(q) ||
@@ -366,7 +365,7 @@ router.get("/", async (req, res, next) => {
     const safePage = Math.min(pageNum, totalPages);
 
     const startIndex = (safePage - 1) * limitNum;
-    const paginatedSlice = processedItems.slice(startIndex, startIndex + limitNum);
+    const paginatedSlice = processedItems.slice(startIndex, startIndex + limitNum).map(scrubPrivateFields);
 
     res.json({
       success: true,
