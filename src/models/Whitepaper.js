@@ -89,6 +89,16 @@ const whitepaperSchema = new mongoose.Schema(
       default: "",
       trim: true,
     },
+    format: {
+      type: String,
+      default: "Technical Whitepaper (PDF)",
+      trim: true,
+    },
+    publisher: {
+      type: String,
+      default: "Logic Fruit Technologies",
+      trim: true,
+    },
     overview: {
       type: [String],
       default: [],

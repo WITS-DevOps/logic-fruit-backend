@@ -131,6 +131,8 @@ router.post("/", async (req, res, next) => {
       sidebarCardTitle: req.body.sidebarCardTitle || "",
       sidebarCardDescription: req.body.sidebarCardDescription || "",
       sidebarButtonText: req.body.sidebarButtonText || "",
+      format: req.body.format || "Technical Whitepaper (PDF)",
+      publisher: req.body.publisher || "Logic Fruit Technologies",
       overview: Array.isArray(overview) ? overview : overview ? [overview] : [],
       whatYouLearn: Array.isArray(whatYouLearn) ? whatYouLearn : whatYouLearn ? [whatYouLearn] : [],
       keyHighlights: Array.isArray(keyHighlights) ? keyHighlights : keyHighlights ? [keyHighlights] : [],
