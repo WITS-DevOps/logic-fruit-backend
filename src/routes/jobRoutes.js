@@ -311,6 +311,8 @@ router.delete("/:id", async (req, res, next) => {
       });
     }
 
+    triggerDeployWebhook(`Job deleted: ${id}`);
+
     res.json({
       success: true,
       message: "Job opening deleted successfully",

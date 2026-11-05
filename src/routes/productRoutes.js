@@ -217,6 +217,10 @@ router.post("/", async (req, res, next) => {
       order: typeof order === "number" ? order : 0,
     });
 
+    if (newProduct?.status === "published" || !newProduct?.status) {
+      triggerDeployWebhook(`Product created/published: ${newProduct?.title || generatedSlug}`);
+    }
+
     res.status(201).json({
       success: true,
       message: "Product created successfully",
@@ -311,6 +315,10 @@ router.put("/:id", async (req, res, next) => {
       });
     }
 
+    if (updatedProduct?.status === "published" || updates.status === "published") {
+      triggerDeployWebhook(`Product updated/published: ${updatedProduct?.title || id}`);
+    }
+
     res.json({
       success: true,
       message: "Product updated successfully",
@@ -337,6 +345,8 @@ router.delete("/:id", async (req, res, next) => {
         message: "Product not found to delete",
       });
     }
+
+    triggerDeployWebhook(`Product deleted: ${id}`);
 
     res.json({
       success: true,

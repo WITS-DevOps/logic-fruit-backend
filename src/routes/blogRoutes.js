@@ -241,6 +241,10 @@ router.post("/", async (req, res, next) => {
       buttonText: buttonText || "",
     });
 
+    if (newBlog?.status === "published" || !newBlog?.status) {
+      triggerDeployWebhook(`Blog created/published: ${newBlog?.title || generatedSlug}`);
+    }
+
     res.status(201).json({
       success: true,
       message: "Blog post created successfully",
@@ -317,6 +321,10 @@ router.put("/:id", async (req, res, next) => {
       });
     }
 
+    if (updatedBlog?.status === "published" || updates.status === "published") {
+      triggerDeployWebhook(`Blog updated/published: ${updatedBlog?.title || id}`);
+    }
+
     res.json({
       success: true,
       message: "Blog updated successfully",
@@ -343,6 +351,8 @@ router.delete("/:id", async (req, res, next) => {
         message: "Blog not found to delete",
       });
     }
+
+    triggerDeployWebhook(`Blog deleted: ${id}`);
 
     res.json({
       success: true,

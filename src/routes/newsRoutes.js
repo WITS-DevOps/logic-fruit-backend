@@ -194,6 +194,10 @@ router.post("/", async (req, res, next) => {
       buttonText: buttonText || "",
     });
 
+    if (newArticle?.status === "published" || !newArticle?.status) {
+      triggerDeployWebhook(`News created/published: ${newArticle?.title || generatedSlug}`);
+    }
+
     res.status(201).json({
       success: true,
       message: "News article created successfully",
@@ -256,6 +260,10 @@ router.put("/:id", async (req, res, next) => {
       });
     }
 
+    if (updatedArticle?.status === "published" || updates.status === "published") {
+      triggerDeployWebhook(`News updated/published: ${updatedArticle?.title || id}`);
+    }
+
     res.json({
       success: true,
       message: "News article updated successfully",
@@ -282,6 +290,8 @@ router.delete("/:id", async (req, res, next) => {
         message: "News article not found to delete",
       });
     }
+
+    triggerDeployWebhook(`News deleted: ${id}`);
 
     res.json({
       success: true,

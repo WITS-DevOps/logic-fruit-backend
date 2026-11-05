@@ -241,6 +241,8 @@ router.delete("/:id", async (req, res, next) => {
       });
     }
 
+    triggerDeployWebhook(`Whitepaper deleted: ${id}`);
+
     res.json({
       success: true,
       message: "Whitepaper deleted successfully",
