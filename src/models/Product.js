@@ -69,6 +69,30 @@ const productSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
+    overviewTitle: {
+      type: String,
+      default: "",
+    },
+    overviewEyebrow: {
+      type: String,
+      default: "",
+    },
+    featuresTitle: {
+      type: String,
+      default: "",
+    },
+    featuresEyebrow: {
+      type: String,
+      default: "",
+    },
+    videoTitle: {
+      type: String,
+      default: "",
+    },
+    videoEyebrow: {
+      type: String,
+      default: "",
+    },
     featuresSubtitle: {
       type: String,
       default: "",
